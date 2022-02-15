@@ -1,0 +1,42 @@
+---
+title: "ECON 21110 - Applied Microeconometrics - Assignment 2"
+author: "Jack Ogle"
+output:
+  pdf_document:
+    keep_tex: true
+header-includes:
+   - \usepackage{dcolumn}    
+classoption: landscape
+geometry: margin=1in
+fontsize: 12pt
+---
+
+
+
+```{r, include="FALSE"}
+# Loading Packages 
+library(tidyverse)
+library(haven)
+library(stargazer)
+library(tinytex)
+
+# Reading in the age Data
+cardData = read_dta('/Users/matthewogle/micro-metrics/Assignment1/CARD.dta')
+
+```
+
+
+
+Problem 3
+(a)
+The causal question is related to proving the Solow Growth Model through modern data about GDP and GDP growth taken from 1960-2021. Specifically, we want to study if real income is higher in countries with higher savings rates and lower in countries with higher values of ${ n + g + \delta}$. We want to see how log(I/GDP) and log(${ n + g + \delta}$) (X) effect log(GDP) per working age person in 2021 (Y). We assume that g + delta are constant over every country and equal to 0.05.
+
+(b)
+The ideal experiment would need a large random sample of countries all with the exact same economies and we could measure how Investment / GDP and n the average rate of growth of the working age population (age defined as 14 to 64) on the log gdp of a working age person in 2021.
+(c)
+Some issues with the ideal experiment are that cannot just clone countries economies, population, and size. Countries are huge entities which have complex and intricate differences that cannot be duplicated.
+
+(d)
+I might add controls like measures for Human capital to control the variability among countries. An example might be the varying levels of education. This would increase the credibility of MLR.4 being true because educational achievement is correlated to investment and GDP an independent variable. Thus if we include it, remove it from our error term it will make the Zero Conditional Mean assumption more credible and make the assumption that our estimator is unbiased. 
+
+

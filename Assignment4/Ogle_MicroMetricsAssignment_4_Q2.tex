@@ -1,0 +1,709 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  12pt,
+  landscape]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Question 2},
+  pdfauthor={Jack Ogle in collaboration with Eva Haque, Matt Lohrs, and Jack Knickrehm},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{dcolumn}
+\usepackage{float}
+
+\title{Question 2}
+\author{Jack Ogle in collaboration with Eva Haque, Matt Lohrs, and Jack
+Knickrehm}
+\date{}
+
+\begin{document}
+\maketitle
+
+Problem 2
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\item
+\end{enumerate}
+
+The main causal question that the authors attempt to answer is the
+effect of the compulsory education on income by using quarter birth as
+an instrumental variable for years of education. Quarter of Birth is
+used as an IV because it can determine the number of years of compulsory
+schooling one person has. The authors assume that the births occur in
+random dates and months. And there is exogenous variation in education
+which is = uncorrelated with other variables in the model.
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{1}
+\item
+\end{enumerate}
+
+There are some factors that violate instrument quarter of birth
+exogeneity. I would argue that a child's age relative to their grade
+might affect the exogeneity. If a child is young for their grade in
+school then they are more likely to be less physically and mentally
+mature than there older counterparts. This often leads to younger
+children being more likely to be bullied, neglected and eventually fall
+behind in school compared to older children. These factors all can be
+correlated with future earnings. Students that have an advantage early
+on in their education will see more success in school later on in the
+form of getting accepted into gifted programs. These students are more
+likely to get accepted into better colleges with a potential for
+athletic scholarships because they have been more physically and
+mentally mature throughout their life. This means that when you are born
+might correlate to earnings depending on what grade you are in; thus
+this violated exogenity of our IV using quarter of births to estimate
+education as it relates to earnings.
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{2}
+\item
+\end{enumerate}
+
+The first two panels show that there are statistically significant
+differences in the returns to schooling which are correlated with
+attaining a high school degree. The other panels show that there is very
+little difference between in returns of education beyond the high school
+level. This supports the authors arguments because if there was more or
+less returns past high school then there might be a fundamental
+difference in starting school early not the years of compulsory
+schooling. Int he table we see that students that are born later int eh
+year are benefited more. This makes sense and our model makes sense
+because any bias would likely be positive and the results of the model
+show that the true effect was more negative and showed through despite a
+potential bias.
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{3}
+\item
+\end{enumerate}
+
+Yes I think that we could apply this strategy to any other country in
+the time period. Our results would show a similar trend with a few
+differences. The drop out rates are likely correlated with macroeconomic
+conditions. If the macro economic conditions are good then the students
+opportunity cost is higher and the average student is more willing to
+drop out. Therefore countries with different economies will see
+different drop out rates. Additionally certain countries have compulsory
+schooling for a certain number of years instead of an age requirement
+which makes the strategy impossible. Impossible unless the country had a
+random distribution of births throughout the year and a different age
+limit to measure when a student could drop out.
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{4}
+\item
+\end{enumerate}
+
+No I this is not a problem because the results of the first stage of the
+regression were already shown in Table I. It is not an issue that the
+various coefficients for the educational outcomes were calculated and
+shown again for Tables IV and VII because all coefficients for the
+various educational outcomes were calculated
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{5}
+\item
+  The model in Table V is simpler and does not include more variables to
+  our previous wage equation. The model in Table VII adjusts for the the
+  variability in education and used to measure the return to education
+  in the 2SLS estimates and ensures that this is due to the differences
+  by time of birth and not by state. Which is an important adjustment as
+  the public education quality can vary a lot among the different
+  states. The variable education among the different states can be a
+  confounding variable. This is especially true if states have a
+  non-random school dropout rates. This reduces the standard errors of
+  the regression by 40\% according to the paper.
+\item
+\end{enumerate}
+
+I am doubtful that the estimates in the paper are actually estimating
+the average effect of compulsory education on the earnings of the
+population. There are a few factors that might contribute to external
+and internal validity violations. A threat to external validity was that
+the study was only performed on men. We cannot fully expect the
+estimators from this study to apply to the whole population when it only
+studied half of the population. There are many factors that are related
+to gender that likely confound the relationship between education and
+earnings. Women might experience different life events that force them
+to dropout or make it more likely that they will drop out later
+(i.e.~unplanned pregnancy). Men would not be affected by these life
+events. Additionally men would be selected for manual labor roles which
+require very little levels of education and would earn more than non
+manual labor jobs which require the same level of educational
+attainment.
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{7}
+\item
+\end{enumerate}
+
+I created dummy variables with the following code.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Loading Packages}
+\KeywordTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+\end{verbatim}
+
+\begin{verbatim}
+## v ggplot2 3.3.5     v purrr   0.3.4
+## v tibble  3.1.6     v dplyr   1.0.7
+## v tidyr   1.1.4     v stringr 1.4.0
+## v readr   2.1.1     v forcats 0.5.1
+\end{verbatim}
+
+\begin{verbatim}
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(haven)}
+\KeywordTok{library}\NormalTok{(stargazer)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Please cite as:
+\end{verbatim}
+
+\begin{verbatim}
+##  Hlavac, Marek (2018). stargazer: Well-Formatted Regression and Summary Statistics Tables.
+\end{verbatim}
+
+\begin{verbatim}
+##  R package version 5.2.2. https://CRAN.R-project.org/package=stargazer
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(tinytex)}
+\KeywordTok{library}\NormalTok{(foreign)}
+\KeywordTok{library}\NormalTok{(multiwayvcov)}
+\KeywordTok{library}\NormalTok{(lmtest)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: zoo
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'zoo'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     as.Date, as.Date.numeric
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Reading in Data}
+\NormalTok{census =}\StringTok{ }\KeywordTok{read_dta}\NormalTok{(}\StringTok{'/Users/matthewogle/downloads/CENSUS7080.dta'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{7}
+\item
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1920}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1920'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1921}\NormalTok{<-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1921'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1922}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1922'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1923}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1923'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1924}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1924'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1925}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1925'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1926}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1926'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1927}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1927'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1928}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1928'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1929}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1929'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1930}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1930'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1931}\NormalTok{<-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1931'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1932}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1932'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1933}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1933'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1934}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1934'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1935}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1935'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1936}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1936'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1937}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1937'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1938}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1938'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1939}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1939'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1940}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1940'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1941}\NormalTok{<-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1941'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1942}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1942'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1943}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1943'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1944}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1944'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1945}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1945'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1946}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1946'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1947}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1947'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1948}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1948'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1949}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1949'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+
+\KeywordTok{sum}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1920}\NormalTok{)}\OperatorTok{/}\DecValTok{1063634}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.02230561
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sum}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1921}\NormalTok{)}\OperatorTok{/}\DecValTok{1063634}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.02348364
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sum}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1922}\NormalTok{)}\OperatorTok{/}\DecValTok{1063634}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.02281236
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sum}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1923}\NormalTok{)}\OperatorTok{/}\DecValTok{1063634}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.02288851
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sum}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1924}\NormalTok{)}\OperatorTok{/}\DecValTok{1063634}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.02401954
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sum}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1925}\NormalTok{)}\OperatorTok{/}\DecValTok{1063634}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.02334826
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sum}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1926}\NormalTok{)}\OperatorTok{/}\DecValTok{1063634}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.02296937
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sum}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1927}\NormalTok{)}\OperatorTok{/}\DecValTok{1063634}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.02411544
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sum}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1928}\NormalTok{)}\OperatorTok{/}\DecValTok{1063634}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.02314142
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sum}\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB_}\DecValTok{1929}\NormalTok{)}\OperatorTok{/}\DecValTok{1063634}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.02332569
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{regression1hYOB <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(EDUC }\OperatorTok{~}\StringTok{ }\NormalTok{YOB_}\DecValTok{1920} \OperatorTok{+}\StringTok{ }\NormalTok{YOB_}\DecValTok{1921} \OperatorTok{+}\StringTok{ }\NormalTok{YOB_}\DecValTok{1922} \OperatorTok{+}\StringTok{ }\NormalTok{YOB_}\DecValTok{1923} \OperatorTok{+}\StringTok{ }\NormalTok{YOB_}\DecValTok{1924} \OperatorTok{+}\StringTok{ }\NormalTok{YOB_}\DecValTok{1925} \OperatorTok{+}\StringTok{ }\NormalTok{YOB_}\DecValTok{1926} \OperatorTok{+}\StringTok{ }\NormalTok{YOB_}\DecValTok{1927} \OperatorTok{+}\StringTok{ }\NormalTok{YOB_}\DecValTok{1928} \OperatorTok{+}\StringTok{ }\NormalTok{YOB_}\DecValTok{1929}\NormalTok{, }\DataTypeTok{data =}\NormalTok{ census)}
+\KeywordTok{stargazer}\NormalTok{(regression1hYOB,}
+        \DataTypeTok{dep.var.labels =} \KeywordTok{c}\NormalTok{(}\StringTok{"Years of Education"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+## % Date and time: Thu, Feb 10, 2022 - 07:16:31
+## \begin{table}[!htbp] \centering 
+##   \caption{} 
+##   \label{} 
+## \begin{tabular}{@{\extracolsep{5pt}}lc} 
+## \\[-1.8ex]\hline 
+## \hline \\[-1.8ex] 
+##  & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+## \cline{2-2} 
+## \\[-1.8ex] & Years of Education \\ 
+## \hline \\[-1.8ex] 
+##  YOB\_1920 & $-$2.035$^{***}$ \\ 
+##   & (0.021) \\ 
+##   & \\ 
+##  YOB\_1921 & $-$1.886$^{***}$ \\ 
+##   & (0.020) \\ 
+##   & \\ 
+##  YOB\_1922 & $-$1.887$^{***}$ \\ 
+##   & (0.021) \\ 
+##   & \\ 
+##  YOB\_1923 & $-$1.790$^{***}$ \\ 
+##   & (0.021) \\ 
+##   & \\ 
+##  YOB\_1924 & $-$1.729$^{***}$ \\ 
+##   & (0.020) \\ 
+##   & \\ 
+##  YOB\_1925 & $-$1.744$^{***}$ \\ 
+##   & (0.021) \\ 
+##   & \\ 
+##  YOB\_1926 & $-$1.657$^{***}$ \\ 
+##   & (0.021) \\ 
+##   & \\ 
+##  YOB\_1927 & $-$1.702$^{***}$ \\ 
+##   & (0.020) \\ 
+##   & \\ 
+##  YOB\_1928 & $-$1.620$^{***}$ \\ 
+##   & (0.021) \\ 
+##   & \\ 
+##  YOB\_1929 & $-$1.513$^{***}$ \\ 
+##   & (0.021) \\ 
+##   & \\ 
+##  Constant & 13.248$^{***}$ \\ 
+##   & (0.004) \\ 
+##   & \\ 
+## \hline \\[-1.8ex] 
+## Observations & 1,063,634 \\ 
+## R$^{2}$ & 0.052 \\ 
+## Adjusted R$^{2}$ & 0.052 \\ 
+## Residual Std. Error & 3.184 (df = 1063623) \\ 
+## F Statistic & 5,810.966$^{***}$ (df = 10; 1063623) \\ 
+## \hline 
+## \hline \\[-1.8ex] 
+## \textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+## \end{tabular} 
+## \end{table}
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1 <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2 <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q3 <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4 <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+
+\NormalTok{census}\OperatorTok{$}\NormalTok{QOBYOB <-}\StringTok{ }\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{*}\StringTok{ }\DecValTok{10000}\NormalTok{) }\OperatorTok{+}\StringTok{ }\NormalTok{(census}\OperatorTok{$}\NormalTok{YOB)}
+
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1_}\DecValTok{1920}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1920'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2_}\DecValTok{1920}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1920'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q3_}\DecValTok{1920}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1920'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4_}\DecValTok{1920}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1920'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1_}\DecValTok{1921}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1921'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2_}\DecValTok{1921}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1921'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q3_}\DecValTok{1921}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1921'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4_}\DecValTok{1921}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1921'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1_}\DecValTok{1922}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1922'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2_}\DecValTok{1922}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1922'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q3_}\DecValTok{1922}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1922'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4_}\DecValTok{1922}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1922'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1_}\DecValTok{1923}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1923'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2_}\DecValTok{1923}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1923'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\DecValTok{12}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 12
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ census}\OperatorTok{$}\NormalTok{Q3_}\DecValTok{1923}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1923'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4_}\DecValTok{1923}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1923'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1_}\DecValTok{1924}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1924'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2_}\DecValTok{1924}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1924'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q3_}\DecValTok{1924}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1924'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4_}\DecValTok{1924}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1924'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1_}\DecValTok{1925}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1925'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2_}\DecValTok{1925}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1925'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q3_}\DecValTok{1925}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1925'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4_}\DecValTok{1925}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1925'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1_}\DecValTok{1926}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1926'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2_}\DecValTok{1926}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1926'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q3_}\DecValTok{1926}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1926'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4_}\DecValTok{1926}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1926'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1_}\DecValTok{1927}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1927'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2_}\DecValTok{1927}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1927'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q3_}\DecValTok{1927}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1927'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4_}\DecValTok{1927}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1927'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1_}\DecValTok{1928}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1928'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2_}\DecValTok{1928}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1928'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q3_}\DecValTok{1928}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1928'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4_}\DecValTok{1928}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1928'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1_}\DecValTok{1929}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1929'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2_}\DecValTok{1929}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1929'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q3_}\DecValTok{1929}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1929'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4_}\DecValTok{1929}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1929'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1_}\DecValTok{1930}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1930'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2_}\DecValTok{1930}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1930'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q3_}\DecValTok{1930}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1930'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4_}\DecValTok{1930}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1930'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1_}\DecValTok{1931}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1931'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2_}\DecValTok{1931}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1931'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q3_}\DecValTok{1931}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1931'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4_}\DecValTok{1931}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1931'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1_}\DecValTok{1932}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1932'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2_}\DecValTok{1932}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1932'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q3_}\DecValTok{1932}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1932'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4_}\DecValTok{1932}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1932'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1_}\DecValTok{1933}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1933'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2_}\DecValTok{1933}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1933'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q3_}\DecValTok{1933}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1933'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4_}\DecValTok{1933}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1933'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1_}\DecValTok{1934}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1934'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2_}\DecValTok{1934}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1934'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q3_}\DecValTok{1934}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1934'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4_}\DecValTok{1934}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1934'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1_}\DecValTok{1935}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1935'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2_}\DecValTok{1935}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1935'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q3_}\DecValTok{1935}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1935'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4_}\DecValTok{1935}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1935'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1_}\DecValTok{1936}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1936'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2_}\DecValTok{1936}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1936'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q3_}\DecValTok{1936}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1936'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4_}\DecValTok{1936}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1936'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1_}\DecValTok{1937}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1937'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2_}\DecValTok{1937}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1937'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\DecValTok{13}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 13
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q3_}\DecValTok{1937}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1937'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4_}\DecValTok{1937}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1937'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1_}\DecValTok{1938}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1938'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2_}\DecValTok{1938}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1938'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q3_}\DecValTok{1938}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1938'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4_}\DecValTok{1938}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1938'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1_}\DecValTok{1939}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1939'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2_}\DecValTok{1939}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1939'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q3_}\DecValTok{1939}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1939'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4_}\DecValTok{1939}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1939'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1_}\DecValTok{1940}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1940'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2_}\DecValTok{1940}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1940'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q3_}\DecValTok{1940}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1940'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4_}\DecValTok{1940}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1940'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1_}\DecValTok{1941}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1941'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2_}\DecValTok{1941}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1941'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q3_}\DecValTok{1941}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1941'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4_}\DecValTok{1941}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1941'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1_}\DecValTok{1942}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1942'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2_}\DecValTok{1942}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1942'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q3_}\DecValTok{1942}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1942'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4_}\DecValTok{1942}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1942'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1_}\DecValTok{1943}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1943'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2_}\DecValTok{1943}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1943'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q3_}\DecValTok{1943}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1943'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4_}\DecValTok{1943}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1943'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1_}\DecValTok{1944}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1944'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2_}\DecValTok{1944}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1944'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q3_}\DecValTok{1944}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1944'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4_}\DecValTok{1944}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1944'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1_}\DecValTok{1945}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1945'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2_}\DecValTok{1945}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1945'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q3_}\DecValTok{1945}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1945'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4_}\DecValTok{1945}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1945'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1_}\DecValTok{1946}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1946'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2_}\DecValTok{1946}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1946'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q3_}\DecValTok{1946}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1946'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4_}\DecValTok{1946}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1946'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1_}\DecValTok{1947}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1947'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2_}\DecValTok{1947}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1947'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q3_}\DecValTok{1947}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1947'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4_}\DecValTok{1947}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1947'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1_}\DecValTok{1948}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1948'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2_}\DecValTok{1948}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1948'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q3_}\DecValTok{1948}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1948'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4_}\DecValTok{1948}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1948'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q1_}\DecValTok{1949}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '1'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1949'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q2_}\DecValTok{1949}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '2'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1949'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q3_}\DecValTok{1949}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '3'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1949'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{census}\OperatorTok{$}\NormalTok{Q4_}\DecValTok{1949}\NormalTok{ <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{QOB }\OperatorTok{==}\StringTok{ '4'} \OperatorTok{&}\StringTok{ }\NormalTok{census}\OperatorTok{$}\NormalTok{YOB }\OperatorTok{==}\StringTok{ '1949'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+
+\NormalTok{census}\OperatorTok{$}\NormalTok{real_AGE_Q <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{CENSUS }\OperatorTok{==}\StringTok{ '80'}\NormalTok{, }\DecValTok{1980}\OperatorTok{-}\NormalTok{census}\OperatorTok{$}\NormalTok{AGEQ, census}\OperatorTok{$}\NormalTok{AGEQ)}
+
+\NormalTok{census}\OperatorTok{$}\NormalTok{age_squared <-}\StringTok{ }\NormalTok{(census}\OperatorTok{$}\NormalTok{real_AGE_Q)}\OperatorTok{^}\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# generating dummies}
+\NormalTok{census}\OperatorTok{$}\NormalTok{real_SMSA <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(census}\OperatorTok{$}\NormalTok{SMSA }\OperatorTok{==}\StringTok{ '0'}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+
+
+\CommentTok{# # YOB_in_range <- census[census$YOB %in% c('1920', "1921", "1922", "1922", "1924", "1925", "1926", "1927", "1928", "1929")]}
+\CommentTok{# }
+\CommentTok{# YOB_in_30s_range <- census[census$YOB %in% c('1930', "1931", "1932", "1933", "1934", "1935", "1936", "1937", "1938", "1939")]}
+\CommentTok{# }
+\CommentTok{# regression1i_OLS <- lm(LWKLYWGE ~ EDUC + YOB_1920 + YOB_1921 + YOB_1922 + YOB_1923 + YOB_1924 + YOB_1925 + YOB_1926 + YOB_1927 + YOB_1928 + YOB_1929, data = YOB_in_range)}
+\CommentTok{# regression1i_TSLS <- ivreg(LWKLYWGE ~ EDUC + YOB_1920 + YOB_1921 + YOB_1922 + YOB_1923 + YOB_1924 + YOB_1925 + YOB_1926 + YOB_1927 + YOB_1928 + YOB_1929 | Q1_1920 + Q2_1920 + Q3_1920 + Q4_1920 + Q1_1921 + Q2_1921 + Q3_1921 + Q4_1921 + Q1_1922 + Q2_1922 + Q3_1922 + Q4_1922 + Q1_1923 + Q2_1923 + Q3_1923 + Q4_1923 + Q1_1924 + Q2_1924 + Q3_1924 + Q4_1924 +Q1_1925 + Q2_1925 + Q3_1925 + Q4_1925 + Q1_1926 + Q2_1926 + Q3_1926 + Q4_1926 + Q1_1927 + Q2_1927 + Q3_1927 + Q4_1927 + Q1_1928 + Q2_1928 + Q3_1928 + Q4_1928 + Q1_1929 + Q2_1929 + Q3_1929 + Q4_1929 + YOB_1920 + YOB_1921 + YOB_1922 + YOB_1923 + YOB_1924 + YOB_1925 + YOB_1926 + YOB_1927 + YOB_1928 + YOB_1929, data = YOB_in_range)}
+\CommentTok{# regression1i_OLS_age_terms <- lm(LWKLYWGE ~ EDUC + YOB_1920 + YOB_1921 + YOB_1922 + YOB_1923 + YOB_1924 + YOB_1925 + YOB_1926 + YOB_1927 + YOB_1928 + YOB_1929 + real_AGE_Q + age_squared, data = YOB_in_range)}
+\CommentTok{# regression1i_TSLS_age_terms <- regression1i_TSLS <- ivreg(LWKLYWGE ~ EDUC + YOB_1920 + YOB_1921 + YOB_1922 + YOB_1923 + YOB_1924 + YOB_1925 + YOB_1926 + YOB_1927 + YOB_1928 + YOB_1929 | Q1_1920 + Q2_1920 + Q3_1920 + Q4_1920 + Q1_1921 + Q2_1921 + Q3_1921 + Q4_1921 + Q1_1922 + Q2_1922 + Q3_1922 + Q4_1922 + Q1_1923 + Q2_1923 + Q3_1923 + Q4_1923 + Q1_1924 + Q2_1924 + Q3_1924 + Q4_1924 +Q1_1925 + Q2_1925 + Q3_1925 + Q4_1925 + Q1_1926 + Q2_1926 + Q3_1926 + Q4_1926 + Q1_1927 + Q2_1927 + Q3_1927 + Q4_1927 + Q1_1928 + Q2_1928 + Q3_1928 + Q4_1928 + Q1_1929 + Q2_1929 + Q3_1929 + Q4_1929 + YOB_1920 + YOB_1921 + YOB_1922 + YOB_1923 + YOB_1924 + YOB_1925 + YOB_1926 + YOB_1927 + YOB_1928 + YOB_1929 + real_AGE_Q + age_squared, data = YOB_in_range)}
+\CommentTok{# regression1i_OLS_added_controls <- lm(LWKLYWGE ~ EDUC + YOB_1920 + YOB_1921 + YOB_1922 + YOB_1923 + YOB_1924 + YOB_1925 + YOB_1926 + YOB_1927 + YOB_1928 + YOB_1929 + RACE + SMSA + MARRIED + ENOCENT + ESOCENT + MIDATL + MT + NEWENG + WNOCENT + WSOCENT, data = YOB_in_range)}
+\CommentTok{# regression1i_TSLS_added_controls <- ivreg(LWKLYWGE ~ EDUC + YOB_1920 + YOB_1921 + YOB_1922 + YOB_1923 + YOB_1924 + YOB_1925 + YOB_1926 + YOB_1927 + YOB_1928 + YOB_1929 | Q1_1920 + Q2_1920 + Q3_1920 + Q4_1920 + Q1_1921 + Q2_1921 + Q3_1921 + Q4_1921 + Q1_1922 + Q2_1922 + Q3_1922 + Q4_1922 + Q1_1923 + Q2_1923 + Q3_1923 + Q4_1923 + Q1_1924 + Q2_1924 + Q3_1924 + Q4_1924 +Q1_1925 + Q2_1925 + Q3_1925 + Q4_1925 + Q1_1926 + Q2_1926 + Q3_1926 + Q4_1926 + Q1_1927 + Q2_1927 + Q3_1927 + Q4_1927 + Q1_1928 + Q2_1928 + Q3_1928 + Q4_1928 + Q1_1929 + Q2_1929 + Q3_1929 + Q4_1929 + YOB_1920 + YOB_1921 + YOB_1922 + YOB_1923 + YOB_1924 + YOB_1925 + YOB_1926 + YOB_1927 + YOB_1928 + YOB_1929 + RACE + SMSA + MARRIED + ENOCENT + ESOCENT + MIDATL + MT + NEWENG + WNOCENT + WSOCENT, data = YOB_in_range)}
+\CommentTok{# regression1i_OLS_age_and_added_controls <- lm(LWKLYWGE ~ EDUC + YOB_1920 + YOB_1921 + YOB_1922 + YOB_1923 + YOB_1924 + YOB_1925 + YOB_1926 + YOB_1927 + YOB_1928 + YOB_1929 + RACE + SMSA + MARRIED + ENOCENT + ESOCENT + MIDATL + MT + NEWENG + WNOCENT + WSOCENT + real_AGE_Q + age_squared, data = YOB_in_range)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{(\roman{enumi})}
+\item
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{9}
+\item
+\end{enumerate}
+
+\end{document}

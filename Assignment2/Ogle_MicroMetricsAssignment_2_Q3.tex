@@ -1,0 +1,105 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  12pt,
+  landscape]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={ECON 21110 - Applied Microeconometrics - Assignment 2},
+  pdfauthor={Jack Ogle},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{dcolumn}
+
+\title{ECON 21110 - Applied Microeconometrics - Assignment 2}
+\author{Jack Ogle}
+\date{}
+
+\begin{document}
+\maketitle
+
+Problem 3 (a) The causal question is related to proving the Solow Growth
+Model through modern data about GDP and GDP growth taken from 1960-2021.
+Specifically, we want to study if real income is higher in countries
+with higher savings rates and lower in countries with higher values of
+\({ n + g + \delta}\). We want to see how log(I/GDP) and
+log(\({ n + g + \delta}\)) (X) effect log(GDP) per working age person in
+2021 (Y). We assume that g + delta are constant over every country and
+equal to 0.05.
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{1}
+\item
+  The ideal experiment would need a large random sample of countries all
+  with the exact same economies and we could measure how Investment /
+  GDP and n the average rate of growth of the working age population
+  (age defined as 14 to 64) on the log gdp of a working age person in
+  2021.
+\item
+  Some issues with the ideal experiment are that cannot just clone
+  countries economies, population, and size. Countries are huge entities
+  which have complex and intricate differences that cannot be
+  duplicated.
+\item
+  I might add controls like measures for Human capital to control the
+  variability among countries. An example might be the varying levels of
+  education. This would increase the credibility of MLR.4 being true
+  because educational achievement is correlated to investment and GDP an
+  independent variable. Thus if we include it, remove it from our error
+  term it will make the Zero Conditional Mean assumption more credible
+  and make the assumption that our estimator is unbiased.
+\end{enumerate}
+
+\end{document}

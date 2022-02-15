@@ -1,0 +1,270 @@
+---
+title: "Question 2"
+author: "Jack Ogle in collaboration with Eva Haque, Matt Lohrs, and Jack Knickrehm"
+output:
+  pdf_document:
+    keep_tex: true
+header-includes:
+   - \usepackage{dcolumn}
+   - \usepackage{float}
+classoption: landscape
+geometry: margin=1in
+fontsize: 12pt
+---
+
+Problem 2
+
+(a)
+
+The main causal question that the authors attempt to answer is the effect of the compulsory education on income by using quarter birth as an instrumental variable for years of education. Quarter of Birth is used as an IV because it can determine the number of years of compulsory schooling one person has. The authors assume that the births occur in random dates and months. And there is exogenous variation in education which is = uncorrelated with other variables in the model.  
+
+(b)
+
+There are some factors that violate instrument quarter of birth exogeneity. I would argue that a child's age relative to their grade might affect the exogeneity. If a child is young for their grade in school then they are more likely to be less physically and mentally mature than there older counterparts. This often leads to younger children being more likely to be bullied, neglected and eventually fall behind in school compared to older children. These factors all can be correlated with future earnings. Students that have an advantage early on in their education will see more success in school later on in the form of getting accepted into gifted programs. These students are more likely to get accepted into better colleges with a potential for athletic scholarships because they have been more physically and mentally mature throughout their life. This means that when you are born might correlate to earnings depending on what grade you are in; thus this violated exogenity of our IV using quarter of births to estimate education as it relates to earnings. 
+
+(c)
+
+The first two panels show that there are statistically significant differences in the returns to schooling which are correlated with attaining a high school degree. The other panels show that there is very little difference between in returns of education beyond the high school level. This supports the authors arguments because if there was more or less returns past high school then there might be a fundamental difference in starting school early not the years of compulsory schooling. Int he table we see that students that are born later int eh year are benefited more. This makes sense and our model makes sense because any bias would likely be positive and the results of the model show that the true effect was more negative and showed through despite a potential bias.
+
+(d)
+
+Yes I think that we could apply this strategy to any other country in the time period. Our results would show a similar trend with a few differences. The drop out rates are likely correlated with macroeconomic conditions. If the macro economic conditions are good then the students opportunity cost is higher and the average student is more willing to drop out. Therefore countries with different economies will see different drop out rates. Additionally certain countries have compulsory schooling for a certain number of years instead of an age requirement which makes the strategy impossible. Impossible unless the country had a random distribution of births throughout the year and a different age limit to measure when a student could drop out. 
+
+(e)
+
+No I this is not a problem because the results of the first stage of the regression were already shown in Table I. It is not an issue that the various coefficients for the educational outcomes were calculated and shown again for Tables IV and VII because all coefficients for the various educational outcomes were calculated 
+
+(f)
+The model in Table V is simpler and does not include more variables to our previous wage equation. The model in Table VII adjusts for the the variability in education and used to measure the return to education in the 2SLS estimates and ensures that this is due to the differences by time of birth and not by state. Which is an important adjustment as the public education quality can vary a lot among the different states. The variable education among the different states can be a confounding variable. This is especially true if states have a non-random school dropout rates. This reduces the standard errors of the regression by 40% according to the paper. 
+
+(g)
+
+
+I am doubtful that the estimates in the paper are actually estimating the average effect of compulsory education on the earnings of the population. There are a few factors that might contribute to external and internal validity violations. A threat to external validity was that the study was only performed on men. We cannot fully expect the estimators from this study to apply to the whole population when it only studied half of the population. There are many factors that are related to gender that likely confound the relationship between education and earnings. Women might experience different life events that force them to dropout or make it more likely that they will drop out later (i.e. unplanned pregnancy). Men would not be affected by these life events. Additionally men would be selected for manual labor roles which require very little levels of education and would earn more than non manual labor jobs which require the same level of educational attainment.
+
+(h)
+
+I created dummy variables with the following code.
+
+```{r}
+# Loading Packages
+library(tidyverse)
+library(haven)
+library(stargazer)
+library(tinytex)
+library(foreign)
+library(multiwayvcov)
+library(lmtest)
+
+# Reading in Data
+census = read_dta('/Users/matthewogle/downloads/CENSUS7080.dta')
+```
+
+(h)
+```{r, include=T}
+
+census$YOB_1920 <- ifelse(census$YOB == '1920', 1, 0)
+census$YOB_1921<- ifelse(census$YOB == '1921', 1, 0)
+census$YOB_1922 <- ifelse(census$YOB == '1922', 1, 0)
+census$YOB_1923 <- ifelse(census$YOB == '1923', 1, 0)
+census$YOB_1924 <- ifelse(census$YOB == '1924', 1, 0)
+census$YOB_1925 <- ifelse(census$YOB == '1925', 1, 0)
+census$YOB_1926 <- ifelse(census$YOB == '1926', 1, 0)
+census$YOB_1927 <- ifelse(census$YOB == '1927', 1, 0)
+census$YOB_1928 <- ifelse(census$YOB == '1928', 1, 0)
+census$YOB_1929 <- ifelse(census$YOB == '1929', 1, 0)
+census$YOB_1930 <- ifelse(census$YOB == '1930', 1, 0)
+census$YOB_1931<- ifelse(census$YOB == '1931', 1, 0)
+census$YOB_1932 <- ifelse(census$YOB == '1932', 1, 0)
+census$YOB_1933 <- ifelse(census$YOB == '1933', 1, 0)
+census$YOB_1934 <- ifelse(census$YOB == '1934', 1, 0)
+census$YOB_1935 <- ifelse(census$YOB == '1935', 1, 0)
+census$YOB_1936 <- ifelse(census$YOB == '1936', 1, 0)
+census$YOB_1937 <- ifelse(census$YOB == '1937', 1, 0)
+census$YOB_1938 <- ifelse(census$YOB == '1938', 1, 0)
+census$YOB_1939 <- ifelse(census$YOB == '1939', 1, 0)
+census$YOB_1940 <- ifelse(census$YOB == '1940', 1, 0)
+census$YOB_1941<- ifelse(census$YOB == '1941', 1, 0)
+census$YOB_1942 <- ifelse(census$YOB == '1942', 1, 0)
+census$YOB_1943 <- ifelse(census$YOB == '1943', 1, 0)
+census$YOB_1944 <- ifelse(census$YOB == '1944', 1, 0)
+census$YOB_1945 <- ifelse(census$YOB == '1945', 1, 0)
+census$YOB_1946 <- ifelse(census$YOB == '1946', 1, 0)
+census$YOB_1947 <- ifelse(census$YOB == '1947', 1, 0)
+census$YOB_1948 <- ifelse(census$YOB == '1948', 1, 0)
+census$YOB_1949 <- ifelse(census$YOB == '1949', 1, 0)
+
+sum(census$YOB_1920)/1063634
+sum(census$YOB_1921)/1063634
+sum(census$YOB_1922)/1063634
+sum(census$YOB_1923)/1063634
+sum(census$YOB_1924)/1063634
+sum(census$YOB_1925)/1063634
+sum(census$YOB_1926)/1063634
+sum(census$YOB_1927)/1063634
+sum(census$YOB_1928)/1063634
+sum(census$YOB_1929)/1063634
+```
+```{r,include=T}
+regression1hYOB <- lm(EDUC ~ YOB_1920 + YOB_1921 + YOB_1922 + YOB_1923 + YOB_1924 + YOB_1925 + YOB_1926 + YOB_1927 + YOB_1928 + YOB_1929, data = census)
+stargazer(regression1hYOB,
+        dep.var.labels = c("Years of Education"))
+
+census$Q1 <- ifelse(census$QOB == '1', 1, 0)
+census$Q2 <- ifelse(census$QOB == '2', 1, 0)
+census$Q3 <- ifelse(census$QOB == '3', 1, 0)
+census$Q4 <- ifelse(census$QOB == '4', 1, 0)
+
+census$QOBYOB <- (census$QOB * 10000) + (census$YOB)
+
+census$Q1_1920 <- ifelse(census$QOB == '1' & census$YOB == '1920', 1, 0)
+census$Q2_1920 <- ifelse(census$QOB == '2' & census$YOB == '1920', 1, 0)
+census$Q3_1920 <- ifelse(census$QOB == '3' & census$YOB == '1920', 1, 0)
+census$Q4_1920 <- ifelse(census$QOB == '4' & census$YOB == '1920', 1, 0)
+census$Q1_1921 <- ifelse(census$QOB == '1' & census$YOB == '1921', 1, 0)
+census$Q2_1921 <- ifelse(census$QOB == '2' & census$YOB == '1921', 1, 0)
+census$Q3_1921 <- ifelse(census$QOB == '3' & census$YOB == '1921', 1, 0)
+census$Q4_1921 <- ifelse(census$QOB == '4' & census$YOB == '1921', 1, 0)
+census$Q1_1922 <- ifelse(census$QOB == '1' & census$YOB == '1922', 1, 0)
+census$Q2_1922 <- ifelse(census$QOB == '2' & census$YOB == '1922', 1, 0)
+census$Q3_1922 <- ifelse(census$QOB == '3' & census$YOB == '1922', 1, 0)
+census$Q4_1922 <- ifelse(census$QOB == '4' & census$YOB == '1922', 1, 0)
+census$Q1_1923 <- ifelse(census$QOB == '1' & census$YOB == '1923', 1, 0)
+census$Q2_1923 <- ifelse(census$QOB == '2' & census$YOB == '1923', 1, 0)
+12
+ census$Q3_1923 <- ifelse(census$QOB == '3' & census$YOB == '1923', 1, 0)
+census$Q4_1923 <- ifelse(census$QOB == '4' & census$YOB == '1923', 1, 0)
+census$Q1_1924 <- ifelse(census$QOB == '1' & census$YOB == '1924', 1, 0)
+census$Q2_1924 <- ifelse(census$QOB == '2' & census$YOB == '1924', 1, 0)
+census$Q3_1924 <- ifelse(census$QOB == '3' & census$YOB == '1924', 1, 0)
+census$Q4_1924 <- ifelse(census$QOB == '4' & census$YOB == '1924', 1, 0)
+census$Q1_1925 <- ifelse(census$QOB == '1' & census$YOB == '1925', 1, 0)
+census$Q2_1925 <- ifelse(census$QOB == '2' & census$YOB == '1925', 1, 0)
+census$Q3_1925 <- ifelse(census$QOB == '3' & census$YOB == '1925', 1, 0)
+census$Q4_1925 <- ifelse(census$QOB == '4' & census$YOB == '1925', 1, 0)
+census$Q1_1926 <- ifelse(census$QOB == '1' & census$YOB == '1926', 1, 0)
+census$Q2_1926 <- ifelse(census$QOB == '2' & census$YOB == '1926', 1, 0)
+census$Q3_1926 <- ifelse(census$QOB == '3' & census$YOB == '1926', 1, 0)
+census$Q4_1926 <- ifelse(census$QOB == '4' & census$YOB == '1926', 1, 0)
+census$Q1_1927 <- ifelse(census$QOB == '1' & census$YOB == '1927', 1, 0)
+census$Q2_1927 <- ifelse(census$QOB == '2' & census$YOB == '1927', 1, 0)
+census$Q3_1927 <- ifelse(census$QOB == '3' & census$YOB == '1927', 1, 0)
+census$Q4_1927 <- ifelse(census$QOB == '4' & census$YOB == '1927', 1, 0)
+census$Q1_1928 <- ifelse(census$QOB == '1' & census$YOB == '1928', 1, 0)
+census$Q2_1928 <- ifelse(census$QOB == '2' & census$YOB == '1928', 1, 0)
+census$Q3_1928 <- ifelse(census$QOB == '3' & census$YOB == '1928', 1, 0)
+census$Q4_1928 <- ifelse(census$QOB == '4' & census$YOB == '1928', 1, 0)
+census$Q1_1929 <- ifelse(census$QOB == '1' & census$YOB == '1929', 1, 0)
+census$Q2_1929 <- ifelse(census$QOB == '2' & census$YOB == '1929', 1, 0)
+census$Q3_1929 <- ifelse(census$QOB == '3' & census$YOB == '1929', 1, 0)
+census$Q4_1929 <- ifelse(census$QOB == '4' & census$YOB == '1929', 1, 0)
+census$Q1_1930 <- ifelse(census$QOB == '1' & census$YOB == '1930', 1, 0)
+census$Q2_1930 <- ifelse(census$QOB == '2' & census$YOB == '1930', 1, 0)
+census$Q3_1930 <- ifelse(census$QOB == '3' & census$YOB == '1930', 1, 0)
+census$Q4_1930 <- ifelse(census$QOB == '4' & census$YOB == '1930', 1, 0)
+census$Q1_1931 <- ifelse(census$QOB == '1' & census$YOB == '1931', 1, 0)
+census$Q2_1931 <- ifelse(census$QOB == '2' & census$YOB == '1931', 1, 0)
+census$Q3_1931 <- ifelse(census$QOB == '3' & census$YOB == '1931', 1, 0)
+census$Q4_1931 <- ifelse(census$QOB == '4' & census$YOB == '1931', 1, 0)
+census$Q1_1932 <- ifelse(census$QOB == '1' & census$YOB == '1932', 1, 0)
+census$Q2_1932 <- ifelse(census$QOB == '2' & census$YOB == '1932', 1, 0)
+census$Q3_1932 <- ifelse(census$QOB == '3' & census$YOB == '1932', 1, 0)
+census$Q4_1932 <- ifelse(census$QOB == '4' & census$YOB == '1932', 1, 0)
+census$Q1_1933 <- ifelse(census$QOB == '1' & census$YOB == '1933', 1, 0)
+census$Q2_1933 <- ifelse(census$QOB == '2' & census$YOB == '1933', 1, 0)
+census$Q3_1933 <- ifelse(census$QOB == '3' & census$YOB == '1933', 1, 0)
+census$Q4_1933 <- ifelse(census$QOB == '4' & census$YOB == '1933', 1, 0)
+census$Q1_1934 <- ifelse(census$QOB == '1' & census$YOB == '1934', 1, 0)
+census$Q2_1934 <- ifelse(census$QOB == '2' & census$YOB == '1934', 1, 0)
+census$Q3_1934 <- ifelse(census$QOB == '3' & census$YOB == '1934', 1, 0)
+census$Q4_1934 <- ifelse(census$QOB == '4' & census$YOB == '1934', 1, 0)
+census$Q1_1935 <- ifelse(census$QOB == '1' & census$YOB == '1935', 1, 0)
+census$Q2_1935 <- ifelse(census$QOB == '2' & census$YOB == '1935', 1, 0)
+census$Q3_1935 <- ifelse(census$QOB == '3' & census$YOB == '1935', 1, 0)
+census$Q4_1935 <- ifelse(census$QOB == '4' & census$YOB == '1935', 1, 0)
+census$Q1_1936 <- ifelse(census$QOB == '1' & census$YOB == '1936', 1, 0)
+census$Q2_1936 <- ifelse(census$QOB == '2' & census$YOB == '1936', 1, 0)
+census$Q3_1936 <- ifelse(census$QOB == '3' & census$YOB == '1936', 1, 0)
+census$Q4_1936 <- ifelse(census$QOB == '4' & census$YOB == '1936', 1, 0)
+census$Q1_1937 <- ifelse(census$QOB == '1' & census$YOB == '1937', 1, 0)
+census$Q2_1937 <- ifelse(census$QOB == '2' & census$YOB == '1937', 1, 0)
+13
+
+census$Q3_1937 <- ifelse(census$QOB == '3' & census$YOB == '1937', 1, 0)
+census$Q4_1937 <- ifelse(census$QOB == '4' & census$YOB == '1937', 1, 0)
+census$Q1_1938 <- ifelse(census$QOB == '1' & census$YOB == '1938', 1, 0)
+census$Q2_1938 <- ifelse(census$QOB == '2' & census$YOB == '1938', 1, 0)
+census$Q3_1938 <- ifelse(census$QOB == '3' & census$YOB == '1938', 1, 0)
+census$Q4_1938 <- ifelse(census$QOB == '4' & census$YOB == '1938', 1, 0)
+census$Q1_1939 <- ifelse(census$QOB == '1' & census$YOB == '1939', 1, 0)
+census$Q2_1939 <- ifelse(census$QOB == '2' & census$YOB == '1939', 1, 0)
+census$Q3_1939 <- ifelse(census$QOB == '3' & census$YOB == '1939', 1, 0)
+census$Q4_1939 <- ifelse(census$QOB == '4' & census$YOB == '1939', 1, 0)
+census$Q1_1940 <- ifelse(census$QOB == '1' & census$YOB == '1940', 1, 0)
+census$Q2_1940 <- ifelse(census$QOB == '2' & census$YOB == '1940', 1, 0)
+census$Q3_1940 <- ifelse(census$QOB == '3' & census$YOB == '1940', 1, 0)
+census$Q4_1940 <- ifelse(census$QOB == '4' & census$YOB == '1940', 1, 0)
+census$Q1_1941 <- ifelse(census$QOB == '1' & census$YOB == '1941', 1, 0)
+census$Q2_1941 <- ifelse(census$QOB == '2' & census$YOB == '1941', 1, 0)
+census$Q3_1941 <- ifelse(census$QOB == '3' & census$YOB == '1941', 1, 0)
+census$Q4_1941 <- ifelse(census$QOB == '4' & census$YOB == '1941', 1, 0)
+census$Q1_1942 <- ifelse(census$QOB == '1' & census$YOB == '1942', 1, 0)
+census$Q2_1942 <- ifelse(census$QOB == '2' & census$YOB == '1942', 1, 0)
+census$Q3_1942 <- ifelse(census$QOB == '3' & census$YOB == '1942', 1, 0)
+census$Q4_1942 <- ifelse(census$QOB == '4' & census$YOB == '1942', 1, 0)
+census$Q1_1943 <- ifelse(census$QOB == '1' & census$YOB == '1943', 1, 0)
+census$Q2_1943 <- ifelse(census$QOB == '2' & census$YOB == '1943', 1, 0)
+census$Q3_1943 <- ifelse(census$QOB == '3' & census$YOB == '1943', 1, 0)
+census$Q4_1943 <- ifelse(census$QOB == '4' & census$YOB == '1943', 1, 0)
+census$Q1_1944 <- ifelse(census$QOB == '1' & census$YOB == '1944', 1, 0)
+census$Q2_1944 <- ifelse(census$QOB == '2' & census$YOB == '1944', 1, 0)
+census$Q3_1944 <- ifelse(census$QOB == '3' & census$YOB == '1944', 1, 0)
+census$Q4_1944 <- ifelse(census$QOB == '4' & census$YOB == '1944', 1, 0)
+census$Q1_1945 <- ifelse(census$QOB == '1' & census$YOB == '1945', 1, 0)
+census$Q2_1945 <- ifelse(census$QOB == '2' & census$YOB == '1945', 1, 0)
+census$Q3_1945 <- ifelse(census$QOB == '3' & census$YOB == '1945', 1, 0)
+census$Q4_1945 <- ifelse(census$QOB == '4' & census$YOB == '1945', 1, 0)
+census$Q1_1946 <- ifelse(census$QOB == '1' & census$YOB == '1946', 1, 0)
+census$Q2_1946 <- ifelse(census$QOB == '2' & census$YOB == '1946', 1, 0)
+census$Q3_1946 <- ifelse(census$QOB == '3' & census$YOB == '1946', 1, 0)
+census$Q4_1946 <- ifelse(census$QOB == '4' & census$YOB == '1946', 1, 0)
+census$Q1_1947 <- ifelse(census$QOB == '1' & census$YOB == '1947', 1, 0)
+census$Q2_1947 <- ifelse(census$QOB == '2' & census$YOB == '1947', 1, 0)
+census$Q3_1947 <- ifelse(census$QOB == '3' & census$YOB == '1947', 1, 0)
+census$Q4_1947 <- ifelse(census$QOB == '4' & census$YOB == '1947', 1, 0)
+census$Q1_1948 <- ifelse(census$QOB == '1' & census$YOB == '1948', 1, 0)
+census$Q2_1948 <- ifelse(census$QOB == '2' & census$YOB == '1948', 1, 0)
+census$Q3_1948 <- ifelse(census$QOB == '3' & census$YOB == '1948', 1, 0)
+census$Q4_1948 <- ifelse(census$QOB == '4' & census$YOB == '1948', 1, 0)
+census$Q1_1949 <- ifelse(census$QOB == '1' & census$YOB == '1949', 1, 0)
+census$Q2_1949 <- ifelse(census$QOB == '2' & census$YOB == '1949', 1, 0)
+census$Q3_1949 <- ifelse(census$QOB == '3' & census$YOB == '1949', 1, 0)
+census$Q4_1949 <- ifelse(census$QOB == '4' & census$YOB == '1949', 1, 0)
+
+census$real_AGE_Q <- ifelse(census$CENSUS == '80', 1980-census$AGEQ, census$AGEQ)
+
+census$age_squared <- (census$real_AGE_Q)^2
+
+```
+```{r}
+# generating dummies
+census$real_SMSA <- ifelse(census$SMSA == '0', 1, 0)
+
+
+# # YOB_in_range <- census[census$YOB %in% c('1920', "1921", "1922", "1922", "1924", "1925", "1926", "1927", "1928", "1929")]
+# 
+# YOB_in_30s_range <- census[census$YOB %in% c('1930', "1931", "1932", "1933", "1934", "1935", "1936", "1937", "1938", "1939")]
+# 
+# regression1i_OLS <- lm(LWKLYWGE ~ EDUC + YOB_1920 + YOB_1921 + YOB_1922 + YOB_1923 + YOB_1924 + YOB_1925 + YOB_1926 + YOB_1927 + YOB_1928 + YOB_1929, data = YOB_in_range)
+# regression1i_TSLS <- ivreg(LWKLYWGE ~ EDUC + YOB_1920 + YOB_1921 + YOB_1922 + YOB_1923 + YOB_1924 + YOB_1925 + YOB_1926 + YOB_1927 + YOB_1928 + YOB_1929 | Q1_1920 + Q2_1920 + Q3_1920 + Q4_1920 + Q1_1921 + Q2_1921 + Q3_1921 + Q4_1921 + Q1_1922 + Q2_1922 + Q3_1922 + Q4_1922 + Q1_1923 + Q2_1923 + Q3_1923 + Q4_1923 + Q1_1924 + Q2_1924 + Q3_1924 + Q4_1924 +Q1_1925 + Q2_1925 + Q3_1925 + Q4_1925 + Q1_1926 + Q2_1926 + Q3_1926 + Q4_1926 + Q1_1927 + Q2_1927 + Q3_1927 + Q4_1927 + Q1_1928 + Q2_1928 + Q3_1928 + Q4_1928 + Q1_1929 + Q2_1929 + Q3_1929 + Q4_1929 + YOB_1920 + YOB_1921 + YOB_1922 + YOB_1923 + YOB_1924 + YOB_1925 + YOB_1926 + YOB_1927 + YOB_1928 + YOB_1929, data = YOB_in_range)
+# regression1i_OLS_age_terms <- lm(LWKLYWGE ~ EDUC + YOB_1920 + YOB_1921 + YOB_1922 + YOB_1923 + YOB_1924 + YOB_1925 + YOB_1926 + YOB_1927 + YOB_1928 + YOB_1929 + real_AGE_Q + age_squared, data = YOB_in_range)
+# regression1i_TSLS_age_terms <- regression1i_TSLS <- ivreg(LWKLYWGE ~ EDUC + YOB_1920 + YOB_1921 + YOB_1922 + YOB_1923 + YOB_1924 + YOB_1925 + YOB_1926 + YOB_1927 + YOB_1928 + YOB_1929 | Q1_1920 + Q2_1920 + Q3_1920 + Q4_1920 + Q1_1921 + Q2_1921 + Q3_1921 + Q4_1921 + Q1_1922 + Q2_1922 + Q3_1922 + Q4_1922 + Q1_1923 + Q2_1923 + Q3_1923 + Q4_1923 + Q1_1924 + Q2_1924 + Q3_1924 + Q4_1924 +Q1_1925 + Q2_1925 + Q3_1925 + Q4_1925 + Q1_1926 + Q2_1926 + Q3_1926 + Q4_1926 + Q1_1927 + Q2_1927 + Q3_1927 + Q4_1927 + Q1_1928 + Q2_1928 + Q3_1928 + Q4_1928 + Q1_1929 + Q2_1929 + Q3_1929 + Q4_1929 + YOB_1920 + YOB_1921 + YOB_1922 + YOB_1923 + YOB_1924 + YOB_1925 + YOB_1926 + YOB_1927 + YOB_1928 + YOB_1929 + real_AGE_Q + age_squared, data = YOB_in_range)
+# regression1i_OLS_added_controls <- lm(LWKLYWGE ~ EDUC + YOB_1920 + YOB_1921 + YOB_1922 + YOB_1923 + YOB_1924 + YOB_1925 + YOB_1926 + YOB_1927 + YOB_1928 + YOB_1929 + RACE + SMSA + MARRIED + ENOCENT + ESOCENT + MIDATL + MT + NEWENG + WNOCENT + WSOCENT, data = YOB_in_range)
+# regression1i_TSLS_added_controls <- ivreg(LWKLYWGE ~ EDUC + YOB_1920 + YOB_1921 + YOB_1922 + YOB_1923 + YOB_1924 + YOB_1925 + YOB_1926 + YOB_1927 + YOB_1928 + YOB_1929 | Q1_1920 + Q2_1920 + Q3_1920 + Q4_1920 + Q1_1921 + Q2_1921 + Q3_1921 + Q4_1921 + Q1_1922 + Q2_1922 + Q3_1922 + Q4_1922 + Q1_1923 + Q2_1923 + Q3_1923 + Q4_1923 + Q1_1924 + Q2_1924 + Q3_1924 + Q4_1924 +Q1_1925 + Q2_1925 + Q3_1925 + Q4_1925 + Q1_1926 + Q2_1926 + Q3_1926 + Q4_1926 + Q1_1927 + Q2_1927 + Q3_1927 + Q4_1927 + Q1_1928 + Q2_1928 + Q3_1928 + Q4_1928 + Q1_1929 + Q2_1929 + Q3_1929 + Q4_1929 + YOB_1920 + YOB_1921 + YOB_1922 + YOB_1923 + YOB_1924 + YOB_1925 + YOB_1926 + YOB_1927 + YOB_1928 + YOB_1929 + RACE + SMSA + MARRIED + ENOCENT + ESOCENT + MIDATL + MT + NEWENG + WNOCENT + WSOCENT, data = YOB_in_range)
+# regression1i_OLS_age_and_added_controls <- lm(LWKLYWGE ~ EDUC + YOB_1920 + YOB_1921 + YOB_1922 + YOB_1923 + YOB_1924 + YOB_1925 + YOB_1926 + YOB_1927 + YOB_1928 + YOB_1929 + RACE + SMSA + MARRIED + ENOCENT + ESOCENT + MIDATL + MT + NEWENG + WNOCENT + WSOCENT + real_AGE_Q + age_squared, data = YOB_in_range)
+
+```
+
+
+(i)
+(j)

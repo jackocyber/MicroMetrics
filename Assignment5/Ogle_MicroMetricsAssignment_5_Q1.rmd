@@ -1,0 +1,68 @@
+---
+title: "Microeconometrics Assignment 5 Question 1"
+author: "Jack Ogle in collaboration with Eva Haque, Matt Lohrs, and Jack Knickrehm"
+output:
+  pdf_document:
+    keep_tex: true
+header-includes:
+   - \usepackage{dcolumn}
+   - \usepackage{float}
+classoption: landscape
+geometry: margin=1in
+fontsize: 12pt
+---
+
+
+```{r}
+# Loading Packages
+library(tidyverse)
+library(haven)
+library(stargazer)
+library(tinytex)
+library(foreign)
+library(multiwayvcov)
+library(lmtest)
+
+# Loading Data
+damon = read_dta('/Users/matthewogle/downloads/damonclark.dta')
+
+# Generating Dummy for winning and losing
+damon$win = ifelse((damon$vote >= 50), 1, 0)
+damon$lose = ifelse((damon$vote < 50), 1, 0)
+
+# Generating Margin
+damon$margin = damon$vote - 50
+damon$margin_sqr = damon$margin^2
+
+# Generating Interactions
+win_margin = lm(win ~ margin + margin_sqr, data = damon)
+lose_margin = lm(lose ~ margin + margin_sqr, data = damon)
+
+```
+
+
+(a)
+
+The assumptions underlying the RDD in this paper are that in order for the school to attain autonomy (GM) there must be a 50% vote from the community to have the school be GM. Clark also assumes that the school performance, test scores, is increasing in autonomy and school effort. Schools that are already GM at the start of a period are fully autonomous and therefore decide only how much effort to exert. Effort in turn improves school performance, test scores for example, but effort is costly. Schools that are not GM at the start period must decided how much effort to exert and whether or not to become Gm. For given effort, non GM schools performance is assumed lower than GM school performance; hence schools have an incentive to become GM. There are cost associated with GM status and the decision to become one is non trivial.
+
+The conceptual framework assumed that schools were identical. In practice, schools differ along many dimensions, and certain types of school may be more likely to hold and win a GM vote (e.g., those with more entrepreneurial head teachers). Clark's empirical approach overcomes this selection problem by focusing on the jump in performance among schools at the 50 percent win threshold. Specifically, Clark considers variants of the fuzzy regression discontinuity model for school i voting on GM
+
+(b)
+
+```{r}
+
+ggplot(damon, aes(x = vote, y = margin)) + 
+  geom_point() +
+  geom_line()
+
+
+```
+
+(c)
+(d)
+(e)
+(f)
+(g)
+(h)
+(i)
+(j)
