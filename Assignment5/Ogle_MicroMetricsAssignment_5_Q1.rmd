@@ -24,7 +24,7 @@ library(multiwayvcov)
 library(lmtest)
 
 # Loading Data
-damon = read_dta('/Users/matthewogle/downloads/damonclark.dta')
+damon = read_dta('/Users/jackogle/MicroMetrics/Assignment5/damonclark.dta')
 
 # Generating Dummy for winning and losing
 damon$win = ifelse((damon$vote >= 50), 1, 0)
@@ -52,8 +52,7 @@ The conceptual framework assumed that schools were identical. In practice, schoo
 ```{r}
 
 ggplot(damon, aes(x = vote, y = margin)) + 
-  geom_point() +
-  geom_line()
+  geom_point()
 
 
 ```
