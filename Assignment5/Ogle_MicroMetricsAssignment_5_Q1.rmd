@@ -1,5 +1,5 @@
 ---
-title: "Microeconometrics Assignment 5 Question 1"
+title: "Assignment 5 Question 1"
 author: "Jack Ogle in collaboration with Eva Haque, Matt Lohrs, and Jack Knickrehm"
 output:
   pdf_document:
@@ -65,7 +65,7 @@ rdplot(y = damon$passrate0, x = damon$vote, c = 50, title = "Base Year", x.label
 # Base +2 Year
 rdplot(y = damon$passrate2, x = damon$vote, c = 50, title = "Base + 2 Years", x.label= "Vote Share", y.label = "% Pass")
 
-# % change 
+# % change
 rdplot(y = damon$perctage_change, x = damon$vote, c = 50, title = "Change", x.label= "Vote Share", y.label = "% Pass")
 
 

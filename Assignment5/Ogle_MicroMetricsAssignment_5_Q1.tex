@@ -37,7 +37,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={Microeconometrics Assignment 5 Question 1},
+  pdftitle={Assignment 5 Question 1},
   pdfauthor={Jack Ogle in collaboration with Eva Haque, Matt Lohrs, and Jack Knickrehm},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
@@ -103,7 +103,7 @@
 \usepackage{dcolumn}
 \usepackage{float}
 
-\title{Microeconometrics Assignment 5 Question 1}
+\title{Assignment 5 Question 1}
 \author{Jack Ogle in collaboration with Eva Haque, Matt Lohrs, and Jack
 Knickrehm}
 \date{}
@@ -181,6 +181,8 @@ Knickrehm}
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(rdrobust)}
+
 \CommentTok{# Loading Data}
 \NormalTok{damon =}\StringTok{ }\KeywordTok{read_dta}\NormalTok{(}\StringTok{'/Users/matthewogle/micro-metrics/Assignment5/damonclark.dta'}\NormalTok{)}
 
@@ -231,45 +233,40 @@ school i voting on GM
 \item
 \end{enumerate}
 
+These figures represent figure 8 from the paper. They are all
+visualizing:
+
+The Impact of GM Status on Schools that Become Grant-Maintained
+
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(damon, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ vote, }\DataTypeTok{y =}\NormalTok{ passrate0)) }\OperatorTok{+}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{size =} \DecValTok{1}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\OperatorTok{+}\StringTok{ }
-\StringTok{  }\CommentTok{# lm for schools that lost the election}
-\StringTok{  }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{data =} \KeywordTok{filter}\NormalTok{(damon, win }\OperatorTok{==}\StringTok{ }\DecValTok{0}\NormalTok{), }\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{color =} \StringTok{"red"}\NormalTok{) }\OperatorTok{+}
-\StringTok{  }\CommentTok{# lm for schools that won the election }
-\StringTok{  }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{data =} \KeywordTok{filter}\NormalTok{(damon, win }\OperatorTok{==}\StringTok{ }\DecValTok{1}\NormalTok{), }\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{color =} \StringTok{"green"}\NormalTok{) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_vline}\NormalTok{(}\DataTypeTok{xintercept =} \DecValTok{50}\NormalTok{) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"% of Vote"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"Pass Rate"}\NormalTok{, }\DataTypeTok{color =} \StringTok{"Used tutoring"}\NormalTok{) }
+\CommentTok{# calculating the % change}
+\NormalTok{damon}\OperatorTok{$}\NormalTok{perctage_change =}\StringTok{ }\NormalTok{damon}\OperatorTok{$}\NormalTok{passrate2 }\OperatorTok{-}\StringTok{ }\NormalTok{damon}\OperatorTok{$}\NormalTok{passrate0}
+
+\CommentTok{# Base Year}
+\KeywordTok{rdplot}\NormalTok{(}\DataTypeTok{y =}\NormalTok{ damon}\OperatorTok{$}\NormalTok{passrate0, }\DataTypeTok{x =}\NormalTok{ damon}\OperatorTok{$}\NormalTok{vote, }\DataTypeTok{c =} \DecValTok{50}\NormalTok{, }\DataTypeTok{title =} \StringTok{"Base Year"}\NormalTok{, }\DataTypeTok{x.label=} \StringTok{"Vote Share"}\NormalTok{, }\DataTypeTok{y.label =} \StringTok{"% Pass"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## `geom_smooth()` using formula 'y ~ x'
-## `geom_smooth()` using formula 'y ~ x'
-\end{verbatim}
 
 \includegraphics{Ogle_MicroMetricsAssignment_5_Q1_files/figure-latex/unnamed-chunk-2-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(damon, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ vote, }\DataTypeTok{y =}\NormalTok{ passrate2)) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{size =} \DecValTok{1}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\OperatorTok{+}\StringTok{ }
-\StringTok{  }\CommentTok{# lm for schools that lost the election}
-\StringTok{  }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{data =} \KeywordTok{filter}\NormalTok{(damon, win }\OperatorTok{==}\StringTok{ }\DecValTok{0}\NormalTok{), }\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{color =} \StringTok{"red"}\NormalTok{) }\OperatorTok{+}
-\StringTok{  }\CommentTok{# lm for schools that won the election }
-\StringTok{  }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{data =} \KeywordTok{filter}\NormalTok{(damon, win }\OperatorTok{==}\StringTok{ }\DecValTok{1}\NormalTok{), }\DataTypeTok{method =} \StringTok{"lm"}\NormalTok{, }\DataTypeTok{color =} \StringTok{"green"}\NormalTok{) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_vline}\NormalTok{(}\DataTypeTok{xintercept =} \DecValTok{50}\NormalTok{) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"% of Vote"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"Pass Rate"}\NormalTok{, }\DataTypeTok{color =} \StringTok{"Used tutoring"}\NormalTok{)}
+\CommentTok{# Base +2 Year}
+\KeywordTok{rdplot}\NormalTok{(}\DataTypeTok{y =}\NormalTok{ damon}\OperatorTok{$}\NormalTok{passrate2, }\DataTypeTok{x =}\NormalTok{ damon}\OperatorTok{$}\NormalTok{vote, }\DataTypeTok{c =} \DecValTok{50}\NormalTok{, }\DataTypeTok{title =} \StringTok{"Base + 2 Years"}\NormalTok{, }\DataTypeTok{x.label=} \StringTok{"Vote Share"}\NormalTok{, }\DataTypeTok{y.label =} \StringTok{"% Pass"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## `geom_smooth()` using formula 'y ~ x'
-## `geom_smooth()` using formula 'y ~ x'
-\end{verbatim}
-
 \includegraphics{Ogle_MicroMetricsAssignment_5_Q1_files/figure-latex/unnamed-chunk-2-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# % change}
+\KeywordTok{rdplot}\NormalTok{(}\DataTypeTok{y =}\NormalTok{ damon}\OperatorTok{$}\NormalTok{perctage_change, }\DataTypeTok{x =}\NormalTok{ damon}\OperatorTok{$}\NormalTok{vote, }\DataTypeTok{c =} \DecValTok{50}\NormalTok{, }\DataTypeTok{title =} \StringTok{"Change"}\NormalTok{, }\DataTypeTok{x.label=} \StringTok{"Vote Share"}\NormalTok{, }\DataTypeTok{y.label =} \StringTok{"% Pass"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Ogle_MicroMetricsAssignment_5_Q1_files/figure-latex/unnamed-chunk-2-3.pdf}
 
 \begin{enumerate}
 \def\labelenumi{(\alph{enumi})}
