@@ -24,7 +24,7 @@ library(multiwayvcov)
 library(lmtest)
 
 # Loading Data
-damon = read_dta('/Users/jackogle/MicroMetrics/Assignment5/damonclark.dta')
+damon = read_dta('/Users/matthewogle/micro-metrics/Assignment5/damonclark.dta')
 
 # Generating Dummy for winning and losing
 damon$win = ifelse((damon$vote >= 50), 1, 0)
@@ -51,11 +51,33 @@ The conceptual framework assumed that schools were identical. In practice, schoo
 
 ```{r}
 
-ggplot(damon, aes(x = vote, y = margin)) + 
-  geom_point()
+# calculating the % change
+
+
+ggplot(damon, aes(x = vote, y = passrate0)) + 
+  geom_point(size = 1, alpha = 0.5) + 
+  # lm for schools that lost the election
+  geom_smooth(data = filter(damon, win == 0), method = "lm", color = "red") +
+  # lm for schools that won the election 
+  geom_smooth(data = filter(damon, win == 1), method = "lm", color = "green") +
+  # lm for % Change between the 2 years
+  geom_smooth()
+  geom_vline(xintercept = 50) +
+  labs(x = "Vote Share", y = "Pass Rate (Base Year)", color = "Used tutoring") 
+
+ggplot(damon, aes(x = vote, y = passrate2)) +
+  geom_point(size = 1, alpha = 0.5) + 
+  # lm for schools that lost the election
+  geom_smooth(data = filter(damon, win == 0), method = "lm", color = "red") +
+  # lm for schools that won the election 
+  geom_smooth(data = filter(damon, win == 1), method = "lm", color = "green") +
+  geom_vline(xintercept = 50) +
+  labs(x = "Vote Share", y = "Pass Rate (Base year + 2)", color = "Used tutoring")
+
 
 
 ```
+
 
 (c)
 (d)
