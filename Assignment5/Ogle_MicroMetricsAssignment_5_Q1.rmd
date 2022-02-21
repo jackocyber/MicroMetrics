@@ -94,7 +94,7 @@ Clark restricts his sample to those schools with votes from 15% and 85% because 
 ```{r}
 restrict$vote_share <- restrict$vote/100
 
-model_d_1 <- lm(vote_share ~ win + vote + vote*lose + vote*win + (vote^2)*lose + (vote^2)*win + percentage_change, data = restrict)
+model_d_1 <- rdrobust(restrict$vote_share, restrict$win, c = 0.5, all=T)
 
 stargazer(model_d_1, column.labels=c("Non-Grammar Schools with Vote Shares in [15,85] interval"), title="Regression Results (d)", align=TRUE, notes = "Standard errors in parentheses", notes.align = "l")
 
