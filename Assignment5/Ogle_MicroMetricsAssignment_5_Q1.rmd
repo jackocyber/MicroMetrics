@@ -95,13 +95,13 @@ Clark restricts his sample to those schools with votes from 15% and 85% because 
 restrict$vote_share <- restrict$vote/100
 
 
-model_d_1 <- lm(passrate2 ~ win + vote + vote*lose + vote*win, data = restrict)
+model_d_1 <- lm(passrate2 ~ win + vote_share + vote_share*lose + vote_share*win, data = restrict)
 
-model_d_2 <- lm(passrate2 ~ win + vote + vote*lose + vote*win, data = restrict)
+model_d_2 <- lm(passrate2 ~ win + vote_share + vote_share*lose + vote_share*win, data = restrict)
 
-model_d_3 <- lm(passrate2 ~ win + vote + (vote^2)*lose + (vote^2)*win, data = restrict)
+model_d_3 <- lm(passrate2 ~ win + vote_share + (vote_share^2)*lose + (vote_share^2)*win, data = restrict)
 
-model_d_4 <- lm(passrate2 ~ win + vote + vote*lose + vote*win + (vote^2)*lose + (vote^2)*win, data = restrict)
+model_d_4 <- lm(passrate2 ~ win + vote_share + vote_share*lose + vote_share*win + (vote_share^2)*lose + (vote_share^2)*win, data = restrict)
 
 
 # summary(model_d_1 <- rdrobust(restrict, restrict$win, c = 0.5, all=T))
