@@ -94,9 +94,12 @@ Clark restricts his sample to those schools with votes from 15% and 85% because 
 ```{r}
 restrict$vote_share <- restrict$vote/100
 
-# model_d_1 <- rdrobust(restrict$vote_share, restrict$win, c = 0.5, all=T)
 
-# stargazer(model_d_1, column.labels=c("Non-Grammar Schools with Vote Shares in [15,85] interval"), title="Regression Results (d)", align=TRUE, notes = "Standard errors in parentheses", notes.align = "l")
+model_d_1 <- lm(passrate2 ~ win + vote + vote*lose + vote*win + (vote^2)*lose + (vote^2)*win, data = restrict)
+# summary(model_d_1 <- rdrobust(restrict, restrict$win, c = 0.5, all=T))
+# Non-Grammar Schools with Vote Shares in [15,85] interval
+
+stargazer(model_d_1, column.labels=c("Non-Grammar Schools with Vote Shares in [15,85] interval"), title="Regression Results (d)", align=TRUE, notes = "Standard errors in parentheses", notes.align = "l")
 
 ```
 
@@ -108,38 +111,39 @@ restrict$vote_share <- restrict$vote/100
 \hline \\[-1.8ex] 
  & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
 \cline{2-2} 
+\\[-1.8ex] & \multicolumn{1}{c}{passrate2} \\ 
  & \multicolumn{1}{c}{Non-Grammar Schools with Vote Shares in [15,85] interval} \\ 
 \hline \\[-1.8ex] 
- Win & -0.000^{***} \\ 
-  & (0.000) \\ 
+ win & 14.727^{**} \\ 
+  & (7.235) \\ 
+  & \\ 
+ vote & -0.171^{**} \\ 
+  & (0.081) \\ 
   & \\ 
  lose &  \\ 
   &  \\ 
   & \\ 
- percentage\_change & 0.000 \\ 
-  & (0.000) \\ 
+ vote:lose & 0.249^{*} \\ 
+  & (0.147) \\ 
   & \\ 
- vote:lose & 1.000^{***} \\ 
-  & (0.000) \\ 
+ win:vote &  \\ 
+  &  \\ 
   & \\ 
- vote:win & 1.000^{***} \\ 
-  & (0.000) \\ 
-  & \\ 
- Constant & -0.000^{***} \\ 
-  & (0.000) \\ 
+ Constant & 40.597^{***} \\ 
+  & (4.348) \\ 
   & \\ 
 \hline \\[-1.8ex] 
 Observations & \multicolumn{1}{c}{524} \\ 
-R$^{2}$ & \multicolumn{1}{c}{1.000} \\ 
-Adjusted R$^{2}$ & \multicolumn{1}{c}{1.000} \\ 
-Residual Std. Error & \multicolumn{1}{c}{0.000 (df = 519)} \\ 
-F Statistic & \multicolumn{1}{c}{34,064,124,303,065,597,294,021,672,173,568.000$^{***}$ (df = 4; 519)} \\ 
+R$^{2}$ & \multicolumn{1}{c}{0.009} \\ 
+Adjusted R$^{2}$ & \multicolumn{1}{c}{0.004} \\ 
+Residual Std. Error & \multicolumn{1}{c}{15.267 (df = 520)} \\ 
+F Statistic & \multicolumn{1}{c}{1.614 (df = 3; 520)} \\ 
 \hline 
 \hline \\[-1.8ex] 
 \textit{Note:}  & \multicolumn{1}{l}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
  & \multicolumn{1}{l}{Standard errors in parentheses} \\ 
 \end{tabular} 
-\end{table}
+\end{table} 
 
 
 (e)

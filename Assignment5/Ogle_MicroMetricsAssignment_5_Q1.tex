@@ -249,11 +249,62 @@ win/lose variable.
 \begin{Highlighting}[]
 \NormalTok{restrict}\OperatorTok{$}\NormalTok{vote_share <-}\StringTok{ }\NormalTok{restrict}\OperatorTok{$}\NormalTok{vote}\OperatorTok{/}\DecValTok{100}
 
-\CommentTok{# model_d_1 <- rdrobust(restrict$vote_share, restrict$win, c = 0.5, all=T)}
 
-\CommentTok{# stargazer(model_d_1, column.labels=c("Non-Grammar Schools with Vote Shares in [15,85] interval"), title="Regression Results (d)", align=TRUE, notes = "Standard errors in parentheses", notes.align = "l")}
+\NormalTok{model_d_}\DecValTok{1}\NormalTok{ <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(passrate2 }\OperatorTok{~}\StringTok{ }\NormalTok{win }\OperatorTok{+}\StringTok{ }\NormalTok{vote }\OperatorTok{+}\StringTok{ }\NormalTok{vote}\OperatorTok{*}\NormalTok{lose }\OperatorTok{+}\StringTok{ }\NormalTok{vote}\OperatorTok{*}\NormalTok{win }\OperatorTok{+}\StringTok{ }\NormalTok{(vote}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{*}\NormalTok{lose }\OperatorTok{+}\StringTok{ }\NormalTok{(vote}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{*}\NormalTok{win, }\DataTypeTok{data =}\NormalTok{ restrict)}
+\CommentTok{# summary(model_d_1 <- rdrobust(restrict, restrict$win, c = 0.5, all=T))}
+\CommentTok{# Non-Grammar Schools with Vote Shares in [15,85] interval}
+
+\KeywordTok{stargazer}\NormalTok{(model_d_}\DecValTok{1}\NormalTok{, }\DataTypeTok{column.labels=}\KeywordTok{c}\NormalTok{(}\StringTok{"Non-Grammar Schools with Vote Shares in [15,85] interval"}\NormalTok{), }\DataTypeTok{title=}\StringTok{"Regression Results (d)"}\NormalTok{, }\DataTypeTok{align=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{notes =} \StringTok{"Standard errors in parentheses"}\NormalTok{, }\DataTypeTok{notes.align =} \StringTok{"l"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+## 
+## % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+## % Date and time: Sun, Feb 20, 2022 - 22:24:37
+## % Requires LaTeX packages: dcolumn 
+## \begin{table}[!htbp] \centering 
+##   \caption{Regression Results (d)} 
+##   \label{} 
+## \begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} } 
+## \\[-1.8ex]\hline 
+## \hline \\[-1.8ex] 
+##  & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+## \cline{2-2} 
+## \\[-1.8ex] & \multicolumn{1}{c}{passrate2} \\ 
+##  & \multicolumn{1}{c}{Non-Grammar Schools with Vote Shares in [15,85] interval} \\ 
+## \hline \\[-1.8ex] 
+##  win & 14.727^{**} \\ 
+##   & (7.235) \\ 
+##   & \\ 
+##  vote & -0.171^{**} \\ 
+##   & (0.081) \\ 
+##   & \\ 
+##  lose &  \\ 
+##   &  \\ 
+##   & \\ 
+##  vote:lose & 0.249^{*} \\ 
+##   & (0.147) \\ 
+##   & \\ 
+##  win:vote &  \\ 
+##   &  \\ 
+##   & \\ 
+##  Constant & 40.597^{***} \\ 
+##   & (4.348) \\ 
+##   & \\ 
+## \hline \\[-1.8ex] 
+## Observations & \multicolumn{1}{c}{524} \\ 
+## R$^{2}$ & \multicolumn{1}{c}{0.009} \\ 
+## Adjusted R$^{2}$ & \multicolumn{1}{c}{0.004} \\ 
+## Residual Std. Error & \multicolumn{1}{c}{15.267 (df = 520)} \\ 
+## F Statistic & \multicolumn{1}{c}{1.614 (df = 3; 520)} \\ 
+## \hline 
+## \hline \\[-1.8ex] 
+## \textit{Note:}  & \multicolumn{1}{l}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+##  & \multicolumn{1}{l}{Standard errors in parentheses} \\ 
+## \end{tabular} 
+## \end{table}
+\end{verbatim}
 
 \begin{table}[!htbp] \centering 
   \caption{Regression Results (d)} 
@@ -263,32 +314,33 @@ win/lose variable.
 \hline \\[-1.8ex] 
  & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
 \cline{2-2} 
+\\[-1.8ex] & \multicolumn{1}{c}{passrate2} \\ 
  & \multicolumn{1}{c}{Non-Grammar Schools with Vote Shares in [15,85] interval} \\ 
 \hline \\[-1.8ex] 
- Win & -0.000^{***} \\ 
-  & (0.000) \\ 
+ win & 14.727^{**} \\ 
+  & (7.235) \\ 
+  & \\ 
+ vote & -0.171^{**} \\ 
+  & (0.081) \\ 
   & \\ 
  lose &  \\ 
   &  \\ 
   & \\ 
- percentage\_change & 0.000 \\ 
-  & (0.000) \\ 
+ vote:lose & 0.249^{*} \\ 
+  & (0.147) \\ 
   & \\ 
- vote:lose & 1.000^{***} \\ 
-  & (0.000) \\ 
+ win:vote &  \\ 
+  &  \\ 
   & \\ 
- vote:win & 1.000^{***} \\ 
-  & (0.000) \\ 
-  & \\ 
- Constant & -0.000^{***} \\ 
-  & (0.000) \\ 
+ Constant & 40.597^{***} \\ 
+  & (4.348) \\ 
   & \\ 
 \hline \\[-1.8ex] 
 Observations & \multicolumn{1}{c}{524} \\ 
-R$^{2}$ & \multicolumn{1}{c}{1.000} \\ 
-Adjusted R$^{2}$ & \multicolumn{1}{c}{1.000} \\ 
-Residual Std. Error & \multicolumn{1}{c}{0.000 (df = 519)} \\ 
-F Statistic & \multicolumn{1}{c}{34,064,124,303,065,597,294,021,672,173,568.000$^{***}$ (df = 4; 519)} \\ 
+R$^{2}$ & \multicolumn{1}{c}{0.009} \\ 
+Adjusted R$^{2}$ & \multicolumn{1}{c}{0.004} \\ 
+Residual Std. Error & \multicolumn{1}{c}{15.267 (df = 520)} \\ 
+F Statistic & \multicolumn{1}{c}{1.614 (df = 3; 520)} \\ 
 \hline 
 \hline \\[-1.8ex] 
 \textit{Note:}  & \multicolumn{1}{l}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
