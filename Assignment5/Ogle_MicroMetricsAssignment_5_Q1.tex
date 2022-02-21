@@ -248,7 +248,7 @@ win/lose variable.
 \begin{verbatim}
 ## 
 ## % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-## % Date and time: Sun, Feb 20, 2022 - 22:47:07
+## % Date and time: Sun, Feb 20, 2022 - 23:04:13
 ## % Requires LaTeX packages: dcolumn 
 ## \begin{table}[!htbp] \centering 
 ##   \caption{Regression Results (d)} 
@@ -345,9 +345,36 @@ F Statistic (df = 3; 520) & \multicolumn{1}{c}{1.614} & \multicolumn{1}{c}{1.614
 \tightlist
 \item
   I attempted to estimate the some regressions where vote was squared,
-  but I got the same results. I would expect to see different results
-  specifically, I would have expected to find that
+  but I got slightly different results. I attribute this to a lack of
+  data. We lack the data that is required to obtain certain regression
+  results. We cannot control for all the treatments and controls
+  mentioned in the empirical section of the paper where it mentions the
+  design behind each regression column. However, here is the design of
+  all the columns:
 \end{itemize}
+
+Column 1 describes the mean improvement difference between winners and
+losers, column 2 adds a control for vote share, and column 3 interacts
+vote share with win (the specification used to generate the fitted lines
+in Figure 8). In column 4 they weight according to the size of the
+school exam-taking cohort, to give more weight to schools with more
+exam-takers (to the extent the model is correctly specified). In column
+5 Clark uses a quadratic vote share control function and the estimated
+impact of winning falls. This is not surprising given the degree of
+concavity in the (50,85) interval (Figure 8), although a cubic fit would
+be expected to pick up this shape (and the dip to the left of the 50\%
+threshold). In the interests of parsimony, since the baseline levels are
+relatively flat and Clark have no priors regarding the appropriate
+functional form, Clark reverts to the linear specification. His
+preferred estimates are in column 6.
+
+If the RDD is valid in this case the internal validity of the results
+would still be affected because there would be a risk of violating the
+zero conditional mean assumption. Because we don't have the correct data
+that we could use in our model to control the Ommitted variable bias.
+The variables that Clark includes reduce OVB because by including them
+in the model correlation between the error term and the independent
+variables decreases.
 
 \begin{enumerate}
 \def\labelenumi{(\alph{enumi})}

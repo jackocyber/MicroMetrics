@@ -1,0 +1,167 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  12pt,
+  landscape]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Assignment 5 Question 2},
+  pdfauthor={Jack Ogle in collaboration with Eva Haque, Matt Lohrs, and Jack Knickrehm},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{dcolumn}
+\usepackage{float}
+
+\title{Assignment 5 Question 2}
+\author{Jack Ogle in collaboration with Eva Haque, Matt Lohrs, and Jack
+Knickrehm}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\def\labelenumi{\roman{enumi})}
+\tightlist
+\item
+  Estimating college enrollment.
+\item
+  Estimate the impact of unionization on business survival, employment,
+  output, productivity, and wages. 2
+\item
+  Estimating housing prices as a measure for willingness to pay for
+  clean air.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  What is the running variable, X?
+\item
+  PSAT score is the running variable. Because it is continuous and can
+  be assumed to be random at the cutoff it works well as a running
+  variable for RD.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\roman{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Voting percentage is the running variable, and because voting
+  percentage is continuous and can be assumed to be random at the cutoff
+  of 51\% it works well as a running variable for RD.
+\item
+  Total Suspended Particles(TSP's) are the running variable. Because
+  amount of pollution in the air is a continuous variable which is
+  quasirandom around the cutoff it works well as a RD variable.
+\item
+  What is the treatment variable, D, and how is it determined by X? Is
+  this a sharp or a fuzzy RDD?
+\item
+  Financial aid is the treatment variable. Because students above the
+  cutoff on the PSAT score are more likely to get financial aid, and
+  financial aid is likely to encourage students to go to college, it is
+  a treatment variable. This is a sharp RDD because there is a well
+  defined cutoff which students cannot influence.
+\item
+  Unionization is the treatment variable. Because companies above the
+  cutoff of 51\% are unionized and unions lead to higher bargaining
+  power of workers, unionization is chosen as the treatment variable.
+  This is a sharp RDD because there is a cutoff that union workers
+  cannot influence.
+\item
+  Federally regulated pollution measure are the treatment variable.
+  Because counties above the cutoff of TSP are regulated according to
+  their emissions which impacts housing prices, it is the treatment
+  variable. This is a fuzzy RDD because this variable can be influenced,
+  hence the need to use the IV.
+\item
+  Argue why (or why not) an RDD has more credible identifying
+  assumptions than a multiple linear regression model to answer the
+  causal question(
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{18}
+\tightlist
+\item
+  of interest?
+\item
+  Because financial aid is such an important factor in college
+  enrollment, we want to measure its specific effect. Effects should be
+  continuous as students are similar and the unobservables should be
+  continuously related to PSAT score. Therefore because we expect such a
+  difference to be attributable to this cutoff we want to use RDD
+  instead of SLR. 3
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\roman{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Because unionization has this strong cutoff and other effects should
+  be continuous between different companies, we should use RDD instead
+  of SLR.
+\item
+  Total Suspended Particles(TSP's) are the running variable. Because
+  amount of pollution in the air is a continuous variable which is
+  quasirandom around the cutoff it works well as a RD variable.
+\end{enumerate}
+
+\end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2022.2.8)  20 FEB 2022 22:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2022.2.20)  20 FEB 2022 23:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -529,7 +529,7 @@ l.325  vote\_share^
                    2*win &  &  &  &  \\ 
 Here is how much of TeX's memory you used:
  11226 strings out of 480238
- 179274 string characters out of 5894599
+ 179274 string characters out of 5894598
  464524 words of memory out of 5000000
  28979 multiletter control sequences out of 15000+600000
  508096 words of font info for 67 fonts, out of 8000000 for 9000
