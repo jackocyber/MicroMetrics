@@ -248,7 +248,7 @@ win/lose variable.
 \begin{verbatim}
 ## 
 ## % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-## % Date and time: Mon, Feb 21, 2022 - 07:56:19
+## % Date and time: Mon, Feb 21, 2022 - 09:07:34
 ## % Requires LaTeX packages: dcolumn 
 ## \begin{table}[!htbp] \centering 
 ##   \caption{Regression Results (d)} 
@@ -342,7 +342,6 @@ F Statistic & \multicolumn{1}{c}{10.842$^{***}$ (df = 1; 522)} & \multicolumn{1}
 \end{table}
 
 \begin{itemize}
-\tightlist
 \item
   I attempted to estimate the some regressions where vote was squared,
   but I got slightly different results. I attribute this to a lack of
@@ -351,30 +350,30 @@ F Statistic & \multicolumn{1}{c}{10.842$^{***}$ (df = 1; 522)} & \multicolumn{1}
   mentioned in the empirical section of the paper where it mentions the
   design behind each regression column. However, here is the design of
   all the columns:
+\item
+  Column 1 describes the mean improvement difference between winners and
+  losers, column 2 adds a control for vote share, and column 3 interacts
+  vote share with win (the specification used to generate the fitted
+  lines in Figure 8). In column 4 they weight according to the size of
+  the school exam-taking cohort, to give more weight to schools with
+  more exam-takers (to the extent the model is correctly specified). In
+  column 5 Clark uses a quadratic vote share control function and the
+  estimated impact of winning falls. This is not surprising given the
+  degree of concavity in the (50,85) interval (Figure 8), although a
+  cubic fit would be expected to pick up this shape (and the dip to the
+  left of the 50\% threshold). In the interests of parsimony, since the
+  baseline levels are relatively flat and Clark have no priors regarding
+  the appropriate functional form, Clark reverts to the linear
+  specification. His preferred estimates are in column 6.
+\item
+  If RDD is internally valid there must be \({E[Y_{0i}|X_{i}]}\) and
+  \({E[Y_{1i}|X_{i}]}\) are continuous in \(X_i\) at the cutoff
+  \({X_0}\). Here we can see that one of our interaction terms was
+  statistically significant. This means that the assumption for internal
+  validity holds because if our interaction terms all had a high degree
+  of statistical significance then our win variable has a different
+  effect on the passrate depending on margin and vote.
 \end{itemize}
-
-Column 1 describes the mean improvement difference between winners and
-losers, column 2 adds a control for vote share, and column 3 interacts
-vote share with win (the specification used to generate the fitted lines
-in Figure 8). In column 4 they weight according to the size of the
-school exam-taking cohort, to give more weight to schools with more
-exam-takers (to the extent the model is correctly specified). In column
-5 Clark uses a quadratic vote share control function and the estimated
-impact of winning falls. This is not surprising given the degree of
-concavity in the (50,85) interval (Figure 8), although a cubic fit would
-be expected to pick up this shape (and the dip to the left of the 50\%
-threshold). In the interests of parsimony, since the baseline levels are
-relatively flat and Clark have no priors regarding the appropriate
-functional form, Clark reverts to the linear specification. His
-preferred estimates are in column 6.
-
-If the RDD is valid in this case the internal validity of the results
-would still be affected because there would be a risk of violating the
-zero conditional mean assumption. Because we don't have the correct data
-that we could use in our model to control the Ommitted variable bias.
-The variables that Clark includes reduce OVB because by including them
-in the model correlation between the error term and the independent
-variables decreases.
 
 \begin{enumerate}
 \def\labelenumi{(\alph{enumi})}
@@ -399,7 +398,7 @@ variables decreases.
 \begin{verbatim}
 ## 
 ## % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-## % Date and time: Mon, Feb 21, 2022 - 07:56:19
+## % Date and time: Mon, Feb 21, 2022 - 09:07:35
 ## % Requires LaTeX packages: dcolumn 
 ## \begin{table}[!htbp] \centering 
 ##   \caption{Regression Results (e)} 
@@ -497,11 +496,11 @@ F Statistic & \multicolumn{1}{c}{12.941$^{***}$ (df = 1; 355)} & \multicolumn{1}
 \item
   When I experimented with a threshold of smaller {[}25,75{]} I get
   slightly different results compared to my results previously from (d)
-  and they also differ from Clark's results. We see a larger focus on
-  the RD and therefore the effect of win the election decreases. And the
-  average effect of the interaction between vote share and losing the
-  election decreases. A likely reasons for this change is that the
-  overall estimator slope changes with the reduction of observations.
+  and they also differ from Clark's results. Here there is a tradoff
+  between bias and efficiency. We have fewer estimators that are
+  statistically significant because we have less observations. This
+  makes our estimators less precise. But we experience less bias from
+  outliers in the data when we make our threshold smaller.
 \end{itemize}
 
 \begin{enumerate}
@@ -523,7 +522,7 @@ F Statistic & \multicolumn{1}{c}{12.941$^{***}$ (df = 1; 355)} & \multicolumn{1}
 \begin{verbatim}
 ## 
 ## % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-## % Date and time: Mon, Feb 21, 2022 - 07:56:19
+## % Date and time: Mon, Feb 21, 2022 - 09:07:35
 ## % Requires LaTeX packages: dcolumn 
 ## \begin{table}[!htbp] \centering 
 ##   \caption{Regression Results (f)} 
@@ -601,7 +600,24 @@ nor invalidate our RDD.
 \end{enumerate}
 
 In addition to points e and f we can include further evidence about the
-relationship between the variables.
+relationship between the variables. We can see here that there is not
+much difference between the amount of observations before the 50\%
+cutoff and after the cutoff. If there was a large difference then it
+would invalidate our RDD because it would mean that assignment of the
+treatment versus control is not as good as randomly assigned.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{restrict =}\StringTok{ }\KeywordTok{subset}\NormalTok{(damon, vote }\OperatorTok{<=}\StringTok{ }\DecValTok{85} \OperatorTok{&}\StringTok{ }\NormalTok{vote }\OperatorTok{>=}\StringTok{ }\DecValTok{15}\NormalTok{)}
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ restrict, }\KeywordTok{aes}\NormalTok{(vote)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_density}\NormalTok{()}\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Density plot of Vote Share"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{xlab}\NormalTok{(}\StringTok{"Vote Share"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Density"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Ogle_MicroMetricsAssignment_5_Q1_files/figure-latex/unnamed-chunk-6-1.pdf}
 
 \begin{enumerate}
 \def\labelenumi{(\alph{enumi})}
@@ -616,13 +632,108 @@ non-linearity in f (Xi) that the polynomials have not accounted for. A
 regression discontinuity method is close to an experiment under ideal
 conditions, in reducing selection bias (high internal validity), and in
 presenting challenges to broader generalization (low external validity).
-RD has high internal validity, meaning \_\textbf{. And it has low
-external validity meaning }.
 
 \begin{enumerate}
 \def\labelenumi{(\roman{enumi})}
 \item
 \end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{rdrobust}\NormalTok{(restrict}\OperatorTok{$}\NormalTok{passrate2}\OperatorTok{-}\NormalTok{restrict}\OperatorTok{$}\NormalTok{passrate0, restrict}\OperatorTok{$}\NormalTok{vote, }\DataTypeTok{c=}\DecValTok{50}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Call: rdrobust
+## 
+## Number of Obs.                  524
+## BW type                       mserd
+## Kernel                   Triangular
+## VCE method                       NN
+## 
+## Number of Obs.                  195          329
+## Eff. Number of Obs.              59           66
+## Order est. (p)                    1            1
+## Order bias  (q)                   2            2
+## BW est. (h)                   9.678        9.678
+## BW bias (b)                  15.263       15.263
+## rho (h/b)                     0.634        0.634
+## Unique Obs.                     193          326
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{restrict_rd <-}\StringTok{ }\KeywordTok{subset}\NormalTok{(restrict, vote }\OperatorTok{>}\StringTok{ }\DecValTok{50} \OperatorTok{-}\StringTok{ }\FloatTok{9.678} \OperatorTok{&}\StringTok{ }\NormalTok{vote }\OperatorTok{<}\StringTok{ }\DecValTok{50} \OperatorTok{+}\StringTok{ }\FloatTok{9.678}\NormalTok{)}
+
+\NormalTok{model_}\DecValTok{1}\NormalTok{_i <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(passrate2}\OperatorTok{-}\NormalTok{passrate0 }\OperatorTok{~}\StringTok{ }\NormalTok{win, }\DataTypeTok{data=}\NormalTok{restrict_rd)}
+\KeywordTok{stargazer}\NormalTok{(model_}\DecValTok{1}\NormalTok{_i, }\DataTypeTok{title=}\StringTok{"Regression Results (f)"}\NormalTok{, }\DataTypeTok{align=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{notes =} \StringTok{"Standard errors in parentheses"}\NormalTok{, }\DataTypeTok{notes.align =} \StringTok{"l"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+## % Date and time: Mon, Feb 21, 2022 - 09:07:35
+## % Requires LaTeX packages: dcolumn 
+## \begin{table}[!htbp] \centering 
+##   \caption{Regression Results (f)} 
+##   \label{} 
+## \begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} } 
+## \\[-1.8ex]\hline 
+## \hline \\[-1.8ex] 
+##  & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+## \cline{2-2} 
+## \\[-1.8ex] & \multicolumn{1}{c}{passrate2 - passrate0} \\ 
+## \hline \\[-1.8ex] 
+##  win & 2.571^{*} \\ 
+##   & (1.367) \\ 
+##   & \\ 
+##  Constant & 1.475 \\ 
+##   & (0.993) \\ 
+##   & \\ 
+## \hline \\[-1.8ex] 
+## Observations & \multicolumn{1}{c}{125} \\ 
+## R$^{2}$ & \multicolumn{1}{c}{0.028} \\ 
+## Adjusted R$^{2}$ & \multicolumn{1}{c}{0.020} \\ 
+## Residual Std. Error & \multicolumn{1}{c}{7.628 (df = 123)} \\ 
+## F Statistic & \multicolumn{1}{c}{3.538$^{*}$ (df = 1; 123)} \\ 
+## \hline 
+## \hline \\[-1.8ex] 
+## \textit{Note:}  & \multicolumn{1}{l}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+##  & \multicolumn{1}{l}{Standard errors in parentheses} \\ 
+## \end{tabular} 
+## \end{table}
+\end{verbatim}
+
+\begin{table}[!htbp] \centering 
+  \caption{Regression Results (f)} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} } 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & \multicolumn{1}{c}{passrate2 - passrate0} \\ 
+\hline \\[-1.8ex] 
+ win & 2.571^{*} \\ 
+  & (1.367) \\ 
+  & \\ 
+ Constant & 1.475 \\ 
+  & (0.993) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Observations & \multicolumn{1}{c}{125} \\ 
+R$^{2}$ & \multicolumn{1}{c}{0.028} \\ 
+Adjusted R$^{2}$ & \multicolumn{1}{c}{0.020} \\ 
+Residual Std. Error & \multicolumn{1}{c}{7.628 (df = 123)} \\ 
+F Statistic & \multicolumn{1}{c}{3.538$^{*}$ (df = 1; 123)} \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{l}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+ & \multicolumn{1}{l}{Standard errors in parentheses} \\ 
+\end{tabular} 
+\end{table}
 
 \begin{enumerate}
 \def\labelenumi{(\alph{enumi})}

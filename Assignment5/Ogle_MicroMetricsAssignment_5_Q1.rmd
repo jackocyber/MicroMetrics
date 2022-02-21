@@ -155,9 +155,9 @@ F Statistic & \multicolumn{1}{c}{10.842$^{***}$ (df = 1; 522)} & \multicolumn{1}
 
 * I attempted to estimate the some regressions where vote was squared, but I got slightly different results. I attribute this to a lack of data. We lack the data that is required to obtain certain regression results. We cannot control for all the treatments and controls mentioned in the empirical section of the paper where it mentions the design behind each regression column. However, here is the design of all the columns: 
 
-Column 1 describes the mean improvement difference between winners and losers, column 2 adds a control for vote share, and column 3 interacts vote share with win (the specification used to generate the fitted lines in Figure 8). In column 4 they weight according to the size of the school exam-taking cohort, to give more weight to schools with more exam-takers (to the extent the model is correctly specified). In column 5 Clark uses a quadratic vote share control function and the estimated impact of winning falls. This is not surprising given the degree of concavity in the (50,85) interval (Figure 8), although a cubic fit would be expected to pick up this shape (and the dip to the left of the 50% threshold). In the interests of parsimony, since the baseline levels are relatively flat and Clark have no priors regarding the appropriate functional form, Clark reverts to the linear specification. His preferred estimates are in column 6.
+* Column 1 describes the mean improvement difference between winners and losers, column 2 adds a control for vote share, and column 3 interacts vote share with win (the specification used to generate the fitted lines in Figure 8). In column 4 they weight according to the size of the school exam-taking cohort, to give more weight to schools with more exam-takers (to the extent the model is correctly specified). In column 5 Clark uses a quadratic vote share control function and the estimated impact of winning falls. This is not surprising given the degree of concavity in the (50,85) interval (Figure 8), although a cubic fit would be expected to pick up this shape (and the dip to the left of the 50% threshold). In the interests of parsimony, since the baseline levels are relatively flat and Clark have no priors regarding the appropriate functional form, Clark reverts to the linear specification. His preferred estimates are in column 6.
 
-If the RDD is valid in this case the internal validity of the results would still be affected because there would be a risk of violating the zero conditional mean assumption. Because we don't have the correct data that we could use in our model to control the Ommitted variable bias. The variables that Clark includes reduce OVB because by including them in the model correlation between the error term and the independent variables decreases. 
+* If RDD is internally valid there must be ${E[Y_{0i}|X_{i}]}$ and ${E[Y_{1i}|X_{i}]}$ are continuous in $X_i$ at the cutoff ${X_0}$. Here we can see that one of our interaction terms was statistically significant. This means that the assumption for internal validity holds because if our interaction terms all had a high degree of statistical significance then our win variable has a different effect on the passrate depending on margin and vote.
 
 
 (e)
@@ -220,7 +220,7 @@ F Statistic & \multicolumn{1}{c}{12.941$^{***}$ (df = 1; 355)} & \multicolumn{1}
 \end{tabular} 
 \end{table} 
 
-* When I experimented with a threshold of smaller [25,75] I get slightly different results compared to my results previously from (d) and they also differ from Clark's results. We see a larger focus on the RD and therefore the effect of win the election decreases. And the average effect of the interaction between vote share and losing the election decreases. A likely reasons for this change is that the overall estimator slope changes with the reduction of observations. 
+* When I experimented with a threshold of smaller [25,75] I get slightly different results compared to my results previously from (d) and they also differ from Clark's results. Here there is a tradoff between bias and efficiency. We have fewer estimators that are statistically significant because we have less observations. This makes our estimators less precise. But we experience less bias from outliers in the data when we make our threshold smaller.
 
 (f)
 
@@ -267,15 +267,63 @@ There is no reason to use passrate0 as the dependent variable as we want to esti
 
 (g)
 
-In addition to points e and f we can include further evidence about the relationship between the variables.  
+In addition to points e and f we can include further evidence about the relationship between the variables. We can see here that there is not much difference between the amount of observations before the 50% cutoff and after the cutoff. If there was a large difference then it would invalidate our RDD because it would mean that assignment of the treatment versus control is not as good as randomly assigned.
+
+```{r}
+restrict = subset(damon, vote <= 85 & vote >= 15)
+ggplot(data = restrict, aes(vote)) +
+  geom_density()+
+  labs(title = "Density plot of Vote Share") +
+  xlab("Vote Share") +
+  ylab("Density")
+```
 
 (h)
 
-The validity of RD estimates depends crucially on the assumption that the polynomials provide and adequate representation of E [Y0i | Xi ] If not what looks like a jump may simply be a non-linearity in f (Xi) that the polynomials have not accounted for. A regression discontinuity method is close to an experiment under ideal conditions, in reducing selection bias (high internal validity), and in presenting challenges to broader generalization (low external validity). RD has high internal validity, meaning ___. And it has low external validity meaning __.
+The validity of RD estimates depends crucially on the assumption that the polynomials provide and adequate representation of E [Y0i | Xi ] If not what looks like a jump may simply be a non-linearity in f (Xi) that the polynomials have not accounted for. A regression discontinuity method is close to an experiment under ideal conditions, in reducing selection bias (high internal validity), and in presenting challenges to broader generalization (low external validity).
 
 
 (i)
 
+```{r}
+
+rdrobust(restrict$passrate2-restrict$passrate0, restrict$vote, c=50)
+
+restrict_rd <- subset(restrict, vote > 50 - 9.678 & vote < 50 + 9.678)
+
+model_1_i <- lm(passrate2-passrate0 ~ win, data=restrict_rd)
+stargazer(model_1_i, title="Regression Results (f)", align=TRUE, notes = "Standard errors in parentheses", notes.align = "l")
+
+```
+
+\begin{table}[!htbp] \centering 
+  \caption{Regression Results (f)} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} } 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & \multicolumn{1}{c}{passrate2 - passrate0} \\ 
+\hline \\[-1.8ex] 
+ win & 2.571^{*} \\ 
+  & (1.367) \\ 
+  & \\ 
+ Constant & 1.475 \\ 
+  & (0.993) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Observations & \multicolumn{1}{c}{125} \\ 
+R$^{2}$ & \multicolumn{1}{c}{0.028} \\ 
+Adjusted R$^{2}$ & \multicolumn{1}{c}{0.020} \\ 
+Residual Std. Error & \multicolumn{1}{c}{7.628 (df = 123)} \\ 
+F Statistic & \multicolumn{1}{c}{3.538$^{*}$ (df = 1; 123)} \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{l}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+ & \multicolumn{1}{l}{Standard errors in parentheses} \\ 
+\end{tabular} 
+\end{table} 
 
 (j)
 
