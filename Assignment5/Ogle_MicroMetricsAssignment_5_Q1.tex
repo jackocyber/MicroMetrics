@@ -249,62 +249,11 @@ win/lose variable.
 \begin{Highlighting}[]
 \NormalTok{restrict}\OperatorTok{$}\NormalTok{vote_share <-}\StringTok{ }\NormalTok{restrict}\OperatorTok{$}\NormalTok{vote}\OperatorTok{/}\DecValTok{100}
 
-\NormalTok{model_d_}\DecValTok{1}\NormalTok{ <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(vote_share }\OperatorTok{~}\StringTok{ }\NormalTok{win }\OperatorTok{+}\StringTok{ }\NormalTok{vote }\OperatorTok{+}\StringTok{ }\NormalTok{vote}\OperatorTok{*}\NormalTok{lose }\OperatorTok{+}\StringTok{ }\NormalTok{vote}\OperatorTok{*}\NormalTok{win }\OperatorTok{+}\StringTok{ }\NormalTok{(vote}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{*}\NormalTok{lose }\OperatorTok{+}\StringTok{ }\NormalTok{(vote}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{*}\NormalTok{win }\OperatorTok{+}\StringTok{ }\NormalTok{percentage_change, }\DataTypeTok{data =}\NormalTok{ restrict)}
+\CommentTok{# model_d_1 <- rdrobust(restrict$vote_share, restrict$win, c = 0.5, all=T)}
 
-\KeywordTok{stargazer}\NormalTok{(model_d_}\DecValTok{1}\NormalTok{, }\DataTypeTok{column.labels=}\KeywordTok{c}\NormalTok{(}\StringTok{"Non-Grammar Schools with Vote Shares in [15,85] interval"}\NormalTok{), }\DataTypeTok{title=}\StringTok{"Regression Results (d)"}\NormalTok{, }\DataTypeTok{align=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{notes =} \StringTok{"Standard errors in parentheses"}\NormalTok{, }\DataTypeTok{notes.align =} \StringTok{"l"}\NormalTok{)}
+\CommentTok{# stargazer(model_d_1, column.labels=c("Non-Grammar Schools with Vote Shares in [15,85] interval"), title="Regression Results (d)", align=TRUE, notes = "Standard errors in parentheses", notes.align = "l")}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## 
-## % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-## % Date and time: Sun, Feb 20, 2022 - 19:25:39
-## % Requires LaTeX packages: dcolumn 
-## \begin{table}[!htbp] \centering 
-##   \caption{Regression Results (d)} 
-##   \label{} 
-## \begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} } 
-## \\[-1.8ex]\hline 
-## \hline \\[-1.8ex] 
-##  & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
-## \cline{2-2} 
-## \\[-1.8ex] & \multicolumn{1}{c}{vote\_share} \\ 
-##  & \multicolumn{1}{c}{Non-Grammar Schools with Vote Shares in [15,85] interval} \\ 
-## \hline \\[-1.8ex] 
-##  win & -0.000^{***} \\ 
-##   & (0.000) \\ 
-##   & \\ 
-##  vote & 0.010^{***} \\ 
-##   & (0.000) \\ 
-##   & \\ 
-##  lose &  \\ 
-##   &  \\ 
-##   & \\ 
-##  percentage\_change & -0.000 \\ 
-##   & (0.000) \\ 
-##   & \\ 
-##  vote:lose & -0.000 \\ 
-##   & (0.000) \\ 
-##   & \\ 
-##  win:vote &  \\ 
-##   &  \\ 
-##   & \\ 
-##  Constant & 0.000^{***} \\ 
-##   & (0.000) \\ 
-##   & \\ 
-## \hline \\[-1.8ex] 
-## Observations & \multicolumn{1}{c}{524} \\ 
-## R$^{2}$ & \multicolumn{1}{c}{1.000} \\ 
-## Adjusted R$^{2}$ & \multicolumn{1}{c}{1.000} \\ 
-## Residual Std. Error & \multicolumn{1}{c}{0.000 (df = 519)} \\ 
-## F Statistic & \multicolumn{1}{c}{793,890,093,141,614,703,078,787,382,247,424.000$^{***}$ (df = 4; 519)} \\ 
-## \hline 
-## \hline \\[-1.8ex] 
-## \textit{Note:}  & \multicolumn{1}{l}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
-##  & \multicolumn{1}{l}{Standard errors in parentheses} \\ 
-## \end{tabular} 
-## \end{table}
-\end{verbatim}
 
 \begin{table}[!htbp] \centering 
   \caption{Regression Results (d)} 
