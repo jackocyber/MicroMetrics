@@ -11,53 +11,63 @@ classoption: landscape
 geometry: margin=1in
 fontsize: 12pt
 ---
+(a)
 
 i) Estimating college enrollment.
+
 ii) Estimate the impact of unionization on business survival, employment,
 output, productivity, and wages.
-2
+
 iii) Estimating housing prices as a measure for willingness to pay for
 clean air.
-b) What is the running variable, X?
+
+(b) 
+
 i) PSAT score is the running variable. Because it is continuous and can
 be assumed to be random at the cutoff it works well as a running
 variable for RD.
+
 ii) Voting percentage is the running variable, and because voting percentage
 is continuous and can be assumed to be random at the cutoff
 of 51% it works well as a running variable for RD.
+
 iii) Total Suspended Particles(TSP’s) are the running variable. Because
-amount of pollution in the air is a continuous variable which is quasirandom
+amount of pollution in the air is a continuous variable which is quasi-random
 around the cutoff it works well as a RD variable.
-c) What is the treatment variable, D, and how is it determined by X? Is this
-a sharp or a fuzzy RDD?
+
+(c) 
+
 i) Financial aid is the treatment variable. Because students above the
 cutoff on the PSAT score are more likely to get financial aid, and
 financial aid is likely to encourage students to go to college, it is
 a treatment variable. This is a sharp RDD because there is a well
 defined cutoff which students cannot influence.
+
 ii) Unionization is the treatment variable. Because companies above
 the cutoff of 51% are unionized and unions lead to higher bargaining
 power of workers, unionization is chosen as the treatment variable.
 This is a sharp RDD because there is a cutoff that union workers
 cannot influence.
+
 iii) Federally regulated pollution measure are the treatment variable.
 Because counties above the cutoff of TSP are regulated according
 to their emissions which impacts housing prices, it is the treatment
 variable. This is a fuzzy RDD because this variable can be influenced,
 hence the need to use the IV.
-d) Argue why (or why not) an RDD has more credible identifying assumptions
-than a multiple linear regression model to answer the causal question(
-s) of interest?
+
+(d)
+
 i) Because financial aid is such an important factor in college enrollment,
 we want to measure its specific effect. Effects should be continuous
 as students are similar and the unobservables should be continuously
 related to PSAT score. Therefore because we expect such
 a difference to be attributable to this cutoff we want to use RDD
 instead of SLR.
-3
+
 ii) Because unionization has this strong cutoff and other effects should
 be continuous between different companies, we should use RDD instead
 of SLR.
+
 iii) Total Suspended Particles(TSP’s) are the running variable. Because
 amount of pollution in the air is a continuous variable which is quasirandom
 around the cutoff it works well as a RD variable.
