@@ -87,13 +87,14 @@ From the graphs above we can see that as you decrease the bin size from 7 which 
 
 (c)
 
-Clark restricts his sample to those schools with votes from 15% and 85% because he wants to reduce bias from outliers from schools who were very opposed or very for autonomy. Additionally, RD necessitates that in order to estimate the average effect of a treatment you look at an arbitrary cutoff and evaluate the treatment effects before and after the cutoff. Clark needs to estimate around the cutoff, 50, which is inside the (15,85) interval. Other columns have functions of vote share because vote share is the forcing variable in this Fuzzy Regression Discontinuity model. Fuzzy RD exploits discontinuities in the probability of treatment conditional on a variate. The discontinuity, here is Vote share, and it becomes the IV for the treatment status. Which is why Table 3a includes functions of vote share both on their own and interacted with the win/lose variable.
+Clark restricts his sample to those schools with votes from 15% and 85% because he wants to reduce bias from outliers from schools who were very opposed or very for autonomy. For example schools with high vote shares may have been under threat of closure, whilst few schools received very low vote shares. Additionally, RD necessitates that in order to estimate the average effect of a treatment you look at an arbitrary cutoff and evaluate the treatment effects before and after the cutoff. Additionally they saw that schools outside this interval have different baseline characteristics and are less likely to survive. Clark needs to estimate around the cutoff, 50, which is inside the (15,85) interval. Other columns have functions of vote share because vote share is the forcing variable in this Fuzzy Regression Discontinuity model. Fuzzy RD exploits discontinuities in the probability of treatment conditional on a variate. The discontinuity, here is Vote share, and it becomes the IV for the treatment status. Which is why Table 3a includes functions of vote share both on their own and interacted with the win/lose variable.
 
 (d)
 
 ```{r}
+restrict$vote_share <- restrict$vote/100
 
-model_d_1 <- lm(vote ~ win + vote + vote*lose + vote*win + (vote^2)*lose + (vote^2)*win + percentage_change, data = restrict)
+model_d_1 <- lm(vote_share ~ win + vote + vote*lose + vote*win + (vote^2)*lose + (vote^2)*win + percentage_change, data = restrict)
 
 stargazer(model_d_1, column.labels=c("Non-Grammar Schools with Vote Shares in [15,85] interval"), title="Regression Results (d)", align=TRUE, notes = "Standard errors in parentheses", notes.align = "l")
 
@@ -107,10 +108,9 @@ stargazer(model_d_1, column.labels=c("Non-Grammar Schools with Vote Shares in [1
 \hline \\[-1.8ex] 
  & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
 \cline{2-2} 
-\\[-1.8ex] & \multicolumn{1}{c}{vote} \\ 
  & \multicolumn{1}{c}{Non-Grammar Schools with Vote Shares in [15,85] interval} \\ 
 \hline \\[-1.8ex] 
- win & -0.000^{***} \\ 
+ Win & -0.000^{***} \\ 
   & (0.000) \\ 
   & \\ 
  lose &  \\ 

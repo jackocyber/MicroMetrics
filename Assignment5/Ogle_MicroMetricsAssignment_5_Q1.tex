@@ -223,17 +223,21 @@ the data points.
 
 Clark restricts his sample to those schools with votes from 15\% and
 85\% because he wants to reduce bias from outliers from schools who were
-very opposed or very for autonomy. Additionally, RD necessitates that in
+very opposed or very for autonomy. For example schools with high vote
+shares may have been under threat of closure, whilst few schools
+received very low vote shares. Additionally, RD necessitates that in
 order to estimate the average effect of a treatment you look at an
 arbitrary cutoff and evaluate the treatment effects before and after the
-cutoff. Clark needs to estimate around the cutoff, 50, which is inside
-the (15,85) interval. Other columns have functions of vote share because
-vote share is the forcing variable in this Fuzzy Regression
-Discontinuity model. Fuzzy RD exploits discontinuities in the
-probability of treatment conditional on a variate. The discontinuity,
-here is Vote share, and it becomes the IV for the treatment status.
-Which is why Table 3a includes functions of vote share both on their own
-and interacted with the win/lose variable.
+cutoff. Additionally they saw that schools outside this interval have
+different baseline characteristics and are less likely to survive. Clark
+needs to estimate around the cutoff, 50, which is inside the (15,85)
+interval. Other columns have functions of vote share because vote share
+is the forcing variable in this Fuzzy Regression Discontinuity model.
+Fuzzy RD exploits discontinuities in the probability of treatment
+conditional on a variate. The discontinuity, here is Vote share, and it
+becomes the IV for the treatment status. Which is why Table 3a includes
+functions of vote share both on their own and interacted with the
+win/lose variable.
 
 \begin{enumerate}
 \def\labelenumi{(\alph{enumi})}
@@ -243,22 +247,10 @@ and interacted with the win/lose variable.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{model_d_}\DecValTok{1}\NormalTok{ <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(vote }\OperatorTok{~}\StringTok{ }\NormalTok{win }\OperatorTok{+}\StringTok{ }\NormalTok{vote }\OperatorTok{+}\StringTok{ }\NormalTok{vote}\OperatorTok{*}\NormalTok{lose }\OperatorTok{+}\StringTok{ }\NormalTok{vote}\OperatorTok{*}\NormalTok{win }\OperatorTok{+}\StringTok{ }\NormalTok{(vote}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{*}\NormalTok{lose }\OperatorTok{+}\StringTok{ }\NormalTok{(vote}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{*}\NormalTok{win }\OperatorTok{+}\StringTok{ }\NormalTok{percentage_change, }\DataTypeTok{data =}\NormalTok{ restrict)}
-\end{Highlighting}
-\end{Shaded}
+\NormalTok{restrict}\OperatorTok{$}\NormalTok{vote_share <-}\StringTok{ }\NormalTok{restrict}\OperatorTok{$}\NormalTok{vote}\OperatorTok{/}\DecValTok{100}
 
-\begin{verbatim}
-## Warning in model.matrix.default(mt, mf, contrasts): the response appeared on the
-## right-hand side and was dropped
-\end{verbatim}
+\NormalTok{model_d_}\DecValTok{1}\NormalTok{ <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(vote_share }\OperatorTok{~}\StringTok{ }\NormalTok{win }\OperatorTok{+}\StringTok{ }\NormalTok{vote }\OperatorTok{+}\StringTok{ }\NormalTok{vote}\OperatorTok{*}\NormalTok{lose }\OperatorTok{+}\StringTok{ }\NormalTok{vote}\OperatorTok{*}\NormalTok{win }\OperatorTok{+}\StringTok{ }\NormalTok{(vote}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{*}\NormalTok{lose }\OperatorTok{+}\StringTok{ }\NormalTok{(vote}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{*}\NormalTok{win }\OperatorTok{+}\StringTok{ }\NormalTok{percentage_change, }\DataTypeTok{data =}\NormalTok{ restrict)}
 
-\begin{verbatim}
-## Warning in model.matrix.default(mt, mf, contrasts): problem with term 2 in
-## model.matrix: no columns are assigned
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \KeywordTok{stargazer}\NormalTok{(model_d_}\DecValTok{1}\NormalTok{, }\DataTypeTok{column.labels=}\KeywordTok{c}\NormalTok{(}\StringTok{"Non-Grammar Schools with Vote Shares in [15,85] interval"}\NormalTok{), }\DataTypeTok{title=}\StringTok{"Regression Results (d)"}\NormalTok{, }\DataTypeTok{align=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{notes =} \StringTok{"Standard errors in parentheses"}\NormalTok{, }\DataTypeTok{notes.align =} \StringTok{"l"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -266,7 +258,7 @@ and interacted with the win/lose variable.
 \begin{verbatim}
 ## 
 ## % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-## % Date and time: Sun, Feb 20, 2022 - 18:19:54
+## % Date and time: Sun, Feb 20, 2022 - 19:25:39
 ## % Requires LaTeX packages: dcolumn 
 ## \begin{table}[!htbp] \centering 
 ##   \caption{Regression Results (d)} 
@@ -276,25 +268,28 @@ and interacted with the win/lose variable.
 ## \hline \\[-1.8ex] 
 ##  & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
 ## \cline{2-2} 
-## \\[-1.8ex] & \multicolumn{1}{c}{vote} \\ 
+## \\[-1.8ex] & \multicolumn{1}{c}{vote\_share} \\ 
 ##  & \multicolumn{1}{c}{Non-Grammar Schools with Vote Shares in [15,85] interval} \\ 
 ## \hline \\[-1.8ex] 
 ##  win & -0.000^{***} \\ 
 ##   & (0.000) \\ 
 ##   & \\ 
+##  vote & 0.010^{***} \\ 
+##   & (0.000) \\ 
+##   & \\ 
 ##  lose &  \\ 
 ##   &  \\ 
 ##   & \\ 
-##  percentage\_change & 0.000 \\ 
+##  percentage\_change & -0.000 \\ 
 ##   & (0.000) \\ 
 ##   & \\ 
-##  vote:lose & 1.000^{***} \\ 
+##  vote:lose & -0.000 \\ 
 ##   & (0.000) \\ 
 ##   & \\ 
-##  vote:win & 1.000^{***} \\ 
-##   & (0.000) \\ 
+##  win:vote &  \\ 
+##   &  \\ 
 ##   & \\ 
-##  Constant & -0.000^{***} \\ 
+##  Constant & 0.000^{***} \\ 
 ##   & (0.000) \\ 
 ##   & \\ 
 ## \hline \\[-1.8ex] 
@@ -302,7 +297,7 @@ and interacted with the win/lose variable.
 ## R$^{2}$ & \multicolumn{1}{c}{1.000} \\ 
 ## Adjusted R$^{2}$ & \multicolumn{1}{c}{1.000} \\ 
 ## Residual Std. Error & \multicolumn{1}{c}{0.000 (df = 519)} \\ 
-## F Statistic & \multicolumn{1}{c}{34,064,124,303,065,597,294,021,672,173,568.000$^{***}$ (df = 4; 519)} \\ 
+## F Statistic & \multicolumn{1}{c}{793,890,093,141,614,703,078,787,382,247,424.000$^{***}$ (df = 4; 519)} \\ 
 ## \hline 
 ## \hline \\[-1.8ex] 
 ## \textit{Note:}  & \multicolumn{1}{l}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
@@ -319,10 +314,9 @@ and interacted with the win/lose variable.
 \hline \\[-1.8ex] 
  & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
 \cline{2-2} 
-\\[-1.8ex] & \multicolumn{1}{c}{vote} \\ 
  & \multicolumn{1}{c}{Non-Grammar Schools with Vote Shares in [15,85] interval} \\ 
 \hline \\[-1.8ex] 
- win & -0.000^{***} \\ 
+ Win & -0.000^{***} \\ 
   & (0.000) \\ 
   & \\ 
  lose &  \\ 
