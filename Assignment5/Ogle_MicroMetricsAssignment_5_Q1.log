@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2022.2.20)  20 FEB 2022 23:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2022.2.20)  20 FEB 2022 23:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -334,6 +334,9 @@ File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
 
 LaTeX Warning: Label `' multiply defined.
 
+
+LaTeX Warning: Label `' multiply defined.
+
 )
 \openout1 = `Ogle_MicroMetricsAssignment_5_Q1.aux'.
 
@@ -579,7 +582,16 @@ Overfull \vbox (45.54424pt too high) has occurred while \output is active []
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.501 
-      ] [15] (./Ogle_MicroMetricsAssignment_5_Q1.aux)
+      ]
+Overfull \hbox (28.82033pt too wide) in paragraph at lines 563--563
+[]\T1/lmtt/m/n/12 ## % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu[] 
+ []
+
+[15] [16] [17pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.603 \end{document}
+                    ] (./Ogle_MicroMetricsAssignment_5_Q1.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -587,18 +599,18 @@ Package rerunfilecheck Info: File `Ogle_MicroMetricsAssignment_5_Q1.out' has not
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 11279 strings out of 480238
- 180533 string characters out of 5894598
+ 11287 strings out of 480238
+ 180585 string characters out of 5894598
  478872 words of memory out of 5000000
  29010 multiletter control sequences out of 15000+600000
  508471 words of font info for 68 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  60i,16n,63p,714b,467s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on Ogle_MicroMetricsAssignment_5_Q1.pdf (15 pages, 264147 bytes).
+Output written on Ogle_MicroMetricsAssignment_5_Q1.pdf (17 pages, 266733 bytes).
 PDF statistics:
- 181 PDF objects out of 1000 (max. 8388607)
- 128 compressed objects within 2 object streams
- 23 named destinations out of 1000 (max. 500000)
+ 197 PDF objects out of 1000 (max. 8388607)
+ 142 compressed objects within 2 object streams
+ 31 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

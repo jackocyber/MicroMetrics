@@ -248,7 +248,7 @@ win/lose variable.
 \begin{verbatim}
 ## 
 ## % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-## % Date and time: Sun, Feb 20, 2022 - 23:39:39
+## % Date and time: Sun, Feb 20, 2022 - 23:48:42
 ## % Requires LaTeX packages: dcolumn 
 ## \begin{table}[!htbp] \centering 
 ##   \caption{Regression Results (d)} 
@@ -406,7 +406,7 @@ variables decreases.
 \begin{verbatim}
 ## 
 ## % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-## % Date and time: Sun, Feb 20, 2022 - 23:39:39
+## % Date and time: Sun, Feb 20, 2022 - 23:48:42
 ## % Requires LaTeX packages: dcolumn 
 ## \begin{table}[!htbp] \centering 
 ##   \caption{Regression Results (e)} 
@@ -499,9 +499,105 @@ F Statistic (df = 3; 353) & \multicolumn{1}{c}{0.666} & \multicolumn{1}{c}{0.666
 \end{tabular} 
 \end{table}
 
-When I experimented with a threshold of smaller {[}25,75{]} I get
-slightly different results compared to my results previously from (d)
-and they also differ from Clark's results. The reason for these
-difference is the same reason why Clark chose no (f) (g) (h) (i) (j)
+\begin{itemize}
+\tightlist
+\item
+  When I experimented with a threshold of smaller {[}25,75{]} I get
+  slightly different results compared to my results previously from (d)
+  and they also differ from Clark's results. We see a larger focus on
+  the RD and therefore the effect of win the election decreases. And the
+  average effect of the interaction between vote share and losing the
+  election decreases. A likely reasons for this change is that the
+  overall estimator slope changes with the reduction of observations.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{5}
+\item
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{restrict =}\StringTok{ }\KeywordTok{subset}\NormalTok{(damon, vote }\OperatorTok{<=}\StringTok{ }\DecValTok{85} \OperatorTok{&}\StringTok{ }\NormalTok{vote }\OperatorTok{>=}\StringTok{ }\DecValTok{15}\NormalTok{)}
+
+\NormalTok{model_f_}\DecValTok{1}\NormalTok{ <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(passrate0 }\OperatorTok{~}\StringTok{ }\NormalTok{win, }\DataTypeTok{data =}\NormalTok{ restrict )}
+
+\KeywordTok{stargazer}\NormalTok{(model_f_}\DecValTok{1}\NormalTok{, }\DataTypeTok{title=}\StringTok{"Regression Results (f)"}\NormalTok{, }\DataTypeTok{align=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{notes =} \StringTok{"Standard errors in parentheses"}\NormalTok{, }\DataTypeTok{notes.align =} \StringTok{"l"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+## % Date and time: Sun, Feb 20, 2022 - 23:48:42
+## % Requires LaTeX packages: dcolumn 
+## \begin{table}[!htbp] \centering 
+##   \caption{Regression Results (f)} 
+##   \label{} 
+## \begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} } 
+## \\[-1.8ex]\hline 
+## \hline \\[-1.8ex] 
+##  & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+## \cline{2-2} 
+## \\[-1.8ex] & \multicolumn{1}{c}{passrate0} \\ 
+## \hline \\[-1.8ex] 
+##  win & -2.082 \\ 
+##   & (1.364) \\ 
+##   & \\ 
+##  Constant & 41.462^{***} \\ 
+##   & (1.081) \\ 
+##   & \\ 
+## \hline \\[-1.8ex] 
+## Observations & \multicolumn{1}{c}{524} \\ 
+## R$^{2}$ & \multicolumn{1}{c}{0.004} \\ 
+## Adjusted R$^{2}$ & \multicolumn{1}{c}{0.003} \\ 
+## Residual Std. Error & \multicolumn{1}{c}{15.093 (df = 522)} \\ 
+## F Statistic & \multicolumn{1}{c}{2.329 (df = 1; 522)} \\ 
+## \hline 
+## \hline \\[-1.8ex] 
+## \textit{Note:}  & \multicolumn{1}{l}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+##  & \multicolumn{1}{l}{Standard errors in parentheses} \\ 
+## \end{tabular} 
+## \end{table}
+\end{verbatim}
+
+\begin{table}[!htbp] \centering 
+  \caption{Regression Results (f)} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} } 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & \multicolumn{1}{c}{passrate0} \\ 
+\hline \\[-1.8ex] 
+ win & -2.082 \\ 
+  & (1.364) \\ 
+  & \\ 
+ Constant & 41.462^{***} \\ 
+  & (1.081) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Observations & \multicolumn{1}{c}{524} \\ 
+R$^{2}$ & \multicolumn{1}{c}{0.004} \\ 
+Adjusted R$^{2}$ & \multicolumn{1}{c}{0.003} \\ 
+Residual Std. Error & \multicolumn{1}{c}{15.093 (df = 522)} \\ 
+F Statistic & \multicolumn{1}{c}{2.329 (df = 1; 522)} \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{l}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+ & \multicolumn{1}{l}{Standard errors in parentheses} \\ 
+\end{tabular} 
+\end{table}
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{6}
+\item
+\item
+\item
+\item
+\end{enumerate}
 
 \end{document}
