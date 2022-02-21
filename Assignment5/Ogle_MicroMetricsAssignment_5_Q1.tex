@@ -248,7 +248,7 @@ win/lose variable.
 \begin{verbatim}
 ## 
 ## % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-## % Date and time: Sun, Feb 20, 2022 - 23:48:42
+## % Date and time: Mon, Feb 21, 2022 - 00:07:25
 ## % Requires LaTeX packages: dcolumn 
 ## \begin{table}[!htbp] \centering 
 ##   \caption{Regression Results (d)} 
@@ -406,7 +406,7 @@ variables decreases.
 \begin{verbatim}
 ## 
 ## % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-## % Date and time: Sun, Feb 20, 2022 - 23:48:42
+## % Date and time: Mon, Feb 21, 2022 - 00:07:25
 ## % Requires LaTeX packages: dcolumn 
 ## \begin{table}[!htbp] \centering 
 ##   \caption{Regression Results (e)} 
@@ -530,7 +530,7 @@ F Statistic (df = 3; 353) & \multicolumn{1}{c}{0.666} & \multicolumn{1}{c}{0.666
 \begin{verbatim}
 ## 
 ## % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-## % Date and time: Sun, Feb 20, 2022 - 23:48:42
+## % Date and time: Mon, Feb 21, 2022 - 00:07:25
 ## % Requires LaTeX packages: dcolumn 
 ## \begin{table}[!htbp] \centering 
 ##   \caption{Regression Results (f)} 
@@ -562,7 +562,7 @@ F Statistic (df = 3; 353) & \multicolumn{1}{c}{0.666} & \multicolumn{1}{c}{0.666
 ## \end{table}
 \end{verbatim}
 
-\begin{table}[!htbp] \centering 
+\begin{table}[H] \centering 
   \caption{Regression Results (f)} 
   \label{} 
 \begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} } 
@@ -591,13 +591,56 @@ F Statistic & \multicolumn{1}{c}{2.329 (df = 1; 522)} \\
 \end{tabular} 
 \end{table}
 
+There is no reason to use passrate0 as the dependent variable as we want
+to estimate the effect of the autonomy of schools on pass rate. The vote
+would have had little to now effect on the pass rate in the base year.
+The base year is important because we can regress the difference in the
+base year + 2 with the base year to get a significant result. This does
+not invalidate the results. The result here is that on average a school
+that has one the election has a \%200 reduction in pass rate. This
+result is not statistically significant and therefore does not affect
+nor invalidate our RDD.
+
 \begin{enumerate}
 \def\labelenumi{(\alph{enumi})}
 \setcounter{enumi}{6}
 \item
-\item
-\item
+\end{enumerate}
+
+In addition to points e and f we can include further evidence about the
+relationship between the variables.
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{7}
 \item
 \end{enumerate}
+
+The validity of RD estimates depends crucially on the assumption that
+the polynomials provide and adequate representation of E {[}Y0i
+\textbar{} Xi {]} If not what looks like a jump may simply be a
+non-linearity in f (Xi) that the polynomials have not accounted for. A
+regression discontinuity method is close to an experiment under ideal
+conditions, in reducing selection bias (high internal validity), and in
+presenting challenges to broader generalization (low external validity).
+RD has high internal validity, meaning \_\textbf{. And it has low
+external validity meaning }.
+
+\begin{enumerate}
+\def\labelenumi{(\roman{enumi})}
+\item
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{9}
+\item
+\end{enumerate}
+
+I used this package for b so my results are the same. But I have
+included them again here, but with different binwidths. One thing that I
+noticed is that when you increase the binwidth the data collapses and
+you miss certain nuances in the visualization. The opposite is true when
+you decrease it.
 
 \end{document}

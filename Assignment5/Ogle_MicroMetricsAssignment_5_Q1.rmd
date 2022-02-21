@@ -243,7 +243,7 @@ model_f_1 <- lm(passrate0 ~ win, data = restrict )
 stargazer(model_f_1, title="Regression Results (f)", align=TRUE, notes = "Standard errors in parentheses", notes.align = "l")
 
 ```
-\begin{table}[!htbp] \centering 
+\begin{table}[H] \centering 
   \caption{Regression Results (f)} 
   \label{} 
 \begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} } 
@@ -272,8 +272,21 @@ F Statistic & \multicolumn{1}{c}{2.329 (df = 1; 522)} \\
 \end{tabular} 
 \end{table} 
 
+There is no reason to use passrate0 as the dependent variable as we want to estimate the effect of the autonomy of schools on pass rate. The vote would have had little to now effect on the pass rate in the base year. The base year is important because we can regress the difference in the base year + 2 with the base year to get a significant result. This does not invalidate the results. The result here is that on average a school that has one the election has a %200 reduction in pass rate. This result is not statistically significant and therefore does not affect nor invalidate our RDD. 
+
 
 (g)
+
+In addition to points e and f we can include further evidence about the relationship between the variables.  
+
 (h)
+
+The validity of RD estimates depends crucially on the assumption that the polynomials provide and adequate representation of E [Y0i | Xi ] If not what looks like a jump may simply be a non-linearity in f (Xi) that the polynomials have not accounted for. A regression discontinuity method is close to an experiment under ideal conditions, in reducing selection bias (high internal validity), and in presenting challenges to broader generalization (low external validity). RD has high internal validity, meaning ___. And it has low external validity meaning __.
+
+
 (i)
+
+
 (j)
+
+I used this package for b so my results are the same. But I have included them again here, but with different binwidths. One thing that I noticed is that when you increase the binwidth the data collapses and you miss certain nuances in the visualization. The opposite is true when you decrease it. 
