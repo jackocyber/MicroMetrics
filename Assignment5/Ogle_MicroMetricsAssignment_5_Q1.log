@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2022.2.20)  20 FEB 2022 23:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2022.2.20)  20 FEB 2022 23:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -330,8 +330,11 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count288
 \l__pdf_internal_box=\box57
+) (./Ogle_MicroMetricsAssignment_5_Q1.aux
+
+LaTeX Warning: Label `' multiply defined.
+
 )
-No file Ogle_MicroMetricsAssignment_5_Q1.aux.
 \openout1 = `Ogle_MicroMetricsAssignment_5_Q1.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 111.
@@ -371,6 +374,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 111.
 LaTeX Info: Redefining \pageref on input line 111.
 LaTeX Info: Redefining \nameref on input line 111.
+(./Ogle_MicroMetricsAssignment_5_Q1.out) (./Ogle_MicroMetricsAssignment_5_Q1.out)
 \@outlinefile=\write4
 \openout4 = `Ogle_MicroMetricsAssignment_5_Q1.out'.
 
@@ -522,18 +526,79 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 302.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 302.
-! Missing $ inserted.
-<inserted text> 
-                $
-l.325  vote\_share^
-                   2*win &  &  &  &  \\ 
-Here is how much of TeX's memory you used:
- 11226 strings out of 480238
- 179274 string characters out of 5894598
- 464524 words of memory out of 5000000
- 28979 multiletter control sequences out of 15000+600000
- 508096 words of font info for 67 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 60i,16n,63p,584b,467s stack positions out of 5000i,500n,10000p,200000b,80000s
+[9]
+Overfull \vbox (45.54424pt too high) has occurred while \output is active []
 
-!  ==> Fatal error occurred, no output PDF file produced!
+[10pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.343 
+      ]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 347.
+(/Users/matthewogle/Library/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) [11]
+Overfull \hbox (28.82033pt too wide) in paragraph at lines 455--455
+[]\T1/lmtt/m/n/12 ## % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu[] 
+ []
+
+
+Overfull \hbox (84.39536pt too wide) in paragraph at lines 455--455
+[]\T1/lmtt/m/n/12 ## \\[-1.8ex] & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)}\\[] 
+ []
+
+[12]
+Overfull \hbox (102.89235pt too wide) in paragraph at lines 455--455
+[]\T1/lmtt/m/n/12 ## Observations & \multicolumn{1}{c}{651} & \multicolumn{1}{c}{651} & \multicolumn{1}{c}{651} & \multicolumn{1}{c}{651} \\[] 
+ []
+
+
+Overfull \hbox (121.44537pt too wide) in paragraph at lines 455--455
+[]\T1/lmtt/m/n/12 ## R$^{2}$ & \multicolumn{1}{c}{0.021} & \multicolumn{1}{c}{0.021} & \multicolumn{1}{c}{0.021} & \multicolumn{1}{c}{0.021} \\[] 
+ []
+
+
+Overfull \hbox (176.99239pt too wide) in paragraph at lines 455--455
+[]\T1/lmtt/m/n/12 ## Adjusted R$^{2}$ & \multicolumn{1}{c}{0.016} & \multicolumn{1}{c}{0.016} & \multicolumn{1}{c}{0.016} & \multicolumn{1}{c}{0.016} \\[] 
+ []
+
+
+Overfull \hbox (288.13544pt too wide) in paragraph at lines 455--455
+[]\T1/lmtt/m/n/12 ## Residual Std. Error (df = 647) & \multicolumn{1}{c}{15.628} & \multicolumn{1}{c}{15.628} & \multicolumn{1}{c}{15.628} & \multicolumn{1}{c}{15.628} \\[] 
+ []
+
+
+Overfull \hbox (430.1605pt too wide) in paragraph at lines 455--455
+[]\T1/lmtt/m/n/12 ## F Statistic (df = 3; 647) & \multicolumn{1}{c}{4.586$^{***}$} & \multicolumn{1}{c}{4.586$^{***}$} & \multicolumn{1}{c}{4.586$^{***}$} & \multicolumn{1}{c}{4.586$^{***}$} \\[] 
+ []
+
+[13]
+Overfull \vbox (45.54424pt too high) has occurred while \output is active []
+
+[14pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.501 
+      ] [15] (./Ogle_MicroMetricsAssignment_5_Q1.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package rerunfilecheck Info: File `Ogle_MicroMetricsAssignment_5_Q1.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+ ) 
+Here is how much of TeX's memory you used:
+ 11284 strings out of 480238
+ 180564 string characters out of 5894598
+ 479872 words of memory out of 5000000
+ 29010 multiletter control sequences out of 15000+600000
+ 508471 words of font info for 68 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 60i,16n,63p,714b,467s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
+Output written on Ogle_MicroMetricsAssignment_5_Q1.pdf (15 pages, 263944 bytes).
+PDF statistics:
+ 187 PDF objects out of 1000 (max. 8388607)
+ 134 compressed objects within 2 object streams
+ 28 named destinations out of 1000 (max. 500000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+

@@ -111,7 +111,7 @@ stargazer(model_d_1, model_d_2, model_d_3, model_d_4, title="Regression Results 
 
 ```
 
-\begin{table}[!htbp] \centering 
+\begin{table}[H] \centering 
   \caption{Regression Results (d)} 
   \label{} 
 \begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
@@ -137,7 +137,7 @@ stargazer(model_d_1, model_d_2, model_d_3, model_d_4, title="Regression Results 
  win*vote\_share &  &  &  &  \\ 
   &  &  &  &  \\ 
   & & & & \\ 
- vote\_share^2*win &  &  &  &  \\ 
+ vote\_share*win &  &  &  &  \\ 
   &  &  &  &  \\ 
   & & & & \\ 
  Constant & 40.597^{***} & 55.325^{***} & 40.597^{***} & 40.597^{***} \\ 
@@ -165,6 +165,70 @@ If the RDD is valid in this case the internal validity of the results would stil
 
 (e)
 
+```{r}
+# Sampling smaller thresholds (95, 5)
+restrict = subset(damon, vote <= 95 & vote >= 5)
+
+
+restrict$vote_share <- restrict$vote/100
+restrict$vote_share_sqd <- restrict$vote_share^2
+
+model_d_1 <- lm(passrate2 ~ win + vote_share + vote_share*lose + vote_share*win, data = restrict)
+
+model_d_2 <- lm(passrate2 ~ vote_share + vote_share*lose + vote_share*win, data = restrict)
+
+model_d_3 <- lm(passrate2 ~ win + vote_share + (vote_share^2)*lose + (vote_share^2)*win, data = restrict)
+
+model_d_4 <- lm(passrate2 ~ win + vote_share + vote_share*lose + vote_share*win + (vote_share^2)*lose + (vote_share^2)*win, data = restrict)
+
+stargazer(model_d_1, model_d_2, model_d_3, model_d_4, title="Regression Results (e)", align=TRUE, notes = "Standard errors in parentheses", notes.align = "l")
+
+```
+
+\begin{table}[H] \centering 
+  \caption{Regression Results (e)} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{4}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-5} 
+\\[-1.8ex] & \multicolumn{4}{c}{passrate2} \\ 
+\\[-1.8ex] & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)}\\ 
+\hline \\[-1.8ex] 
+ win & 21.151^{***} &  & 21.151^{***} & 21.151^{***} \\ 
+  & (6.086) &  & (6.086) & (6.086) \\ 
+  & & & & \\ 
+ vote\_share & -19.366^{***} & -19.366^{***} & -19.366^{***} & -19.366^{***} \\ 
+  & (6.003) & (6.003) & (6.003) & (6.003) \\ 
+  & & & & \\ 
+ lose &  & -21.151^{***} &  &  \\ 
+  &  & (6.086) &  &  \\ 
+  & & & & \\ 
+ vote\_share:lose & 39.932^{***} & 39.932^{***} & 39.932^{***} & 39.932^{***} \\ 
+  & (12.873) & (12.873) & (12.873) & (12.873) \\ 
+  & & & & \\ 
+ win:vote\_share &  &  &  &  \\ 
+  &  &  &  &  \\ 
+  & & & & \\ 
+ vote\_share:win &  &  &  &  \\ 
+  &  &  &  &  \\ 
+  & & & & \\ 
+ Constant & 35.731^{***} & 56.882^{***} & 35.731^{***} & 35.731^{***} \\ 
+  & (4.001) & (4.586) & (4.001) & (4.001) \\ 
+  & & & & \\ 
+\hline \\[-1.8ex] 
+Observations & \multicolumn{1}{c}{651} & \multicolumn{1}{c}{651} & \multicolumn{1}{c}{651} & \multicolumn{1}{c}{651} \\ 
+R$^{2}$ & \multicolumn{1}{c}{0.021} & \multicolumn{1}{c}{0.021} & \multicolumn{1}{c}{0.021} & \multicolumn{1}{c}{0.021} \\ 
+Adjusted R$^{2}$ & \multicolumn{1}{c}{0.016} & \multicolumn{1}{c}{0.016} & \multicolumn{1}{c}{0.016} & \multicolumn{1}{c}{0.016} \\ 
+Residual Std. Error (df = 647) & \multicolumn{1}{c}{15.628} & \multicolumn{1}{c}{15.628} & \multicolumn{1}{c}{15.628} & \multicolumn{1}{c}{15.628} \\ 
+F Statistic (df = 3; 647) & \multicolumn{1}{c}{4.586$^{***}$} & \multicolumn{1}{c}{4.586$^{***}$} & \multicolumn{1}{c}{4.586$^{***}$} & \multicolumn{1}{c}{4.586$^{***}$} \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{4}{l}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+ & \multicolumn{4}{l}{Standard errors in parentheses} \\ 
+\end{tabular} 
+\end{table} 
 
 
 (f)
