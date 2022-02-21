@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2022.2.8)  20 FEB 2022 22:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2022.2.8)  20 FEB 2022 22:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -330,7 +330,8 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count288
 \l__pdf_internal_box=\box57
-) (./Ogle_MicroMetricsAssignment_5_Q1.aux)
+)
+No file Ogle_MicroMetricsAssignment_5_Q1.aux.
 \openout1 = `Ogle_MicroMetricsAssignment_5_Q1.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 111.
@@ -370,7 +371,6 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 111.
 LaTeX Info: Redefining \pageref on input line 111.
 LaTeX Info: Redefining \nameref on input line 111.
-(./Ogle_MicroMetricsAssignment_5_Q1.out) (./Ogle_MicroMetricsAssignment_5_Q1.out)
 \@outlinefile=\write4
 \openout4 = `Ogle_MicroMetricsAssignment_5_Q1.out'.
 
@@ -522,30 +522,18 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 302.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 302.
-
-LaTeX Warning: Float too large for page by 45.54424pt on input line 342.
-
-[9] [10pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.353 \end
-          {enumerate}] [11] (./Ogle_MicroMetricsAssignment_5_Q1.aux)
-Package rerunfilecheck Info: File `Ogle_MicroMetricsAssignment_5_Q1.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
- ) 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.325  vote\_share^
+                   2*win &  &  &  &  \\ 
 Here is how much of TeX's memory you used:
- 11245 strings out of 480238
- 179636 string characters out of 5894599
- 479833 words of memory out of 5000000
- 28980 multiletter control sequences out of 15000+600000
+ 11226 strings out of 480238
+ 179274 string characters out of 5894599
+ 464524 words of memory out of 5000000
+ 28979 multiletter control sequences out of 15000+600000
  508096 words of font info for 67 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  60i,16n,63p,584b,467s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on Ogle_MicroMetricsAssignment_5_Q1.pdf (11 pages, 253829 bytes).
-PDF statistics:
- 164 PDF objects out of 1000 (max. 8388607)
- 116 compressed objects within 2 object streams
- 23 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
+!  ==> Fatal error occurred, no output PDF file produced!

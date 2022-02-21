@@ -248,7 +248,7 @@ win/lose variable.
 \begin{verbatim}
 ## 
 ## % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-## % Date and time: Sun, Feb 20, 2022 - 22:41:56
+## % Date and time: Sun, Feb 20, 2022 - 22:47:07
 ## % Requires LaTeX packages: dcolumn 
 ## \begin{table}[!htbp] \centering 
 ##   \caption{Regression Results (d)} 
@@ -316,13 +316,13 @@ win/lose variable.
  lose &  & -14.727^{**} &  &  \\ 
   &  & (7.235) &  &  \\ 
   & & & & \\ 
- vote\_share:lose & 24.871^{*} & 24.871^{*} & 24.871^{*} & 24.871^{*} \\ 
+ vote\_share* lose & 24.871^{*} & 24.871^{*} & 24.871^{*} & 24.871^{*} \\ 
   & (14.672) & (14.672) & (14.672) & (14.672) \\ 
   & & & & \\ 
- win:vote\_share &  &  &  &  \\ 
+ win*vote\_share &  &  &  &  \\ 
   &  &  &  &  \\ 
   & & & & \\ 
- vote\_share:win &  &  &  &  \\ 
+ vote\_share^2*win &  &  &  &  \\ 
   &  &  &  &  \\ 
   & & & & \\ 
  Constant & 40.597^{***} & 55.325^{***} & 40.597^{***} & 40.597^{***} \\ 
@@ -340,6 +340,14 @@ F Statistic (df = 3; 520) & \multicolumn{1}{c}{1.614} & \multicolumn{1}{c}{1.614
  & \multicolumn{4}{l}{Standard errors in parentheses} \\ 
 \end{tabular} 
 \end{table}
+
+\begin{itemize}
+\tightlist
+\item
+  I attempted to estimate the some regressions where vote was squared,
+  but I got the same results. I would expect to see different results
+  specifically, I would have expected to find that
+\end{itemize}
 
 \begin{enumerate}
 \def\labelenumi{(\alph{enumi})}
