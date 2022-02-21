@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2022.2.8)  20 FEB 2022 22:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2022.2.8)  20 FEB 2022 22:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -482,70 +482,70 @@ File: Ogle_MicroMetricsAssignment_5_Q1_files/figure-latex/unnamed-chunk-2-6.pdf 
 Package pdftex.def Info: Ogle_MicroMetricsAssignment_5_Q1_files/figure-latex/unnamed-chunk-2-6.pdf  used on input line 210.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [6 <./Ogle_MicroMetricsAssignment_5_Q1_files/figure-latex/unnamed-chunk-2-5.pdf>] [7 <./Ogle_MicroMetricsAssignment_5_Q1_files/figure-latex/unnamed-chunk-2-6.pdf>]
-Overfull \hbox (28.82033pt too wide) in paragraph at lines 294--294
+Overfull \hbox (28.82033pt too wide) in paragraph at lines 297--297
 []\T1/lmtt/m/n/12 ## % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu[] 
  []
 
 
-Overfull \hbox (84.39536pt too wide) in paragraph at lines 294--294
+Overfull \hbox (84.39536pt too wide) in paragraph at lines 297--297
 []\T1/lmtt/m/n/12 ## \\[-1.8ex] & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)}\\[] 
  []
 
 [8]
-Overfull \hbox (102.92036pt too wide) in paragraph at lines 294--294
+Overfull \hbox (102.92036pt too wide) in paragraph at lines 297--297
 []\T1/lmtt/m/n/12 ## Observations & \multicolumn{1}{c}{524} & \multicolumn{1}{c}{524} & \multicolumn{1}{c}{524} & \multicolumn{1}{c}{524} \\[] 
  []
 
 
-Overfull \hbox (121.41736pt too wide) in paragraph at lines 294--294
+Overfull \hbox (121.41736pt too wide) in paragraph at lines 297--297
 []\T1/lmtt/m/n/12 ## R$^{2}$ & \multicolumn{1}{c}{0.009} & \multicolumn{1}{c}{0.009} & \multicolumn{1}{c}{0.009} & \multicolumn{1}{c}{0.009} \\[] 
  []
 
 
-Overfull \hbox (177.0204pt too wide) in paragraph at lines 294--294
+Overfull \hbox (177.0204pt too wide) in paragraph at lines 297--297
 []\T1/lmtt/m/n/12 ## Adjusted R$^{2}$ & \multicolumn{1}{c}{0.004} & \multicolumn{1}{c}{0.004} & \multicolumn{1}{c}{0.004} & \multicolumn{1}{c}{0.004} \\[] 
  []
 
 
-Overfull \hbox (288.14244pt too wide) in paragraph at lines 294--294
+Overfull \hbox (288.14244pt too wide) in paragraph at lines 297--297
 []\T1/lmtt/m/n/12 ## Residual Std. Error (df = 520) & \multicolumn{1}{c}{15.267} & \multicolumn{1}{c}{15.267} & \multicolumn{1}{c}{15.267} & \multicolumn{1}{c}{15.267} \\[] 
  []
 
 
-Overfull \hbox (232.56741pt too wide) in paragraph at lines 294--294
+Overfull \hbox (232.56741pt too wide) in paragraph at lines 297--297
 []\T1/lmtt/m/n/12 ## F Statistic (df = 3; 520) & \multicolumn{1}{c}{1.614} & \multicolumn{1}{c}{1.614} & \multicolumn{1}{c}{1.614} & \multicolumn{1}{c}{1.614} \\[] 
  []
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 299.
+(Font)              <12> on input line 302.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 299.
+(Font)              <8> on input line 302.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 299.
+(Font)              <6> on input line 302.
 
-LaTeX Warning: Float too large for page by 2.04428pt on input line 336.
+LaTeX Warning: Float too large for page by 45.54424pt on input line 342.
 
 [9] [10pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.349 \end{document}
-                    ] (./Ogle_MicroMetricsAssignment_5_Q1.aux)
+l.353 \end
+          {enumerate}] [11] (./Ogle_MicroMetricsAssignment_5_Q1.aux)
 Package rerunfilecheck Info: File `Ogle_MicroMetricsAssignment_5_Q1.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 11244 strings out of 480238
- 179629 string characters out of 5894599
- 476833 words of memory out of 5000000
+ 11245 strings out of 480238
+ 179636 string characters out of 5894599
+ 479833 words of memory out of 5000000
  28980 multiletter control sequences out of 15000+600000
  508096 words of font info for 67 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  60i,16n,63p,584b,467s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on Ogle_MicroMetricsAssignment_5_Q1.pdf (10 pages, 253433 bytes).
+Output written on Ogle_MicroMetricsAssignment_5_Q1.pdf (11 pages, 253829 bytes).
 PDF statistics:
- 160 PDF objects out of 1000 (max. 8388607)
- 113 compressed objects within 2 object streams
- 22 named destinations out of 1000 (max. 500000)
+ 164 PDF objects out of 1000 (max. 8388607)
+ 116 compressed objects within 2 object streams
+ 23 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

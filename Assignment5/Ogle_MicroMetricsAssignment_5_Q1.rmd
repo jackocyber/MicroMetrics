@@ -93,11 +93,11 @@ Clark restricts his sample to those schools with votes from 15% and 85% because 
 
 ```{r, echo=FALSE}
 restrict$vote_share <- restrict$vote/100
-
+restrict$vote_share_sqd <- restrict$vote_share^2
 
 model_d_1 <- lm(passrate2 ~ win + vote_share + vote_share*lose + vote_share*win, data = restrict)
 
-model_d_2 <- lm(passrate2 ~ win + vote_share + vote_share*lose + vote_share*win, data = restrict)
+model_d_2 <- lm(passrate2 ~ vote_share + vote_share*lose + vote_share*win, data = restrict)
 
 model_d_3 <- lm(passrate2 ~ win + vote_share + (vote_share^2)*lose + (vote_share^2)*win, data = restrict)
 
@@ -122,23 +122,26 @@ stargazer(model_d_1, model_d_2, model_d_3, model_d_4, title="Regression Results 
 \\[-1.8ex] & \multicolumn{4}{c}{passrate2} \\ 
 \\[-1.8ex] & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)}\\ 
 \hline \\[-1.8ex] 
- win & 14.727^{**} & 14.727^{**} & 14.727^{**} & 14.727^{**} \\ 
-  & (7.235) & (7.235) & (7.235) & (7.235) \\ 
+ win & 14.727^{**} &  & 14.727^{**} & 14.727^{**} \\ 
+  & (7.235) &  & (7.235) & (7.235) \\ 
   & & & & \\ 
- vote & -0.171^{**} & -0.171^{**} & -0.171^{**} & -0.171^{**} \\ 
-  & (0.081) & (0.081) & (0.081) & (0.081) \\ 
+ vote\_share & -17.141^{**} & -17.141^{**} & -17.141^{**} & -17.141^{**} \\ 
+  & (8.134) & (8.134) & (8.134) & (8.134) \\ 
   & & & & \\ 
- lose &  &  &  &  \\ 
+ lose &  & -14.727^{**} &  &  \\ 
+  &  & (7.235) &  &  \\ 
+  & & & & \\ 
+ vote\_share:lose & 24.871^{*} & 24.871^{*} & 24.871^{*} & 24.871^{*} \\ 
+  & (14.672) & (14.672) & (14.672) & (14.672) \\ 
+  & & & & \\ 
+ win:vote\_share &  &  &  &  \\ 
   &  &  &  &  \\ 
   & & & & \\ 
- vote:lose & 0.249^{*} & 0.249^{*} & 0.249^{*} & 0.249^{*} \\ 
-  & (0.147) & (0.147) & (0.147) & (0.147) \\ 
-  & & & & \\ 
- win:vote &  &  &  &  \\ 
+ vote\_share:win &  &  &  &  \\ 
   &  &  &  &  \\ 
   & & & & \\ 
- Constant & 40.597^{***} & 40.597^{***} & 40.597^{***} & 40.597^{***} \\ 
-  & (4.348) & (4.348) & (4.348) & (4.348) \\ 
+ Constant & 40.597^{***} & 55.325^{***} & 40.597^{***} & 40.597^{***} \\ 
+  & (4.348) & (5.782) & (4.348) & (4.348) \\ 
   & & & & \\ 
 \hline \\[-1.8ex] 
 Observations & \multicolumn{1}{c}{524} & \multicolumn{1}{c}{524} & \multicolumn{1}{c}{524} & \multicolumn{1}{c}{524} \\ 
