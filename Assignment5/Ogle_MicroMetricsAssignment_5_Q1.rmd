@@ -36,8 +36,12 @@ damon$margin = damon$vote - 50
 damon$margin_sqr = damon$margin^2
 
 # Generating Interactions
-win_margin = lm(win ~ margin + margin_sqr, data = damon)
-lose_margin = lm(lose ~ margin + margin_sqr, data = damon)
+damon$win_margin = damon$win*damon$margin
+damon$lose_margin = damon$lose*damon$margin
+
+damon$win_margin_squared = damon$win*(damon$margin^2)
+damon$lose_margin_squared = damon$lose*(damon$margin^2)
+
 
 ```
 
@@ -92,17 +96,10 @@ Clark restricts his sample to those schools with votes from 15% and 85% because 
 (d)
 
 ```{r, echo=FALSE}
-restrict$vote_share <- restrict$vote/100
-restrict$vote_share_sqd <- restrict$vote_share^2
-
-model_d_1 <- lm(passrate2 ~ win + vote_share + vote_share*lose + vote_share*win, data = restrict)
-
-model_d_2 <- lm(passrate2 ~ vote_share + vote_share*lose + vote_share*win, data = restrict)
-
-model_d_3 <- lm(passrate2 ~ win + vote_share + (vote_share^2)*lose + (vote_share^2)*win, data = restrict)
-
-model_d_4 <- lm(passrate2 ~ win + vote_share + vote_share*lose + vote_share*win + (vote_share^2)*lose + (vote_share^2)*win, data = restrict)
-
+model_d_1 <- lm(passrate2-passrate0 ~ win, data=restrict)
+model_d_2 <- lm(passrate2-passrate0 ~ win + margin, data=restrict)
+model_d_3 <- lm(passrate2-passrate0 ~ win + win_margin + lose_margin, data=restrict)
+model_d_4 <- lm(passrate2-passrate0 ~ win + win_margin + lose_margin + win_margin_squared + lose_margin_squared, data = restrict)
 
 # summary(model_d_1 <- rdrobust(restrict, restrict$win, c = 0.5, all=T))
 # Non-Grammar Schools with Vote Shares in [15,85] interval
@@ -119,42 +116,42 @@ stargazer(model_d_1, model_d_2, model_d_3, model_d_4, title="Regression Results 
 \hline \\[-1.8ex] 
  & \multicolumn{4}{c}{\textit{Dependent variable:}} \\ 
 \cline{2-5} 
-\\[-1.8ex] & \multicolumn{4}{c}{passrate2} \\ 
+\\[-1.8ex] & \multicolumn{4}{c}{passrate2 - passrate0} \\ 
 \\[-1.8ex] & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)}\\ 
 \hline \\[-1.8ex] 
- win & 14.727^{**} &  & 14.727^{**} & 14.727^{**} \\ 
-  & (7.235) &  & (7.235) & (7.235) \\ 
+ win & 2.091^{***} & 3.716^{***} & 3.542^{***} & 2.654 \\ 
+  & (0.635) & (1.283) & (1.320) & (2.015) \\ 
   & & & & \\ 
- vote\_share & -17.141^{**} & -17.141^{**} & -17.141^{**} & -17.141^{**} \\ 
-  & (8.134) & (8.134) & (8.134) & (8.134) \\ 
+ margin &  & -0.045 &  &  \\ 
+  &  & (0.031) &  &  \\ 
   & & & & \\ 
- lose &  & -14.727^{**} &  &  \\ 
-  &  & (7.235) &  &  \\ 
+ win\_margin &  &  & -0.057 & 0.191 \\ 
+  &  &  & (0.037) & (0.155) \\ 
   & & & & \\ 
- vote\_share* lose & 24.871^{*} & 24.871^{*} & 24.871^{*} & 24.871^{*} \\ 
-  & (14.672) & (14.672) & (14.672) & (14.672) \\ 
+ lose\_margin &  &  & -0.019 & -0.135 \\ 
+  &  &  & (0.056) & (0.220) \\ 
   & & & & \\ 
- win*vote\_share &  &  &  &  \\ 
-  &  &  &  &  \\ 
+ win\_margin\_squared &  &  &  & -0.007^{*} \\ 
+  &  &  &  & (0.004) \\ 
   & & & & \\ 
- vote\_share*win &  &  &  &  \\ 
-  &  &  &  &  \\ 
+ lose\_margin\_squared &  &  &  & -0.004 \\ 
+  &  &  &  & (0.007) \\ 
   & & & & \\ 
- Constant & 40.597^{***} & 55.325^{***} & 40.597^{***} & 40.597^{***} \\ 
-  & (4.348) & (5.782) & (4.348) & (4.348) \\ 
+ Constant & 1.800^{***} & 1.096 & 1.510 & 0.853 \\ 
+  & (0.503) & (0.697) & (1.007) & (1.567) \\ 
   & & & & \\ 
 \hline \\[-1.8ex] 
 Observations & \multicolumn{1}{c}{524} & \multicolumn{1}{c}{524} & \multicolumn{1}{c}{524} & \multicolumn{1}{c}{524} \\ 
-R$^{2}$ & \multicolumn{1}{c}{0.009} & \multicolumn{1}{c}{0.009} & \multicolumn{1}{c}{0.009} & \multicolumn{1}{c}{0.009} \\ 
-Adjusted R$^{2}$ & \multicolumn{1}{c}{0.004} & \multicolumn{1}{c}{0.004} & \multicolumn{1}{c}{0.004} & \multicolumn{1}{c}{0.004} \\ 
-Residual Std. Error (df = 520) & \multicolumn{1}{c}{15.267} & \multicolumn{1}{c}{15.267} & \multicolumn{1}{c}{15.267} & \multicolumn{1}{c}{15.267} \\ 
-F Statistic (df = 3; 520) & \multicolumn{1}{c}{1.614} & \multicolumn{1}{c}{1.614} & \multicolumn{1}{c}{1.614} & \multicolumn{1}{c}{1.614} \\ 
+R$^{2}$ & \multicolumn{1}{c}{0.020} & \multicolumn{1}{c}{0.024} & \multicolumn{1}{c}{0.025} & \multicolumn{1}{c}{0.031} \\ 
+Adjusted R$^{2}$ & \multicolumn{1}{c}{0.018} & \multicolumn{1}{c}{0.021} & \multicolumn{1}{c}{0.019} & \multicolumn{1}{c}{0.021} \\ 
+Residual Std. Error & \multicolumn{1}{c}{7.025 (df = 522)} & \multicolumn{1}{c}{7.018 (df = 521)} & \multicolumn{1}{c}{7.022 (df = 520)} & \multicolumn{1}{c}{7.015 (df = 518)} \\ 
+F Statistic & \multicolumn{1}{c}{10.842$^{***}$ (df = 1; 522)} & \multicolumn{1}{c}{6.494$^{***}$ (df = 2; 521)} & \multicolumn{1}{c}{4.432$^{***}$ (df = 3; 520)} & \multicolumn{1}{c}{3.270$^{***}$ (df = 5; 518)} \\ 
 \hline 
 \hline \\[-1.8ex] 
 \textit{Note:}  & \multicolumn{4}{l}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
  & \multicolumn{4}{l}{Standard errors in parentheses} \\ 
 \end{tabular} 
-\end{table} 
+\end{table}  
 
 * I attempted to estimate the some regressions where vote was squared, but I got slightly different results. I attribute this to a lack of data. We lack the data that is required to obtain certain regression results. We cannot control for all the treatments and controls mentioned in the empirical section of the paper where it mentions the design behind each regression column. However, here is the design of all the columns: 
 
@@ -169,17 +166,10 @@ If the RDD is valid in this case the internal validity of the results would stil
 # Sampling smaller thresholds (95, 5)
 restrict = subset(damon, vote <= 75 & vote >= 25)
 
-
-restrict$vote_share <- restrict$vote/100
-restrict$vote_share_sqd <- restrict$vote_share^2
-
-model_d_1 <- lm(passrate2 ~ win + vote_share + vote_share*lose + vote_share*win, data = restrict)
-
-model_d_2 <- lm(passrate2 ~ vote_share + vote_share*lose + vote_share*win, data = restrict)
-
-model_d_3 <- lm(passrate2 ~ win + vote_share + (vote_share^2)*lose + (vote_share^2)*win, data = restrict)
-
-model_d_4 <- lm(passrate2 ~ win + vote_share + vote_share*lose + vote_share*win + (vote_share^2)*lose + (vote_share^2)*win, data = restrict)
+model_d_1 <- lm(passrate2-passrate0 ~ win, data=restrict)
+model_d_2 <- lm(passrate2-passrate0 ~ win + margin, data=restrict)
+model_d_3 <- lm(passrate2-passrate0 ~ win + win_margin + lose_margin, data=restrict)
+model_d_4 <- lm(passrate2-passrate0 ~ win + win_margin + lose_margin + win_margin_squared + lose_margin_squared, data = restrict)
 
 stargazer(model_d_1, model_d_2, model_d_3, model_d_4, title="Regression Results (e)", align=TRUE, notes = "Standard errors in parentheses", notes.align = "l")
 
@@ -193,36 +183,36 @@ stargazer(model_d_1, model_d_2, model_d_3, model_d_4, title="Regression Results 
 \hline \\[-1.8ex] 
  & \multicolumn{4}{c}{\textit{Dependent variable:}} \\ 
 \cline{2-5} 
-\\[-1.8ex] & \multicolumn{4}{c}{passrate2} \\ 
+\\[-1.8ex] & \multicolumn{4}{c}{passrate2 - passrate0} \\ 
 \\[-1.8ex] & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)}\\ 
 \hline \\[-1.8ex] 
- win & 5.001 &  & 5.001 & 5.001 \\ 
-  & (11.565) &  & (11.565) & (11.565) \\ 
+ win & 2.724^{***} & 2.799^{*} & 2.945^{*} & 2.290 \\ 
+  & (0.757) & (1.550) & (1.561) & (2.421) \\ 
   & & & & \\ 
- vote\_share & 3.169 & 3.169 & 3.169 & 3.169 \\ 
-  & (14.864) & (14.864) & (14.864) & (14.864) \\ 
+ margin &  & -0.003 &  &  \\ 
+  &  & (0.052) &  &  \\ 
   & & & & \\ 
- lose &  & -5.001 &  &  \\ 
-  &  & (11.565) &  &  \\ 
+ win\_margin &  &  & 0.034 & 0.023 \\ 
+  &  &  & (0.068) & (0.273) \\ 
   & & & & \\ 
- vote\_share:lose & 10.491 & 10.491 & 10.491 & 10.491 \\ 
-  & (22.888) & (22.888) & (22.888) & (22.888) \\ 
+ lose\_margin &  &  & -0.053 & 0.102 \\ 
+  &  &  & (0.080) & (0.338) \\ 
   & & & & \\ 
- win:vote\_share &  &  &  &  \\ 
-  &  &  &  &  \\ 
+ win\_margin\_squared &  &  &  & 0.0004 \\ 
+  &  &  &  & (0.010) \\ 
   & & & & \\ 
- vote\_share:win &  &  &  &  \\ 
-  &  &  &  &  \\ 
+ lose\_margin\_squared &  &  &  & 0.006 \\ 
+  &  &  &  & (0.013) \\ 
   & & & & \\ 
- Constant & 38.259^{***} & 43.260^{***} & 38.259^{***} & 38.259^{***} \\ 
-  & (6.606) & (9.493) & (6.606) & (6.606) \\ 
+ Constant & 1.801^{***} & 1.765^{**} & 1.131 & 1.829 \\ 
+  & (0.561) & (0.865) & (1.158) & (1.885) \\ 
   & & & & \\ 
 \hline \\[-1.8ex] 
 Observations & \multicolumn{1}{c}{357} & \multicolumn{1}{c}{357} & \multicolumn{1}{c}{357} & \multicolumn{1}{c}{357} \\ 
-R$^{2}$ & \multicolumn{1}{c}{0.006} & \multicolumn{1}{c}{0.006} & \multicolumn{1}{c}{0.006} & \multicolumn{1}{c}{0.006} \\ 
-Adjusted R$^{2}$ & \multicolumn{1}{c}{-0.003} & \multicolumn{1}{c}{-0.003} & \multicolumn{1}{c}{-0.003} & \multicolumn{1}{c}{-0.003} \\ 
-Residual Std. Error (df = 353) & \multicolumn{1}{c}{15.577} & \multicolumn{1}{c}{15.577} & \multicolumn{1}{c}{15.577} & \multicolumn{1}{c}{15.577} \\ 
-F Statistic (df = 3; 353) & \multicolumn{1}{c}{0.666} & \multicolumn{1}{c}{0.666} & \multicolumn{1}{c}{0.666} & \multicolumn{1}{c}{0.666} \\ 
+R$^{2}$ & \multicolumn{1}{c}{0.035} & \multicolumn{1}{c}{0.035} & \multicolumn{1}{c}{0.037} & \multicolumn{1}{c}{0.038} \\ 
+Adjusted R$^{2}$ & \multicolumn{1}{c}{0.032} & \multicolumn{1}{c}{0.030} & \multicolumn{1}{c}{0.029} & \multicolumn{1}{c}{0.024} \\ 
+Residual Std. Error & \multicolumn{1}{c}{7.120 (df = 355)} & \multicolumn{1}{c}{7.130 (df = 354)} & \multicolumn{1}{c}{7.133 (df = 353)} & \multicolumn{1}{c}{7.151 (df = 351)} \\ 
+F Statistic & \multicolumn{1}{c}{12.941$^{***}$ (df = 1; 355)} & \multicolumn{1}{c}{6.454$^{***}$ (df = 2; 354)} & \multicolumn{1}{c}{4.525$^{***}$ (df = 3; 353)} & \multicolumn{1}{c}{2.746$^{**}$ (df = 5; 351)} \\ 
 \hline 
 \hline \\[-1.8ex] 
 \textit{Note:}  & \multicolumn{4}{l}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2022.2.20)  21 FEB 2022 00:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2022.2.20)  21 FEB 2022 07:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -504,23 +504,23 @@ Overfull \hbox (102.92036pt too wide) in paragraph at lines 297--297
  []
 
 
-Overfull \hbox (121.41736pt too wide) in paragraph at lines 297--297
-[]\T1/lmtt/m/n/12 ## R$^{2}$ & \multicolumn{1}{c}{0.009} & \multicolumn{1}{c}{0.009} & \multicolumn{1}{c}{0.009} & \multicolumn{1}{c}{0.009} \\[] 
+Overfull \hbox (121.44537pt too wide) in paragraph at lines 297--297
+[]\T1/lmtt/m/n/12 ## R$^{2}$ & \multicolumn{1}{c}{0.020} & \multicolumn{1}{c}{0.024} & \multicolumn{1}{c}{0.025} & \multicolumn{1}{c}{0.031} \\[] 
  []
 
 
-Overfull \hbox (177.0204pt too wide) in paragraph at lines 297--297
-[]\T1/lmtt/m/n/12 ## Adjusted R$^{2}$ & \multicolumn{1}{c}{0.004} & \multicolumn{1}{c}{0.004} & \multicolumn{1}{c}{0.004} & \multicolumn{1}{c}{0.004} \\[] 
+Overfull \hbox (177.0134pt too wide) in paragraph at lines 297--297
+[]\T1/lmtt/m/n/12 ## Adjusted R$^{2}$ & \multicolumn{1}{c}{0.018} & \multicolumn{1}{c}{0.021} & \multicolumn{1}{c}{0.019} & \multicolumn{1}{c}{0.021} \\[] 
  []
 
 
-Overfull \hbox (288.14244pt too wide) in paragraph at lines 297--297
-[]\T1/lmtt/m/n/12 ## Residual Std. Error (df = 520) & \multicolumn{1}{c}{15.267} & \multicolumn{1}{c}{15.267} & \multicolumn{1}{c}{15.267} & \multicolumn{1}{c}{15.267} \\[] 
+Overfull \hbox (467.24554pt too wide) in paragraph at lines 297--297
+[]\T1/lmtt/m/n/12 ## Residual Std. Error & \multicolumn{1}{c}{7.025 (df = 522)} & \multicolumn{1}{c}{7.018 (df = 521)} & \multicolumn{1}{c}{7.022 (df = 520)} & \multicolumn{1}{c}{7.015 (df = 518)} \\[] 
  []
 
 
-Overfull \hbox (232.56741pt too wide) in paragraph at lines 297--297
-[]\T1/lmtt/m/n/12 ## F Statistic (df = 3; 520) & \multicolumn{1}{c}{1.614} & \multicolumn{1}{c}{1.614} & \multicolumn{1}{c}{1.614} & \multicolumn{1}{c}{1.614} \\[] 
+Overfull \hbox (695.70665pt too wide) in paragraph at lines 297--297
+[]\T1/lmtt/m/n/12 ## F Statistic & \multicolumn{1}{c}{10.842$^{***}$ (df = 1; 522)} & \multicolumn{1}{c}{6.494$^{***}$ (df = 2; 521)} & \multicolumn{1}{c}{4.432$^{***}$ (df = 3; 520)} & \multicolumn{1}{c}{3.270$^{***}$ (df = 5; 518)} \\[] 
  []
 
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -540,39 +540,39 @@ l.343
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 347.
 (/Users/matthewogle/Library/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [11]
-Overfull \hbox (28.82033pt too wide) in paragraph at lines 455--455
+)
+Overfull \hbox (28.82033pt too wide) in paragraph at lines 448--448
 []\T1/lmtt/m/n/12 ## % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu[] 
  []
 
-
-Overfull \hbox (84.39536pt too wide) in paragraph at lines 455--455
+[11]
+Overfull \hbox (84.39536pt too wide) in paragraph at lines 448--448
 []\T1/lmtt/m/n/12 ## \\[-1.8ex] & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)}\\[] 
  []
 
 [12]
-Overfull \hbox (102.92036pt too wide) in paragraph at lines 455--455
+Overfull \hbox (102.92036pt too wide) in paragraph at lines 448--448
 []\T1/lmtt/m/n/12 ## Observations & \multicolumn{1}{c}{357} & \multicolumn{1}{c}{357} & \multicolumn{1}{c}{357} & \multicolumn{1}{c}{357} \\[] 
  []
 
 
-Overfull \hbox (121.41736pt too wide) in paragraph at lines 455--455
-[]\T1/lmtt/m/n/12 ## R$^{2}$ & \multicolumn{1}{c}{0.006} & \multicolumn{1}{c}{0.006} & \multicolumn{1}{c}{0.006} & \multicolumn{1}{c}{0.006} \\[] 
+Overfull \hbox (121.44537pt too wide) in paragraph at lines 448--448
+[]\T1/lmtt/m/n/12 ## R$^{2}$ & \multicolumn{1}{c}{0.035} & \multicolumn{1}{c}{0.035} & \multicolumn{1}{c}{0.037} & \multicolumn{1}{c}{0.038} \\[] 
  []
 
 
-Overfull \hbox (201.72041pt too wide) in paragraph at lines 455--455
-[]\T1/lmtt/m/n/12 ## Adjusted R$^{2}$ & \multicolumn{1}{c}{-0.003} & \multicolumn{1}{c}{-0.003} & \multicolumn{1}{c}{-0.003} & \multicolumn{1}{c}{-0.003} \\[] 
+Overfull \hbox (177.0134pt too wide) in paragraph at lines 448--448
+[]\T1/lmtt/m/n/12 ## Adjusted R$^{2}$ & \multicolumn{1}{c}{0.032} & \multicolumn{1}{c}{0.030} & \multicolumn{1}{c}{0.029} & \multicolumn{1}{c}{0.024} \\[] 
  []
 
 
-Overfull \hbox (288.17046pt too wide) in paragraph at lines 455--455
-[]\T1/lmtt/m/n/12 ## Residual Std. Error (df = 353) & \multicolumn{1}{c}{15.577} & \multicolumn{1}{c}{15.577} & \multicolumn{1}{c}{15.577} & \multicolumn{1}{c}{15.577} \\[] 
+Overfull \hbox (467.24554pt too wide) in paragraph at lines 448--448
+[]\T1/lmtt/m/n/12 ## Residual Std. Error & \multicolumn{1}{c}{7.120 (df = 355)} & \multicolumn{1}{c}{7.130 (df = 354)} & \multicolumn{1}{c}{7.133 (df = 353)} & \multicolumn{1}{c}{7.151 (df = 351)} \\[] 
  []
 
 
-Overfull \hbox (232.51138pt too wide) in paragraph at lines 455--455
-[]\T1/lmtt/m/n/12 ## F Statistic (df = 3; 353) & \multicolumn{1}{c}{0.666} & \multicolumn{1}{c}{0.666} & \multicolumn{1}{c}{0.666} & \multicolumn{1}{c}{0.666} \\[] 
+Overfull \hbox (689.52464pt too wide) in paragraph at lines 448--448
+[]\T1/lmtt/m/n/12 ## F Statistic & \multicolumn{1}{c}{12.941$^{***}$ (df = 1; 355)} & \multicolumn{1}{c}{6.454$^{***}$ (df = 2; 354)} & \multicolumn{1}{c}{4.525$^{***}$ (df = 3; 353)} & \multicolumn{1}{c}{2.746$^{**}$ (df = 5; 351)} \\[] 
  []
 
 [13]
@@ -581,16 +581,16 @@ Overfull \vbox (45.54424pt too high) has occurred while \output is active []
 [14pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.501 
+l.494 
       ]
-Overfull \hbox (28.82033pt too wide) in paragraph at lines 563--563
+Overfull \hbox (28.82033pt too wide) in paragraph at lines 556--556
 []\T1/lmtt/m/n/12 ## % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu[] 
  []
 
 [15] [16] [17pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.628 
+l.621 
       ] [18] (./Ogle_MicroMetricsAssignment_5_Q1.aux)
 
 LaTeX Warning: There were multiply-defined labels.
@@ -601,13 +601,13 @@ Package rerunfilecheck Info: File `Ogle_MicroMetricsAssignment_5_Q1.out' has not
 Here is how much of TeX's memory you used:
  11290 strings out of 480238
  180615 string characters out of 5894598
- 478872 words of memory out of 5000000
+ 479872 words of memory out of 5000000
  29011 multiletter control sequences out of 15000+600000
  511469 words of font info for 69 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 60i,16n,63p,714b,467s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,16n,63p,584b,467s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}</Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on Ogle_MicroMetricsAssignment_5_Q1.pdf (18 pages, 293103 bytes).
+Output written on Ogle_MicroMetricsAssignment_5_Q1.pdf (18 pages, 292544 bytes).
 PDF statistics:
  206 PDF objects out of 1000 (max. 8388607)
  148 compressed objects within 2 object streams
