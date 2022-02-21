@@ -248,7 +248,7 @@ win/lose variable.
 \begin{verbatim}
 ## 
 ## % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-## % Date and time: Sun, Feb 20, 2022 - 23:20:53
+## % Date and time: Sun, Feb 20, 2022 - 23:39:39
 ## % Requires LaTeX packages: dcolumn 
 ## \begin{table}[!htbp] \centering 
 ##   \caption{Regression Results (d)} 
@@ -385,7 +385,7 @@ variables decreases.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Sampling smaller thresholds (95, 5)}
-\NormalTok{restrict =}\StringTok{ }\KeywordTok{subset}\NormalTok{(damon, vote }\OperatorTok{<=}\StringTok{ }\DecValTok{95} \OperatorTok{&}\StringTok{ }\NormalTok{vote }\OperatorTok{>=}\StringTok{ }\DecValTok{5}\NormalTok{)}
+\NormalTok{restrict =}\StringTok{ }\KeywordTok{subset}\NormalTok{(damon, vote }\OperatorTok{<=}\StringTok{ }\DecValTok{75} \OperatorTok{&}\StringTok{ }\NormalTok{vote }\OperatorTok{>=}\StringTok{ }\DecValTok{25}\NormalTok{)}
 
 
 \NormalTok{restrict}\OperatorTok{$}\NormalTok{vote_share <-}\StringTok{ }\NormalTok{restrict}\OperatorTok{$}\NormalTok{vote}\OperatorTok{/}\DecValTok{100}
@@ -406,7 +406,7 @@ variables decreases.
 \begin{verbatim}
 ## 
 ## % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-## % Date and time: Sun, Feb 20, 2022 - 23:20:53
+## % Date and time: Sun, Feb 20, 2022 - 23:39:39
 ## % Requires LaTeX packages: dcolumn 
 ## \begin{table}[!htbp] \centering 
 ##   \caption{Regression Results (e)} 
@@ -419,17 +419,17 @@ variables decreases.
 ## \\[-1.8ex] & \multicolumn{4}{c}{passrate2} \\ 
 ## \\[-1.8ex] & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)}\\ 
 ## \hline \\[-1.8ex] 
-##  win & 21.151^{***} &  & 21.151^{***} & 21.151^{***} \\ 
-##   & (6.086) &  & (6.086) & (6.086) \\ 
+##  win & 5.001 &  & 5.001 & 5.001 \\ 
+##   & (11.565) &  & (11.565) & (11.565) \\ 
 ##   & & & & \\ 
-##  vote\_share & -19.366^{***} & -19.366^{***} & -19.366^{***} & -19.366^{***} \\ 
-##   & (6.003) & (6.003) & (6.003) & (6.003) \\ 
+##  vote\_share & 3.169 & 3.169 & 3.169 & 3.169 \\ 
+##   & (14.864) & (14.864) & (14.864) & (14.864) \\ 
 ##   & & & & \\ 
-##  lose &  & -21.151^{***} &  &  \\ 
-##   &  & (6.086) &  &  \\ 
+##  lose &  & -5.001 &  &  \\ 
+##   &  & (11.565) &  &  \\ 
 ##   & & & & \\ 
-##  vote\_share:lose & 39.932^{***} & 39.932^{***} & 39.932^{***} & 39.932^{***} \\ 
-##   & (12.873) & (12.873) & (12.873) & (12.873) \\ 
+##  vote\_share:lose & 10.491 & 10.491 & 10.491 & 10.491 \\ 
+##   & (22.888) & (22.888) & (22.888) & (22.888) \\ 
 ##   & & & & \\ 
 ##  win:vote\_share &  &  &  &  \\ 
 ##   &  &  &  &  \\ 
@@ -437,15 +437,15 @@ variables decreases.
 ##  vote\_share:win &  &  &  &  \\ 
 ##   &  &  &  &  \\ 
 ##   & & & & \\ 
-##  Constant & 35.731^{***} & 56.882^{***} & 35.731^{***} & 35.731^{***} \\ 
-##   & (4.001) & (4.586) & (4.001) & (4.001) \\ 
+##  Constant & 38.259^{***} & 43.260^{***} & 38.259^{***} & 38.259^{***} \\ 
+##   & (6.606) & (9.493) & (6.606) & (6.606) \\ 
 ##   & & & & \\ 
 ## \hline \\[-1.8ex] 
-## Observations & \multicolumn{1}{c}{651} & \multicolumn{1}{c}{651} & \multicolumn{1}{c}{651} & \multicolumn{1}{c}{651} \\ 
-## R$^{2}$ & \multicolumn{1}{c}{0.021} & \multicolumn{1}{c}{0.021} & \multicolumn{1}{c}{0.021} & \multicolumn{1}{c}{0.021} \\ 
-## Adjusted R$^{2}$ & \multicolumn{1}{c}{0.016} & \multicolumn{1}{c}{0.016} & \multicolumn{1}{c}{0.016} & \multicolumn{1}{c}{0.016} \\ 
-## Residual Std. Error (df = 647) & \multicolumn{1}{c}{15.628} & \multicolumn{1}{c}{15.628} & \multicolumn{1}{c}{15.628} & \multicolumn{1}{c}{15.628} \\ 
-## F Statistic (df = 3; 647) & \multicolumn{1}{c}{4.586$^{***}$} & \multicolumn{1}{c}{4.586$^{***}$} & \multicolumn{1}{c}{4.586$^{***}$} & \multicolumn{1}{c}{4.586$^{***}$} \\ 
+## Observations & \multicolumn{1}{c}{357} & \multicolumn{1}{c}{357} & \multicolumn{1}{c}{357} & \multicolumn{1}{c}{357} \\ 
+## R$^{2}$ & \multicolumn{1}{c}{0.006} & \multicolumn{1}{c}{0.006} & \multicolumn{1}{c}{0.006} & \multicolumn{1}{c}{0.006} \\ 
+## Adjusted R$^{2}$ & \multicolumn{1}{c}{-0.003} & \multicolumn{1}{c}{-0.003} & \multicolumn{1}{c}{-0.003} & \multicolumn{1}{c}{-0.003} \\ 
+## Residual Std. Error (df = 353) & \multicolumn{1}{c}{15.577} & \multicolumn{1}{c}{15.577} & \multicolumn{1}{c}{15.577} & \multicolumn{1}{c}{15.577} \\ 
+## F Statistic (df = 3; 353) & \multicolumn{1}{c}{0.666} & \multicolumn{1}{c}{0.666} & \multicolumn{1}{c}{0.666} & \multicolumn{1}{c}{0.666} \\ 
 ## \hline 
 ## \hline \\[-1.8ex] 
 ## \textit{Note:}  & \multicolumn{4}{l}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
@@ -465,17 +465,17 @@ variables decreases.
 \\[-1.8ex] & \multicolumn{4}{c}{passrate2} \\ 
 \\[-1.8ex] & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)}\\ 
 \hline \\[-1.8ex] 
- win & 21.151^{***} &  & 21.151^{***} & 21.151^{***} \\ 
-  & (6.086) &  & (6.086) & (6.086) \\ 
+ win & 5.001 &  & 5.001 & 5.001 \\ 
+  & (11.565) &  & (11.565) & (11.565) \\ 
   & & & & \\ 
- vote\_share & -19.366^{***} & -19.366^{***} & -19.366^{***} & -19.366^{***} \\ 
-  & (6.003) & (6.003) & (6.003) & (6.003) \\ 
+ vote\_share & 3.169 & 3.169 & 3.169 & 3.169 \\ 
+  & (14.864) & (14.864) & (14.864) & (14.864) \\ 
   & & & & \\ 
- lose &  & -21.151^{***} &  &  \\ 
-  &  & (6.086) &  &  \\ 
+ lose &  & -5.001 &  &  \\ 
+  &  & (11.565) &  &  \\ 
   & & & & \\ 
- vote\_share:lose & 39.932^{***} & 39.932^{***} & 39.932^{***} & 39.932^{***} \\ 
-  & (12.873) & (12.873) & (12.873) & (12.873) \\ 
+ vote\_share:lose & 10.491 & 10.491 & 10.491 & 10.491 \\ 
+  & (22.888) & (22.888) & (22.888) & (22.888) \\ 
   & & & & \\ 
  win:vote\_share &  &  &  &  \\ 
   &  &  &  &  \\ 
@@ -483,15 +483,15 @@ variables decreases.
  vote\_share:win &  &  &  &  \\ 
   &  &  &  &  \\ 
   & & & & \\ 
- Constant & 35.731^{***} & 56.882^{***} & 35.731^{***} & 35.731^{***} \\ 
-  & (4.001) & (4.586) & (4.001) & (4.001) \\ 
+ Constant & 38.259^{***} & 43.260^{***} & 38.259^{***} & 38.259^{***} \\ 
+  & (6.606) & (9.493) & (6.606) & (6.606) \\ 
   & & & & \\ 
 \hline \\[-1.8ex] 
-Observations & \multicolumn{1}{c}{651} & \multicolumn{1}{c}{651} & \multicolumn{1}{c}{651} & \multicolumn{1}{c}{651} \\ 
-R$^{2}$ & \multicolumn{1}{c}{0.021} & \multicolumn{1}{c}{0.021} & \multicolumn{1}{c}{0.021} & \multicolumn{1}{c}{0.021} \\ 
-Adjusted R$^{2}$ & \multicolumn{1}{c}{0.016} & \multicolumn{1}{c}{0.016} & \multicolumn{1}{c}{0.016} & \multicolumn{1}{c}{0.016} \\ 
-Residual Std. Error (df = 647) & \multicolumn{1}{c}{15.628} & \multicolumn{1}{c}{15.628} & \multicolumn{1}{c}{15.628} & \multicolumn{1}{c}{15.628} \\ 
-F Statistic (df = 3; 647) & \multicolumn{1}{c}{4.586$^{***}$} & \multicolumn{1}{c}{4.586$^{***}$} & \multicolumn{1}{c}{4.586$^{***}$} & \multicolumn{1}{c}{4.586$^{***}$} \\ 
+Observations & \multicolumn{1}{c}{357} & \multicolumn{1}{c}{357} & \multicolumn{1}{c}{357} & \multicolumn{1}{c}{357} \\ 
+R$^{2}$ & \multicolumn{1}{c}{0.006} & \multicolumn{1}{c}{0.006} & \multicolumn{1}{c}{0.006} & \multicolumn{1}{c}{0.006} \\ 
+Adjusted R$^{2}$ & \multicolumn{1}{c}{-0.003} & \multicolumn{1}{c}{-0.003} & \multicolumn{1}{c}{-0.003} & \multicolumn{1}{c}{-0.003} \\ 
+Residual Std. Error (df = 353) & \multicolumn{1}{c}{15.577} & \multicolumn{1}{c}{15.577} & \multicolumn{1}{c}{15.577} & \multicolumn{1}{c}{15.577} \\ 
+F Statistic (df = 3; 353) & \multicolumn{1}{c}{0.666} & \multicolumn{1}{c}{0.666} & \multicolumn{1}{c}{0.666} & \multicolumn{1}{c}{0.666} \\ 
 \hline 
 \hline \\[-1.8ex] 
 \textit{Note:}  & \multicolumn{4}{l}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
@@ -499,14 +499,9 @@ F Statistic (df = 3; 647) & \multicolumn{1}{c}{4.586$^{***}$} & \multicolumn{1}{
 \end{tabular} 
 \end{table}
 
-\begin{enumerate}
-\def\labelenumi{(\alph{enumi})}
-\setcounter{enumi}{5}
-\item
-\item
-\item
-\item
-\item
-\end{enumerate}
+When I experimented with a threshold of smaller {[}25,75{]} I get
+slightly different results compared to my results previously from (d)
+and they also differ from Clark's results. The reason for these
+difference is the same reason why Clark chose no (f) (g) (h) (i) (j)
 
 \end{document}

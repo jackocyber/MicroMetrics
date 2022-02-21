@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2022.2.20)  20 FEB 2022 23:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2022.2.20)  20 FEB 2022 23:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -548,28 +548,28 @@ Overfull \hbox (84.39536pt too wide) in paragraph at lines 455--455
  []
 
 [12]
-Overfull \hbox (102.89235pt too wide) in paragraph at lines 455--455
-[]\T1/lmtt/m/n/12 ## Observations & \multicolumn{1}{c}{651} & \multicolumn{1}{c}{651} & \multicolumn{1}{c}{651} & \multicolumn{1}{c}{651} \\[] 
+Overfull \hbox (102.92036pt too wide) in paragraph at lines 455--455
+[]\T1/lmtt/m/n/12 ## Observations & \multicolumn{1}{c}{357} & \multicolumn{1}{c}{357} & \multicolumn{1}{c}{357} & \multicolumn{1}{c}{357} \\[] 
  []
 
 
-Overfull \hbox (121.44537pt too wide) in paragraph at lines 455--455
-[]\T1/lmtt/m/n/12 ## R$^{2}$ & \multicolumn{1}{c}{0.021} & \multicolumn{1}{c}{0.021} & \multicolumn{1}{c}{0.021} & \multicolumn{1}{c}{0.021} \\[] 
+Overfull \hbox (121.41736pt too wide) in paragraph at lines 455--455
+[]\T1/lmtt/m/n/12 ## R$^{2}$ & \multicolumn{1}{c}{0.006} & \multicolumn{1}{c}{0.006} & \multicolumn{1}{c}{0.006} & \multicolumn{1}{c}{0.006} \\[] 
  []
 
 
-Overfull \hbox (176.99239pt too wide) in paragraph at lines 455--455
-[]\T1/lmtt/m/n/12 ## Adjusted R$^{2}$ & \multicolumn{1}{c}{0.016} & \multicolumn{1}{c}{0.016} & \multicolumn{1}{c}{0.016} & \multicolumn{1}{c}{0.016} \\[] 
+Overfull \hbox (201.72041pt too wide) in paragraph at lines 455--455
+[]\T1/lmtt/m/n/12 ## Adjusted R$^{2}$ & \multicolumn{1}{c}{-0.003} & \multicolumn{1}{c}{-0.003} & \multicolumn{1}{c}{-0.003} & \multicolumn{1}{c}{-0.003} \\[] 
  []
 
 
-Overfull \hbox (288.13544pt too wide) in paragraph at lines 455--455
-[]\T1/lmtt/m/n/12 ## Residual Std. Error (df = 647) & \multicolumn{1}{c}{15.628} & \multicolumn{1}{c}{15.628} & \multicolumn{1}{c}{15.628} & \multicolumn{1}{c}{15.628} \\[] 
+Overfull \hbox (288.17046pt too wide) in paragraph at lines 455--455
+[]\T1/lmtt/m/n/12 ## Residual Std. Error (df = 353) & \multicolumn{1}{c}{15.577} & \multicolumn{1}{c}{15.577} & \multicolumn{1}{c}{15.577} & \multicolumn{1}{c}{15.577} \\[] 
  []
 
 
-Overfull \hbox (430.1605pt too wide) in paragraph at lines 455--455
-[]\T1/lmtt/m/n/12 ## F Statistic (df = 3; 647) & \multicolumn{1}{c}{4.586$^{***}$} & \multicolumn{1}{c}{4.586$^{***}$} & \multicolumn{1}{c}{4.586$^{***}$} & \multicolumn{1}{c}{4.586$^{***}$} \\[] 
+Overfull \hbox (232.51138pt too wide) in paragraph at lines 455--455
+[]\T1/lmtt/m/n/12 ## F Statistic (df = 3; 353) & \multicolumn{1}{c}{0.666} & \multicolumn{1}{c}{0.666} & \multicolumn{1}{c}{0.666} & \multicolumn{1}{c}{0.666} \\[] 
  []
 
 [13]
@@ -587,18 +587,18 @@ Package rerunfilecheck Info: File `Ogle_MicroMetricsAssignment_5_Q1.out' has not
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 11284 strings out of 480238
- 180564 string characters out of 5894598
- 479872 words of memory out of 5000000
+ 11279 strings out of 480238
+ 180533 string characters out of 5894598
+ 478872 words of memory out of 5000000
  29010 multiletter control sequences out of 15000+600000
  508471 words of font info for 68 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  60i,16n,63p,714b,467s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></Users/matthewogle/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on Ogle_MicroMetricsAssignment_5_Q1.pdf (15 pages, 263944 bytes).
+Output written on Ogle_MicroMetricsAssignment_5_Q1.pdf (15 pages, 264147 bytes).
 PDF statistics:
- 187 PDF objects out of 1000 (max. 8388607)
- 134 compressed objects within 2 object streams
- 28 named destinations out of 1000 (max. 500000)
+ 181 PDF objects out of 1000 (max. 8388607)
+ 128 compressed objects within 2 object streams
+ 23 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
