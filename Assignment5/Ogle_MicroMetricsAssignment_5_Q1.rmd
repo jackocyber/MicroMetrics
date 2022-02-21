@@ -91,7 +91,7 @@ Clark restricts his sample to those schools with votes from 15% and 85% because 
 
 (d)
 
-```{r}
+```{r, echo=FALSE}
 restrict$vote_share <- restrict$vote/100
 
 
@@ -99,7 +99,7 @@ model_d_1 <- lm(passrate2 ~ win + vote + vote*lose + vote*win + (vote^2)*lose + 
 # summary(model_d_1 <- rdrobust(restrict, restrict$win, c = 0.5, all=T))
 # Non-Grammar Schools with Vote Shares in [15,85] interval
 
-stargazer(model_d_1, column.labels=c("Non-Grammar Schools with Vote Shares in [15,85] interval"), title="Regression Results (d)", align=TRUE, notes = "Standard errors in parentheses", notes.align = "l")
+stargazer(model_d_1, title="Regression Results (d)", align=TRUE, notes = "Standard errors in parentheses", notes.align = "l")
 
 ```
 
@@ -112,7 +112,6 @@ stargazer(model_d_1, column.labels=c("Non-Grammar Schools with Vote Shares in [1
  & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
 \cline{2-2} 
 \\[-1.8ex] & \multicolumn{1}{c}{passrate2} \\ 
- & \multicolumn{1}{c}{Non-Grammar Schools with Vote Shares in [15,85] interval} \\ 
 \hline \\[-1.8ex] 
  win & 14.727^{**} \\ 
   & (7.235) \\ 

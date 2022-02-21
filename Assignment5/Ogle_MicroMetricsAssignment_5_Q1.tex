@@ -245,23 +245,10 @@ win/lose variable.
 \item
 \end{enumerate}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{restrict}\OperatorTok{$}\NormalTok{vote_share <-}\StringTok{ }\NormalTok{restrict}\OperatorTok{$}\NormalTok{vote}\OperatorTok{/}\DecValTok{100}
-
-
-\NormalTok{model_d_}\DecValTok{1}\NormalTok{ <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(passrate2 }\OperatorTok{~}\StringTok{ }\NormalTok{win }\OperatorTok{+}\StringTok{ }\NormalTok{vote }\OperatorTok{+}\StringTok{ }\NormalTok{vote}\OperatorTok{*}\NormalTok{lose }\OperatorTok{+}\StringTok{ }\NormalTok{vote}\OperatorTok{*}\NormalTok{win }\OperatorTok{+}\StringTok{ }\NormalTok{(vote}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{*}\NormalTok{lose }\OperatorTok{+}\StringTok{ }\NormalTok{(vote}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{*}\NormalTok{win, }\DataTypeTok{data =}\NormalTok{ restrict)}
-\CommentTok{# summary(model_d_1 <- rdrobust(restrict, restrict$win, c = 0.5, all=T))}
-\CommentTok{# Non-Grammar Schools with Vote Shares in [15,85] interval}
-
-\KeywordTok{stargazer}\NormalTok{(model_d_}\DecValTok{1}\NormalTok{, }\DataTypeTok{column.labels=}\KeywordTok{c}\NormalTok{(}\StringTok{"Non-Grammar Schools with Vote Shares in [15,85] interval"}\NormalTok{), }\DataTypeTok{title=}\StringTok{"Regression Results (d)"}\NormalTok{, }\DataTypeTok{align=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{notes =} \StringTok{"Standard errors in parentheses"}\NormalTok{, }\DataTypeTok{notes.align =} \StringTok{"l"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 ## 
 ## % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-## % Date and time: Sun, Feb 20, 2022 - 22:24:37
+## % Date and time: Sun, Feb 20, 2022 - 22:27:51
 ## % Requires LaTeX packages: dcolumn 
 ## \begin{table}[!htbp] \centering 
 ##   \caption{Regression Results (d)} 
@@ -272,7 +259,6 @@ win/lose variable.
 ##  & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
 ## \cline{2-2} 
 ## \\[-1.8ex] & \multicolumn{1}{c}{passrate2} \\ 
-##  & \multicolumn{1}{c}{Non-Grammar Schools with Vote Shares in [15,85] interval} \\ 
 ## \hline \\[-1.8ex] 
 ##  win & 14.727^{**} \\ 
 ##   & (7.235) \\ 
@@ -315,7 +301,6 @@ win/lose variable.
  & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
 \cline{2-2} 
 \\[-1.8ex] & \multicolumn{1}{c}{passrate2} \\ 
- & \multicolumn{1}{c}{Non-Grammar Schools with Vote Shares in [15,85] interval} \\ 
 \hline \\[-1.8ex] 
  win & 14.727^{**} \\ 
   & (7.235) \\ 
