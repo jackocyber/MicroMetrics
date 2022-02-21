@@ -289,4 +289,4 @@ The validity of RD estimates depends crucially on the assumption that the polyno
 
 (j)
 
-I used this package for b so my results are the same. But I have included them again here, but with different binwidths. One thing that I noticed is that when you increase the binwidth the data collapses and you miss certain nuances in the visualization. The opposite is true when you decrease it. 
+I used this package for b so my results are the same. One thing that I noticed is that when you increase the binwidth the data collapses and you miss certain nuances in the visualization. The opposite is true when you decrease it. 
