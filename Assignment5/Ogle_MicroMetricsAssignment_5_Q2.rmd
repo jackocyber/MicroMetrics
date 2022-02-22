@@ -1,6 +1,6 @@
 ---
 title: "Assignment 5 Question 2"
-author: "Jack Ogle in collaboration with Eva Haque, Matt Lohrs, and Jack Knickrehm"
+author: "Jack Ogle in collaboration with Matt Lohrs, and Jack Knickrehm"
 output:
   pdf_document:
     keep_tex: true
@@ -15,7 +15,7 @@ fontsize: 12pt
 
 i) Estimating college enrollment.
 
-ii) Estimate the impact of unionization on business survival, employment,
+ii) Estimate the impact of unions on business survival, employment levels,
 output, productivity, and wages.
 
 iii) Estimating housing prices as a measure for willingness to pay for
@@ -23,51 +23,43 @@ clean air.
 
 (b) 
 
-i) PSAT score is the running variable. Because it is continuous and can
-be assumed to be random at the cutoff it works well as a running
+i) PSAT score is the forcing variable. This tracks because it is continuous and can
+be assumed to be random at the cutoff it works well as a forcing
 variable for RD.
 
-ii) Voting percentage is the running variable, and because voting percentage
-is continuous and can be assumed to be random at the cutoff
-of 51% it works well as a running variable for RD.
+ii) Voting percentage is the forcing variable, and because voting percentage
+is continuous and can simulate an random assignment of treatment and control the cutoff
+of 51%.
 
-iii) Total Suspended Particles(TSP’s) are the running variable. Because
-amount of pollution in the air is a continuous variable which is quasi-random
-around the cutoff it works well as a RD variable.
+iii) Total Suspended Particles(TSP’s). The amount of pollution in the air is a continuous variable which simulates random around the cutoff it does work well as an RD variable.
 
 (c) 
 
-i) Financial aid is the treatment variable. Because students above the
+i) Financial aid because students above the
 cutoff on the PSAT score are more likely to get financial aid, and
-financial aid is likely to encourage students to go to college, it is
-a treatment variable. This is a sharp RDD because there is a well
-defined cutoff which students cannot influence.
+financial aid is likely to give a large incentive for students to go to college, it is
+a treatment variable. There is a well defined cut off so this is a sharp RDD design.
 
-ii) Unionization is the treatment variable. Because companies above
-the cutoff of 51% are unionized and unions lead to higher bargaining
-power of workers, unionization is chosen as the treatment variable.
-This is a sharp RDD because there is a cutoff that union workers
-cannot influence.
+ii) Unionization because companies above
+the cutoff are unionized and unions lead to higher bargaining
+power of workers. There is a well defined cut off so this is a sharp RDD design.
 
-iii) Federally regulated pollution measure are the treatment variable.
-Because counties above the cutoff of TSP are regulated according
+iii) Federally regulated pollution because counties above the cutoff of TSP are regulated according
 to their emissions which impacts housing prices, it is the treatment
-variable. This is a fuzzy RDD because this variable can be influenced,
-hence the need to use the IV.
+variable. The treatment variable can be affected so this is a fuzzy RDD design and we need IV to correct the bias.
 
 (d)
 
 i) Because financial aid is such an important factor in college enrollment,
-we want to measure its specific effect. Effects should be continuous
-as students are similar and the unobservables should be continuously
-related to PSAT score. Therefore because we expect such
+we want to measure its specific effect. The effects should be continuous
+as students scoring above and below the cutoff close to the cutoff should be pretty similar in ability IQ and motivation. Therefore because we expect such
 a difference to be attributable to this cutoff we want to use RDD
 instead of SLR.
 
-ii) Because unionization has this strong cutoff and other effects should
-be continuous between different companies, we should use RDD instead
+ii) Because unionization has a distinct cutoff and other effects should
+be continuous between different companies. Therefore we should use RDD instead
 of SLR.
 
-iii) Total Suspended Particles(TSP’s) are the running variable. Because
-amount of pollution in the air is a continuous variable which is quasirandom
+iii) Total Suspended Particles(TSP’s) because
+amount of pollution in the air is a continuous variable which is as good as random
 around the cutoff it works well as a RD variable.

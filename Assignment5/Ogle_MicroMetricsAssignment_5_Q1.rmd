@@ -1,6 +1,6 @@
 ---
 title: "Assignment 5 Question 1"
-author: "Jack Ogle in collaboration with Eva Haque, Matt Lohrs, and Jack Knickrehm"
+author: "Jack Ogle in collaboration with Matt Lohrs, and Jack Knickrehm"
 output:
   pdf_document:
     keep_tex: true
@@ -296,7 +296,7 @@ stargazer(model_1_i, title="Regression Results (f)", align=TRUE, notes = "Standa
 
 ```
 
-\begin{table}[!htbp] \centering 
+\begin{table}[H] \centering 
   \caption{Regression Results (f)} 
   \label{} 
 \begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} } 
@@ -324,6 +324,8 @@ F Statistic & \multicolumn{1}{c}{3.538$^{*}$ (df = 1; 123)} \\
  & \multicolumn{1}{l}{Standard errors in parentheses} \\ 
 \end{tabular} 
 \end{table} 
+
+We obtained an optimal bandwith from our rdrobust which was 9.678 and we used that to further threshold our results. Resulting in the above regression. This tells us that on average wining the election an gaining autonomy increases the change in pass rate of the base year to year 2 by 2.571 percent. 
 
 (j)
 
