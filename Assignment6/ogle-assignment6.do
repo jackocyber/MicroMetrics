@@ -42,7 +42,7 @@ outreg2 using reg-results-b.doc, replace
 
 
 *DID Model
-reg ldurat afchnge highearn after_high
+reg ldurat afchnge highearn after_high 
 
 
 
