@@ -11,6 +11,9 @@ cap log close
 use INJURY.DTA, clear
 
 
+* Caluculating the BA estimator
+reg lprewage afchnge
+
 *Work with Kentucky sample until last subpart of (h)
 *See assignment instructions for more info about this
 
