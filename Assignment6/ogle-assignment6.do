@@ -32,19 +32,21 @@ keep if ky==1
 *the cap/maximum of the workers' compensation payments,
 *while 'afchnge' is "after vs. before" indicator variable.
 
-*BA Model Treatment
+*a. BA Model Treatment
 reg ldurat after_high
 outreg2 using reg-results-a.doc, replace
 
-*BA Model Control
+*b. BA Model Control
 reg ldurat after_low
 outreg2 using reg-results-b.doc, replace
 
-
-*DID Model
+*c. CS estimator of the difference in outcomes between the treatment and control befor
 reg ldurat afchnge highearn after_high 
+outreg2 using reg-results-c.doc, replace
 
-
+*d Wooldridge 13.4 adding in explanatory vars male and married 
+reg ldurat afchnge highearn after_high male married 
+outreg2 using reg-results-d.doc, replace
 
 *can 'restore' and then do more work with Michigan data
 
