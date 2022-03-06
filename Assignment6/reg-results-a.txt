@@ -1,0 +1,12 @@
+	(1)
+VARIABLES	ldurat
+	
+after_high	0.381***
+	(0.0419)
+Constant	1.199***
+	(0.0191)
+	
+Observations	5,626
+R-squared	0.014
+Standard errors in parentheses	
+*** p<0.01, ** p<0.05, * p<0.1	
