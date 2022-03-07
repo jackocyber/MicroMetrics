@@ -25,6 +25,13 @@ library(lmtest)
 library(rdrobust)
 
 # Loading Data
+bacca =  read_dta('/Users/matthewogle/downloads/data_Baccalaureate.dta')
+major_size = read_dta('/Users/matthewogle/downloads/major_size.dta')
+
+other = read_dta('/Users/matthewogle/downloads/occ2005_occ1990dd.dta')
+
+usa147 = read_delim('/users/matthewogle/downloads/usa_00147.dat', skip = 3)
+
 damon = read_dta('/Users/matthewogle/micro-metrics/Assignment5/damonclark.dta')
 
 # Generating Dummy for winning and losing
