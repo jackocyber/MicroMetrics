@@ -6,18 +6,18 @@
 \ql VARIABLES\cell\qc ldurat\cell\row
 \trowd\trgaph75\trleft-75\trqc\cellx1872\cellx3168
 \ql \cell\qc \cell\row
-\ql afchnge\cell\qc 0.00766\cell\row
-\ql \cell\qc (0.0447)\cell\row
-\ql highearn\cell\qc 0.256***\cell\row
-\ql \cell\qc (0.0474)\cell\row
-\ql after_high\cell\qc 0.191***\cell\row
-\ql \cell\qc (0.0685)\cell\row
-\ql Constant\cell\qc 1.126***\cell\row
-\ql \cell\qc (0.0307)\cell\row
+\ql afchnge\cell\qc 0.0974\cell\row
+\ql \cell\qc (0.0848)\cell\row
+\ql highearn\cell\qc 0.169\cell\row
+\ql \cell\qc (0.106)\cell\row
+\ql after_high\cell\qc 0.192\cell\row
+\ql \cell\qc (0.154)\cell\row
+\ql Constant\cell\qc 1.413***\cell\row
+\ql \cell\qc (0.0567)\cell\row
 \ql \cell\qc \cell\row
-\ql Observations\cell\qc 5,626\cell\row
+\ql Observations\cell\qc 1,524\cell\row
 \trowd\trgaph75\trleft-75\trqc\trbrdrb\brdrs\clbrdrb\brdrs\cellx1872\clbrdrb\brdrs\cellx3168
-\ql R-squared\cell\qc 0.021\cell\row
+\ql R-squared\cell\qc 0.012\cell\row
 \pard\qc
 Standard errors in parentheses\par
 *** p<0.01, ** p<0.05, * p<0.1\par

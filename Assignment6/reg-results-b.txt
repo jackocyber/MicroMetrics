@@ -1,12 +1,12 @@
 	(1)
 VARIABLES	ldurat
 	
-after_low	-0.198***
-	(0.0384)
-Constant	1.332***
-	(0.0200)
+after_low	-0.0371
+	(0.0764)
+Constant	1.547***
+	(0.0428)
 	
-Observations	5,626
-R-squared	0.005
+Observations	1,524
+R-squared	0.000
 Standard errors in parentheses	
 *** p<0.01, ** p<0.05, * p<0.1	

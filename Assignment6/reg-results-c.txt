@@ -1,16 +1,16 @@
 	(1)
 VARIABLES	ldurat
 	
-afchnge	0.00766
-	(0.0447)
-highearn	0.256***
-	(0.0474)
-after_high	0.191***
-	(0.0685)
-Constant	1.126***
-	(0.0307)
+afchnge	0.0974
+	(0.0848)
+highearn	0.169
+	(0.106)
+after_high	0.192
+	(0.154)
+Constant	1.413***
+	(0.0567)
 	
-Observations	5,626
-R-squared	0.021
+Observations	1,524
+R-squared	0.012
 Standard errors in parentheses	
 *** p<0.01, ** p<0.05, * p<0.1	

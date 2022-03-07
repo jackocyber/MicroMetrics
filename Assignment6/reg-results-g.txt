@@ -1,14 +1,14 @@
 	(1)
 VARIABLES	ldurat
 	
-highearn	0.253***
-	(0.0425)
-after_high	0.198***
-	(0.0519)
-Constant	1.129***
-	(0.0223)
+highearn	0.126
+	(0.0985)
+after_high	0.289**
+	(0.129)
+Constant	1.456***
+	(0.0422)
 	
-Observations	5,626
-R-squared	0.021
+Observations	1,524
+R-squared	0.011
 Standard errors in parentheses	
 *** p<0.01, ** p<0.05, * p<0.1	

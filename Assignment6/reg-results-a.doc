@@ -6,14 +6,14 @@
 \ql VARIABLES\cell\qc ldurat\cell\row
 \trowd\trgaph75\trleft-75\trqc\cellx1872\cellx3168
 \ql \cell\qc \cell\row
-\ql after_high\cell\qc 0.381***\cell\row
-\ql \cell\qc (0.0419)\cell\row
-\ql Constant\cell\qc 1.199***\cell\row
-\ql \cell\qc (0.0191)\cell\row
+\ql after_high\cell\qc 0.392***\cell\row
+\ql \cell\qc (0.101)\cell\row
+\ql Constant\cell\qc 1.479***\cell\row
+\ql \cell\qc (0.0381)\cell\row
 \ql \cell\qc \cell\row
-\ql Observations\cell\qc 5,626\cell\row
+\ql Observations\cell\qc 1,524\cell\row
 \trowd\trgaph75\trleft-75\trqc\trbrdrb\brdrs\clbrdrb\brdrs\cellx1872\clbrdrb\brdrs\cellx3168
-\ql R-squared\cell\qc 0.014\cell\row
+\ql R-squared\cell\qc 0.010\cell\row
 \pard\qc
 Standard errors in parentheses\par
 *** p<0.01, ** p<0.05, * p<0.1\par

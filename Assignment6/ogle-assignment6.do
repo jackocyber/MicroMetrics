@@ -24,7 +24,7 @@ generate lowearn = (highearn < 1)
 gen after_low = afchnge*lowearn 
 
 preserve
-keep if ky==1
+keep if mi==1
 
 *Remember, we need "before vs. after" and "treatment vs. control"
 *'highearn' is "treament vs. control" indicator variable, 
@@ -44,9 +44,13 @@ outreg2 using reg-results-b.doc, replace
 reg ldurat afchnge highearn after_high 
 outreg2 using reg-results-c.doc, replace
 
-*d Wooldridge 13.4 adding in explanatory vars male and married 
+*f Wooldridge 13.4 adding in explanatory vars male and married 
 reg ldurat afchnge highearn after_high male married 
 outreg2 using reg-results-d.doc, replace
+
+*g Wooldridge 13.7
+reg ldurat highearn after_high
+outreg2 using reg-results-g.doc, replace
 
 *can 'restore' and then do more work with Michigan data
 
