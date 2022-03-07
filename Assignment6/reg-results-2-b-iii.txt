@@ -1,0 +1,26 @@
+	(1)
+VARIABLES	lrwage
+	
+y85	0.0714
+	(0.0750)
+educ	0.0453***
+	(0.00405)
+y85educ	0.0112**
+	(0.00567)
+exper	0.0179***
+	(0.00216)
+expersq	-0.000242***
+	(4.70e-05)
+union	0.123***
+	(0.0184)
+female	-0.192***
+	(0.0222)
+y85fem	0.0515*
+	(0.0311)
+Constant	0.278***
+	(0.0566)
+	
+Observations	1,084
+R-squared	0.426
+Standard errors in parentheses	
+*** p<0.01, ** p<0.05, * p<0.1	

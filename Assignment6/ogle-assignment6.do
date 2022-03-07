@@ -24,8 +24,7 @@ generate lowearn = (highearn < 1)
 gen after_low = afchnge*lowearn 
 
 preserve
-*keep if ky ==1
-keep if mi==1
+keep if ky==1
 
 *Remember, we need "before vs. after" and "treatment vs. control"
 *'highearn' is "treament vs. control" indicator variable, 
@@ -54,8 +53,8 @@ reg ldurat highearn after_high
 outreg2 using reg-results-g.doc, replace
 
 
-
-keep if ky ==1
+restore
+keep if mi ==1
 
 
 *Remember, we need "before vs. after" and "treatment vs. control"
@@ -87,11 +86,24 @@ outreg2 using reg-results-g.doc, replace
 
 * Problem #2
 
+*a
 use CPS78_85.DTA, clear
 
 reg lwage y85 educ y85educ exper expersq union female y85fem
 outreg2 using reg-results-2-a.doc, replace
 
+*b
+*ii
+gen y85_conf = y85*(educ-12)
+
+reg lwage y85 educ y85_conf exper expersq union female y85fem
+outreg2 using reg-results-2-b-ii.doc, replace
+
+*iii
+gen lrwage = lwage/1.65
+
+reg lrwage y85 educ y85educ exper expersq union female y85fem
+outreg2 using reg-results-2-b-iii.doc, replace
 
 /************************************************************************/ 
 /* More on the famous Card and Krueger Minimum Wage study data */
